@@ -149,6 +149,20 @@
                 $('#logButton').trigger('click');
             }
         });
+        
+         $('#passIcon').click(function () {
+                var elementType = $('#passLog').attr('type');
+                console.log(elementType);
+                if (elementType == "text") {
+                    $('#passLog').attr('type', 'password');
+                    $('#passIcon').removeClass('fa-eye-slash');
+                    $('#passIcon').addClass('fa-eye');
+                } else if (elementType == "password") {
+                    $('#passLog').attr('type', 'text');
+                    $('#passIcon').removeClass('fa-eye');
+                    $('#passIcon').addClass('fa-eye-slash');
+                }
+            });
 
 
     })

@@ -14,7 +14,6 @@
     <meta name="description" content="BTT - Bosnian Toursit Travel offers the best tour plans and the best hotels in B&H. ">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
@@ -25,6 +24,22 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <script src="jquery.validate.js"></script>
+
+    <style>
+     .pass{
+            position: relative;
+        }
+        .passIcon{
+            position: absolute;
+            top:10%;
+            padding: 9px 8px;
+            left: 90%
+        }
+        </style>
 </head>
 <body>
 
@@ -44,26 +59,13 @@
                 <li class="nav-item">
                     <a href="tourPlans.php" class="nav-link"><i class="fas fa-suitcase mr-2"></i>Tour plans</a>
                 </li>
-                <!-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="far fa-calendar-alt mr-2"></i>Reservation</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="hotel.php"><i class="fas fa-bed mr-2"></i>Hotel</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="apartment.php"><i class="far fa-building mr-2"></i>Apartment</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a href="rent.php" class="nav-link"><i class="fas fa-car mr-2"></i>Rent-a-car</a>
-                </li>
-                <li class="nav-item">
-                    <a href="feedback.php" class="nav-link"><i class="far fa-smile mr-2"></i>Feedback</a>
-                </li> -->
             </ul>
         </div>
     </nav>
 
     <div id="bg">
         <div class="offset-lg-4 ">
+        <form name="regForm" id="regForm">
             <div class="card" style="width: 22rem; margin-top:-30px;background:none !important; border:none;">
                 <div class="card-body text-center">
                     <img class="card-img-top" src="images/icon.png" style="width:90px !important; margin-top:150px !important; margin-left:100px !important;" height="80" alt="Card image cap">
@@ -71,25 +73,21 @@
                 </div>
                 <ul class="list-group list-group-flush" style="margin-top:-20px;">
                     <li class="list-group-item bg-info" style="background:none !important;">
-                        <input type="text" placeholder="First name..." id="firstSign" name="lastSign" class="form-control mb-2" style="width:400px;"  required="">
+                        <input type="text" placeholder="First name..." id="firstSign" name="lastSign" class="form-control mb-2" required="" data-msg="Please insert your first name">
                     </li>
                     <li class="list-group-item bg-info" style="border:none; margin-top:-20px; background:none !important;">
-                        <input type="text" placeholder="Last name..." id="lastSign" name="lastSign" class="form-control mb-2" style="width:400px;" required="">
+                        <input type="text" placeholder="Last name..." id="lastSign" name="lastSign" class="form-control mb-2"  required="" data-msg="Please insert your last name">
                     </li>
                     <li class="list-group-item bg-info" style="border:none; margin-top:-20px; background:none !important;">
-                        <input type="email" placeholder="you@example.com" id="emailSign" name="emailSign" class="form-control " style="width:400px;" required="">
+                        <input type="email" placeholder="you@example.com" id="emailSign" name="emailSign" class="form-control " required="" data-msg-required="Please insert your email address" data-msg-email="Please insert validate email">
+                    </li>
+                    <li class="list-group-item bg-info" style="background:none !important;">
+                        <div class="pass">
+                            <input type="password" placeholder="Password..." class="form-control" name="passSign" id="passSign" required data-msg="Please enter your password!!!">
+                            <i class="far fa-eye passIcon" id="passIcon"></i>
+                        </div>
                     </li>
                 </ul>
-                <table>
-                    <tr>
-                        <td><div style="margin-left:18px;"><input type="password" placeholder="*****" class="form-control" style="width:400px !important;" required id="passSign" name="passSign"></div></td>
-                        <td>
-                            <button type="button" id="eye" name="eye" class="btn btn-outline-warning" style="margin-left:-44px !important;">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                        </td>
-                    </tr>
-                </table>
                 <div style="margin-top:-10px;">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item bg-info" style="background:none !important;">
@@ -99,16 +97,62 @@
                 </div>
 
                 <div class="card-body text-center" style="margin-left:100px !important;">
-                    <button class="btn btn-warning text-white" id="signButton" name="signButton">Sign up for free<i class="fas fa-user-plus ml-2"></i></button>
+                    <button type="button" class="btn btn-warning text-white" id="signButton" name="signButton">Sign up for free<i class="fas fa-user-plus ml-2"></i></button>
                 </div>
 
             </div>
             <div class="alert mt-3 ml-3" id="alert" style="width:400px;"></div>
+            </form>
         </div>
         <div class="text-center text-warning" style="margin-left:-25px !important;">
             <p style="font-size:20px; ">Copyright &copy; 2018 Abdurahman Almonajed</p>
         </div>
     </div>
+
+    <script>
+             $('#signButton').prop('disabled', true);
+    $('#signButton').css('cursor', 'not-allowed');
+
+    jQuery(document).ready(function ($) {
+        console.log('juhu')
+        $('#regForm').validate();
+
+        function checkForm(currentInput) {
+            if (currentInput.valid() == true) {
+                if ($('#regForm').validate().checkForm()) {
+                    $('#signButton').prop('disabled', false);
+                    $('#signButton').css('cursor', '');
+                } else {
+                    $('#signButton').prop('disabled', true);
+                    $('#signButton').css('cursor', 'not-allowed');
+                }
+            } else {
+                $('#signButton').prop('disabled', true);
+                $('#signButton').css('cursor', 'not-allowed');
+            }
+        }
+        $('#regForm input').on('blur change keyup', function (e) {
+            checkForm($(this));
+            if(e.keyCode == 13){
+                $('#signButton').trigger('click');
+            }
+        });
+
+         $('#passIcon').click(function () {
+                var elementType = $('#passSign').attr('type');
+                console.log(elementType);
+                if (elementType == "text") {
+                    $('#passSign').attr('type', 'password');
+                    $('#passIcon').removeClass('fa-eye-slash');
+                    $('#passIcon').addClass('fa-eye');
+                } else if (elementType == "password") {
+                    $('#passSign').attr('type', 'text');
+                    $('#passIcon').removeClass('fa-eye');
+                    $('#passIcon').addClass('fa-eye-slash');
+                }
+            });
+        })
+    </script>
 
     <script src="loginRegister/sign.js"></script>
 
