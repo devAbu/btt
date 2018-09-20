@@ -29,12 +29,25 @@ session_start();
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+
+    <script src="jquery.validate.js"></script>
+    <!-- <script src='http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/jquery.validate.min.js'></script> -->
+
      <script>
         $(function (){
             $('#navbarInclude').load("./template/navbar.php");
             $('#footerInclude').load("./template/footer.php");
         })
     </script>
+
+    <style>
+        
+        label.error {
+            margin-left:5%;
+            margin-top:3px;
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -57,14 +70,16 @@ session_start();
     if (isset($_SESSION["email"])) {
         echo '
         <h2 class="display-4 text-center text-info mb-5 mt-4">Be free to contact us, we are here to please you.</h2>
-        <p class="text-center h2 text-primary mb-5">Tell us what you think!</p>
-        <div class="col-9 offset-3">
-            <textarea cols="50" rows="10" class="form-control" style="max-width:550px;margin-left:50px;" placeholder="Please write your opinion..." id="feedback" name="feedback"></textarea>
-        </div>
-        <div class="col-lg-6 offset-5 ">
-            <input type="button" id="feedbackButton" name="feedbackButton" class="btn btn-lg btn-outline-success mt-3 ml-5 mb-2" value="SEND" />
-        </div>
-        <div class="alert mt-3" id="alertFeedback"></div>';
+        <form id="feedbackForm" name="feedbackForm">
+            <p class="text-center h2 text-primary mb-5">Tell us what you think!</p>
+            <div class="col-9 offset-3">
+                <textarea cols="50" rows="10" class="form-control error" style="max-width:550px;margin-left:50px;" placeholder="Please write your opinion..." id="feedback" name="feedback" required data-msg="This field is required"></textarea>
+            </div>
+            <div class="col-lg-6 offset-5 ">
+                <input type="button" id="feedbackButton" name="feedbackButton" class="btn btn-lg btn-outline-success mt-3 ml-5 mb-2" value="SEND" />
+            </div>
+            <div class="alert mt-3" id="alertFeedback"></div>
+        </form>';
     } else {
         echo "<div class='row'><div class='offset-5 text-center mt-5 mb-5'><a href='#' data-toggle='modal' data-target='#LoginModal'><span class='text-warning' style='font-size: 20px;'>LOGIN</span></a> to be able to leave feedback!!!</div></div>";
     }
@@ -73,6 +88,38 @@ session_start();
 
     <script src="feedbackJS/feedback.js"></script>
 
+    <script>//TODO: vidjet da se stavi u poseban fajl-->
+    $('#feedbackButton').prop('disabled', true);
+    $('#feedbackButton').css('cursor', 'not-allowed');
+
+    jQuery(document).ready(function ($) {
+        console.log('juhu')
+        $('#feedbackForm').validate({
+            errorPlacement: function (label, element) {
+                label.insertAfter(element);
+            },
+            wrapper: 'span'
+        });
+
+        function checkForm(currentInput) {
+            if (currentInput.valid() == true) {
+                if ($('#feedbackForm').validate().checkForm()) {
+                    $('#feedbackButton').prop('disabled', false);
+                    $('#feedbackButton').css('cursor', '');
+                } else {
+                    $('#feedbackButton').prop('disabled', true);
+                    $('#feedbackButton').css('cursor', 'not-allowed');
+                }
+            } else {
+                $('#feedbackButton').prop('disabled', true);
+                $('#feedbackButton').css('cursor', 'not-allowed');
+            }
+        }
+        $('#feedbackForm textarea').on('blur change keyup', function (e) {
+            checkForm($(this));
+        });
+    })
+    </script>
     <div id="footerInclude"></div>
 
 </body>

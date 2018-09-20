@@ -51,7 +51,7 @@ $('#logButton').click(function () {
                 $("#alertLog").html('Some problem occured. We are sorry.');
                 $("#alertLog").slideDown(500).delay(1000).slideUp(500);
             }
-        })
+        });
     }
 });
 

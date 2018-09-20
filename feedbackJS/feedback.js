@@ -1,4 +1,7 @@
+$('#feedbackButton').prop('disabled', true);
+$('#feedbackButton').css('cursor', 'not-allowed');
 $('#alertFeedback').slideUp();
+
 $('#feedbackButton').click(function () {
     $('#alertFeedback').removeClass('alert-danger').removeClass('alert-success');
     var feedback = $('#feedback').val();

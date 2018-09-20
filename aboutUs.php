@@ -1,5 +1,4 @@
-﻿<!-- TODO: izbrisat grbu-->
-<?php
+﻿<?php
 session_start();
 ?>
 <!DOCTYPE html>
@@ -71,7 +70,7 @@ session_start();
 Either you are looking for VIP services or low budget trip; we will make the best offer according to your demands. Our goal is to deliver you the best of the quality services!
                 </p>
             </div>
-            <div class="col-4 ml-5">
+            <div class="col-5 offset-2">
                 <div class="card" style="width: 20rem;">
                     <img class="card-img-top aboutUs" src="images/abu.jpg" alt="Owner" height="250">
                     <div class="card-body text-center">
@@ -133,36 +132,6 @@ Either you are looking for VIP services or low budget trip; we will make the bes
                     </button>
                 </div>
             </div>
-            <div class="col-3">
-                <div class="card" style="width: 20rem;">
-                    <img class="card-img-top aboutUs" src="images/nedzad.jpg" alt="Owner" width="250" height="250">
-                    <div class="card-body text-center">
-                        <h5 class="card-title" style="font-size:30px;">Nedzad G.</h5>
-                        <p class="card-text text-muted">Designer</p>
-                        <a href="https://www.ibu.edu.ba" target="_blank" style="text-decoration:none;">
-                            <p class="card-text text-muted">
-                                <i class="fas fa-graduation-cap mr-1"></i>Internacional Burch University</p>
-                        </a>
-                        <a href="https://www.facebook.com/" target="_blank">
-                            <label class="card-text text-muted">
-                                <i class="fab fa-2x fa-facebook mr-3 mt-3" id="abufb"></i>
-                            </label>
-                        </a>
-                        <a href="https://www.instagram.com/" target="_blank">
-                            <label class="card-text text-muted">
-                                <i class="fab fa-2x fa-instagram mr-3 mt-3" id="abufb"></i>
-                            </label>
-                        </a>
-                        <a href="https://www.linkedin.com/" target="_blank">
-                            <label class="card-text text-muted">
-                                <i class="fab fa-2x fa-linkedin mr-1 mt-3" id="abufb"></i>
-                            </label>
-                        </a>
-                    </div>
-                    <button class='btn btn-outline-dark' id="button" onclick="window.location.href='mailto:grbo_nedzad@hotmail.com'">
-                        <i class="far fa-envelope mr-2"></i> Contact
-                    </button>
-                </div>
             </div>
         </div>
     </section>

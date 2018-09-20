@@ -5,7 +5,7 @@ session_start();
 <html lang="en">
 <!--TODO: sve da bude responsive (sve stranice) -->
 <!--TODO: vidjet da se uradi bolji redirect  -->
-<!--TODO: validacije promijeniti u JQuery validaciju (plugin)-->
+<!--TODO: validacije promijeniti u JQuery validaciju (plugin): Login, registracija, request ture, update ture-->
 <!--TODO: oko promijeniti-->
 <head>
   <meta charset="UTF-8">
@@ -158,7 +158,7 @@ $dbc->close();
 ?>
 </section>
 
-<!--TODO:podaci iz baze-->
+<!--TODO: podaci iz baze-->
     <div class="row no-gutters">
         <div class="col-5 ml-5 mt-4">
             <h2 class="text-info text-center">Bosnia & Herzegovina</h2>
