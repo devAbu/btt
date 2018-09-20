@@ -11,7 +11,6 @@
     <meta name="author" content="abu">
     <meta name="keywords" content="btt, bosnian, tourist, travel, agency, arabic, bosna">
     <meta name="description" content="BTT - Bosnian Toursit Travel offers the best tour plans and the best hotels in B&H. ">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -25,6 +24,8 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <script src="jquery.validate.js"></script>
 
     <style>
     .pass{
@@ -44,6 +45,12 @@
             top:10%;
             padding: 9px 8px;
             left: 90%
+        }
+         label.error {
+            margin-left:5%;
+            margin-top:3px;
+            color: white;
+            font-size: 18px;
         }
         </style>
 </head>
@@ -71,39 +78,41 @@
 
             <div id="bg">
                 <div class="offset-4">
-                    <div class="card" style="width: 22rem; margin-top:-15px;background:none !important; border:none;">
-                        <div class="card-body text-center">
-                            <img class="card-img-top mb-3" src="images/icon.png" style="width:90px !important; margin-top:150px !important;" height="80" alt="Card image cap">
-                            <h3 class="card-title text-uppercase text-warning">Login</h3>
-                        </div>
-                        <ul class="list-group list-group-flush" style="margin-top:-20px;">
-                            <li class="list-group-item bg-info" style="background:none !important;">
-                                <div class="em">
-                                    <input type="email" placeholder="you@example.com" class="form-control mb-2" id="emailLog" name="emailLog" required>
-                                    <i class="far fa-envelope-open emIcon"></i>
-                                </div>
-                            </li>
-                            <li class="list-group-item bg-info" style="background:none !important;">
-                                <div class="pass">
-                                    <input type="password" placeholder="Password..." class="form-control" name="password" id="password" required data-msg="Please create a password!!!">
-                                    <i class="far fa-eye passIcon" id="passIcon"></i>
-                                </div>
-                            </li>
-                        </ul>
-                        <div class="row no-gutters">
+                    <form id="loginForm" name="loginForm">
+                        <div class="card" style="width: 22rem; margin-top:-15px;background:none !important; border:none;">
+                            <div class="card-body text-center">
+                                <img class="card-img-top mb-3" src="images/icon.png" style="width:90px !important; margin-top:150px !important;" height="80" alt="Card image cap">
+                                <h3 class="card-title text-uppercase text-warning">Login</h3>
+                            </div>
+                            <ul class="list-group list-group-flush" style="margin-top:-20px;">
+                                <li class="list-group-item bg-info" style="background:none !important;">
+                                    <div class="em">
+                                        <input type="email" placeholder="you@example.com" class="form-control mb-2" id="emailLog" name="emailLog" required data-msg-required="Please enter your email!!!" data-msg-email="Please enter validate email!!!">
+                                        <i class="far fa-envelope-open emIcon"></i>
+                                    </div>
+                                </li>
+                                <li class="list-group-item bg-info" style="background:none !important;">
+                                    <div class="pass">
+                                        <input type="password" placeholder="Password..." class="form-control" name="passLog" id="passLog" required data-msg="Please enter your password!!!">
+                                        <i class="far fa-eye passIcon" id="passIcon"></i>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="row no-gutters">
 
-                            <div class="col-7">
-                                <a href="register.php" class="badge ml-3 text-warning" style="text-decoration:none;"><span style="font-size:13px;">No account?</span></a>
+                                <div class="col-7">
+                                    <a href="register.php" class="badge ml-3 text-warning" style="text-decoration:none;"><span style="font-size:13px;">No account?</span></a>
+                                </div>
+                                <div class="col-5">
+                                    <a href="forgotPass.php" class="badge text-warning" style="text-decoration:none;"><span style="font-size:13px;">Forgot password?</span></a>
+                                </div>
                             </div>
-                            <div class="col-5">
-                                <a href="forgotPass.php" class="badge text-warning" style="text-decoration:none;"><span style="font-size:13px;">Forgot password?</span></a>
+                            <div class="card-body text-center">
+                                <button type="button" class="btn btn-warning text-white" id="logButton" name="logButton">Login<i class="fas fa-sign-in-alt ml-2"></i></button>
                             </div>
                         </div>
-                        <div class="card-body text-center">
-                            <button class="btn btn-warning text-white" id="logButton" name="logButton">Login<i class="fas fa-sign-in-alt ml-2"></i></button>
-                        </div>
-                    </div>
-                    <div class="alert mt-3 ml-3" id="alertLog" style="width:350px;"></div>
+                        <div class="alert mt-3 ml-3" id="alertLog" style="width:350px;"></div>
+                    </form>
                 </div>
                 <div class="text-center text-warning" style="margin-left:-100px;">
                     <p style="font-size:20px;">Copyright &copy; 2018 Abdurahman Almonajed</p>
@@ -111,6 +120,39 @@
                 </div>
             </div>
             
+            <script>
+
+                $('#logButton').prop('disabled', true);
+    $('#logButton').css('cursor', 'not-allowed');
+
+    jQuery(document).ready(function ($) {
+        console.log('juhu')
+        $('#loginForm').validate();
+
+        function checkForm(currentInput) {
+            if (currentInput.valid() == true) {
+                if ($('#loginForm').validate().checkForm()) {
+                    $('#logButton').prop('disabled', false);
+                    $('#logButton').css('cursor', '');
+                } else {
+                    $('#logButton').prop('disabled', true);
+                    $('#logButton').css('cursor', 'not-allowed');
+                }
+            } else {
+                $('#logButton').prop('disabled', true);
+                $('#logButton').css('cursor', 'not-allowed');
+            }
+        }
+        $('#loginForm input').on('blur change keyup', function (e) {
+            checkForm($(this));
+            if(e.keyCode == 13){
+                $('#logButton').trigger('click');
+            }
+        });
+
+
+    })
+            </script>
 
             <script src="loginRegister/login.js"></script>
 
