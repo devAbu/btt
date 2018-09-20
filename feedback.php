@@ -117,7 +117,12 @@ session_start();
         }
         $('#feedbackForm textarea').on('blur change keyup', function (e) {
             checkForm($(this));
+            if(e.keyCode == 13){
+                $('#feedbackButton').trigger('click');
+            }
         });
+
+
     })
     </script>
     <div id="footerInclude"></div>
