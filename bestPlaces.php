@@ -1,6 +1,4 @@
-﻿<!--TODO: bolju stranicu uradit (kada user nije logovan)-->
-<!--TODO: malo bolji feed, myb ocjenu ubacit -->
-<?php
+﻿<?php
 session_start();
 ?>
 <!DOCTYPE html>
@@ -15,8 +13,6 @@ session_start();
   <meta name="author" content="abu">
   <meta name="keywords" content="btt, bosnian, tourist, travel, agency, arabic, bosna">
   <meta name="description" content="BTT - Bosnian Tourist Travel offers the best tour plans and the best hotels in B&H. ">
- <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
-      crossorigin="anonymous"> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -27,8 +23,10 @@ session_start();
       crossorigin="anonymous"></script>
  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> -->
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 
 
@@ -79,80 +77,58 @@ label.error {
 
 <body>
 
-    <div id="navbarInclude"></div>
+<div id="navbarInclude"></div>
 
-    <section id="jumbotronFeedback" class="jumbotron2 jumbotron-fluid text-white d-flex justify-content-center align-items-center">
+
+    <section id="jumbotron" class="jumbotron5 jumbotron-fluid text-white d-flex justify-content-center align-items-center">
         <div class="container text-center">
             <h1 class="display-1 text-primary text-uppercase">BTT</h1>
             <p class="display-4 d-none d-sm-block">Bosnian Tourist Travel</p>
-            <p class="lead text-uppercase" style="font-size:26px;">We want your feedback</p>
-            <p class="text-primary h5 mb-3">Also, you can leave your feedback on:</p>
+            <p class="lead text-uppercase" style="font-size:30px; color:gold;">What we have to offer</p>
+            <p class=" h5 mb-3">Visit us on:</p>
             <a href="https://www.instagram.com/bosniant/" target="_blank" class="btn btn-lg btn-primary mb-1"><i class="fab fa-instagram mr-2" aria-hidden="true"></i>Instagram</a>
             <a href="https://www.facebook.com" target="_blank" class="btn btn-lg btn-primary mb-1"><i class="fab fa-facebook mr-2" aria-hidden="true"></i>Facebook</a>
         </div>
     </section>
+<section>
+<?php
 
-    <section>
-    <?php
-    if (isset($_SESSION["email"])) {
-        echo '
-        <h2 class="display-4 text-center text-info mb-5 mt-4">Be free to contact us, we are here to please you.</h2>
-        <form id="feedbackForm" name="feedbackForm">
-            <p class="text-center h2 text-primary mb-5">Tell us what you think!</p>
-            <div class="col-9 offset-3">
-                <textarea cols="50" rows="10" class="form-control error" style="max-width:550px;margin-left:50px;" placeholder="Please write your opinion..." id="feedback" name="feedback" required data-msg="This field is required"></textarea>
+require 'connection/connect.php';
+
+$sql = "SELECT * FROM bestPlaces";
+$result = $dbc->query($sql);
+
+$count = $result->num_rows;
+
+if ($count > 0) {
+    echo '<div class="row bg">';
+    while ($row = $result->fetch_assoc()) {
+        echo '<div class="col-5  mt-3" style="margin-left: 70px;" >
+        <a href="#" data-toggle="modal" data-target="#' . $row["ID"] . '">
+            <img src=" data:image/jpeg;base64,' . base64_encode($row["img"]) . '" alt="' . $row['title'] . '" class="img-fluid best" /></a>
+            <h2 class="text-warning text-uppercase text-center">' . $row["title"] . '</h2>
+        </div>
+        <div class="modal fade" id="' . $row['ID'] . '" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <img src=" data:image/jpeg;base64,' . base64_encode($row["img"]) . '" alt="' . $row['title'] . '" class="img-fluid" style="width:100%; height:100%;" />
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-6 offset-5 ">
-                <input type="button" id="feedbackButton" name="feedbackButton" class="btn btn-lg btn-outline-success mt-3 ml-5 mb-2" value="SEND" />
-            </div>
-            <div class="alert mt-3" id="alertFeedback"></div>
-        </form>';
-    } else {
-        echo "<div class='row'><div class='offset-5 text-center mt-5 mb-5'><a href='#' data-toggle='modal' data-target='#LoginModal'><span class='text-warning' style='font-size: 20px;'>LOGIN</span></a> to be able to leave feedback!!!</div></div>";
+        </div>
+        ';
     }
-    ?>
-    </section>
+    echo '</div>';
+} else {
+    echo " 0 results";
 
-    <script src="feedbackJS/feedback.js"></script>
+}
+$dbc->close();
+?>
 
-    <script>//TODO: vidjet da se stavi u poseban fajl-->
-    $('#feedbackButton').prop('disabled', true);
-    $('#feedbackButton').css('cursor', 'not-allowed');
+</section >
 
-    jQuery(document).ready(function ($) {
-        console.log('juhu')
-        $('#feedbackForm').validate({
-            errorPlacement: function (label, element) {
-                label.insertAfter(element);
-            },
-            wrapper: 'span'
-        });
-
-        function checkForm(currentInput) {
-            if (currentInput.valid() == true) {
-                if ($('#feedbackForm').validate().checkForm()) {
-                    $('#feedbackButton').prop('disabled', false);
-                    $('#feedbackButton').css('cursor', '');
-                } else {
-                    $('#feedbackButton').prop('disabled', true);
-                    $('#feedbackButton').css('cursor', 'not-allowed');
-                }
-            } else {
-                $('#feedbackButton').prop('disabled', true);
-                $('#feedbackButton').css('cursor', 'not-allowed');
-            }
-        }
-        $('#feedbackForm textarea').on('blur change keyup', function (e) {
-            checkForm($(this));
-            if(e.keyCode == 13){
-                $('#feedbackButton').trigger('click');
-            }
-        });
-
-
-    })
-    </script>
     <div id="footerInclude"></div>
-
 </body>
 </html>

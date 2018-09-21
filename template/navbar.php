@@ -66,8 +66,8 @@ session_start();
         </div>
     </nav>
 
-    <div class="modal fade" id="SignModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
-        <div class="modal-dialog modal-md" role="document">
+    <div class="modal fade " id="SignModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-md modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalTitleSign">
@@ -81,46 +81,38 @@ session_start();
                     </button>
                 </div>
                 <div class="modal-body">
+                <form id="regForm" name="regForm">
                     <div class="col-xs-12">
-                        <input type="text" placeholder="Fist name..." id="firstSign" name="firstSign" class="form-control" style="max-width:400px;"
-                            required="">
+                        <input type="text" placeholder="Fist name..." id="firstSign" name="firstSign" class="form-control"
+                            required data-msg="Please enter your first name!!!">
                         <br>
                     </div>
                     <div class="col-xs-12">
-                        <input type="text" placeholder="Last name..." id="lastSign" name="lastSign" class="form-control" style="max-width:400px;"
-                            required="">
+                        <input type="text" placeholder="Last name..." id="lastSign" name="lastSign" class="form-control"
+                            required data-msg="Please enter your last name!!!">
                         <br>
                     </div>
                     <div class="col-xs-12">
-                        <input type="email" placeholder="you@example.com" id="emailSign" name="emailSign" class="form-control" style="max-width:400px;"
-                            required="">
+                        <input type="email" placeholder="you@example.com" id="emailSign" name="emailSign" class="form-control"
+                            required data-msg-required="Please enter your email!!!" data-msg-email="Please enter validate email!!!">
                         <br />
                     </div>
-                    <table>
-                        <tr>
-                            <td>
-                                <div>
-                                    <input type="password" placeholder="*****" class="form-control" style="width:400px !important;margin-right:0px !important;"
-                                        required id="passSign" name="passSign">
-                                </div>
-                            </td>
-                            <td>
-                                <button type="button" id="eye" name="eye" class="btn btn-outline-warning" style="margin-left:-43px !important;">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    </table>
+                    <div class="col-xs-12">
+                        <div class="pass">
+                            <input type="password" placeholder="Password..." class="form-control" name="passSign" id="passSign" required data-msg="Please enter your password!!!">
+                            <i class="far fa-eye passIcon" id="passIcon"></i>
+                        </div>
+                    </div>
                     <div class="col-12 mb-3" style="margin-left:-10px !important;">
                         <a href="login.php" class="text-success">Already has account?</a>
                     </div>
                     <div class="col-xs-12  offset-4">
-                        <button class="btn btn-success" id="signButton" name="signButton">Sign up for free
+                        <button type="button" class="btn btn-success" id="signButton" name="signButton">Sign up for free
                             <i class="fas fa-user-plus ml-2"></i>
                         </button>
-
                     </div>
                     <div class="alert mt-3" id="alert"></div>
+                </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">
@@ -132,10 +124,55 @@ session_start();
         </div>
     </div>
 
+    <script>
+        $('#signButton').prop('disabled', true);
+        $('#signButton').css('cursor', 'not-allowed');
+
+    jQuery(document).ready(function ($) {
+        console.log('juhu')
+        $('#regForm').validate();
+
+        function checkForm(currentInput) {
+            if (currentInput.valid() == true) {
+                if ($('#regForm').validate().checkForm()) {
+                    $('#signButton').prop('disabled', false);
+                    $('#signButton').css('cursor', '');
+                } else {
+                    $('#signButton').prop('disabled', true);
+                    $('#signButton').css('cursor', 'not-allowed');
+                }
+            } else {
+                $('#signButton').prop('disabled', true);
+                $('#signButton').css('cursor', 'not-allowed');
+            }
+        }
+        $('#regForm input').on('blur change keyup', function (e) {
+            checkForm($(this));
+            if(e.keyCode == 13){
+                $('#signButton').trigger('click');
+            }
+        });
+
+         $('#passIcon').click(function () {
+                var elementType = $('#passSign').attr('type');
+                console.log(elementType);
+                if (elementType == "text") {
+                    $('#passSign').attr('type', 'password');
+                    $('#passIcon').removeClass('fa-eye-slash');
+                    $('#passIcon').addClass('fa-eye');
+                } else if (elementType == "password") {
+                    $('#passSign').attr('type', 'text');
+                    $('#passIcon').removeClass('fa-eye');
+                    $('#passIcon').addClass('fa-eye-slash');
+                }
+            });
+        })
+    </script>
+
     <script src="./loginRegister/sign.js"></script>
 
     <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
-        <div class="modal-dialog modal-md" role="document">
+        <div class="modal-dialog modal-md modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalTitleLog">
@@ -149,26 +186,18 @@ session_start();
                     </button>
                 </div>
                 <div class="modal-body">
+                    <form id="loginForm" name="loginForm">
                     <div class="col-12">
-                        <input type="email" placeholder="you@example.com" class="form-control" style="max-width:400px;" id="emailLog" name="emailLog"
-                            required>
+                        <input type="email" placeholder="you@example.com" class="form-control" id="emailLog" name="emailLog"
+                            required data-msg-required="Please enter your email" data-msg-email="Please enter a valid email address.">
                         <br>
                     </div>
-                    <table>
-                        <tr>
-                            <td>
-                                <div style="margin-left:15px;">
-                                    <input type="password" placeholder="*****" class="form-control" style="max-width:400px !important;margin-right:270px !important;"
-                                        required id="passLog" name="passLog">
-                                </div>
-                            </td>
-                            <td>
-                                <button type="button" id="eyeLog" name="eyeLog" class="btn btn-outline-warning" style="margin-left:-92px !important;">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    </table>
+                    <div class="col-12">
+                        <div class="pass">
+                            <input type="password" placeholder="Password..." class="form-control" name="passLog" id="passLog" required data-msg="Please enter your password!!!">
+                            <i class="far fa-eye passIcon2" id="passIcon2"></i>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-5 mr-4">
                             <a href="register.php" class="badge ml-3 text-warning" style="text-decoration:none;">
@@ -183,11 +212,12 @@ session_start();
                         <br />
                     </div>
                     <div class="col-xs-12  offset-4 mt-3">
-                        <button id="logButton" name="logButton" class="btn btn-success">Login
+                        <button type="button" id="logButton" name="logButton" class="btn btn-success">Login
                             <i class="fas fa-sign-in-alt ml-2"></i>
                         </button>
                     </div>
                     <div class="alert mt-3" id="alertLog"></div>
+                </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">
@@ -198,5 +228,50 @@ session_start();
             </div>
         </div>
     </div>
+
+    <script>
+        $('#logButton').prop('disabled', true);
+        $('#logButton').css('cursor', 'not-allowed');
+
+    jQuery(document).ready(function ($) {
+        console.log('juhu')
+        $('#loginForm').validate();
+
+        function checkForm(currentInput) {
+            if (currentInput.valid() == true) {
+                if ($('#loginForm').validate().checkForm()) {
+                    $('#logButton').prop('disabled', false);
+                    $('#logButton').css('cursor', '');
+                } else {
+                    $('#logButton').prop('disabled', true);
+                    $('#logButton').css('cursor', 'not-allowed');
+                }
+            } else {
+                $('#logButton').prop('disabled', true);
+                $('#logButton').css('cursor', 'not-allowed');
+            }
+        }
+        $('#loginForm input').on('blur change keyup', function (e) {
+            checkForm($(this));
+            if(e.keyCode == 13){
+                $('#logButton').trigger('click');
+            }
+        });
+
+         $('#passIcon2').click(function () {
+                var elementType = $('#passLog').attr('type');
+                console.log(elementType);
+                if (elementType == "text") {
+                    $('#passLog').attr('type', 'password');
+                    $('#passIcon2').removeClass('fa-eye-slash');
+                    $('#passIcon2').addClass('fa-eye');
+                } else if (elementType == "password") {
+                    $('#passLog').attr('type', 'text');
+                    $('#passIcon2').removeClass('fa-eye');
+                    $('#passIcon2').addClass('fa-eye-slash');
+                }
+            });
+        })
+    </script>
 
 <script src="./loginRegister/login.js"></script>

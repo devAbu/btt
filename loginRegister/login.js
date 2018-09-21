@@ -1,3 +1,4 @@
+$('#alertLog').hide()
 $('#logButton').click(function () {
     $("#alertLog").removeClass('alert-success').removeClass('alert-danger');
     var emailLog = $('#emailLog').val();
