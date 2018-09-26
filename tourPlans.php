@@ -5,8 +5,8 @@ session_start();
 <html lang="en">
 <!--TODO: vidjet da se uradi numTaken-->
 <!--TODO: vidjet da se uradi star rating-->
-<!--TODO: search prebacit u JQuery filtere-->
 <!--TODO: vidjet da se prvo trazi od usera datum boravka...pa da na osnovu toga mu predlozi ture / il samo kad hoce da selecta mora unijet datume -->
+<!-- TODO: uradit opsirniji description svake ture -->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,7 +19,7 @@ session_start();
   <meta name="description" content="BTT - Bosnian Tourist Travel offers the best tour plans and the best hotels in B&H. ">
  <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
       crossorigin="anonymous"> -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
@@ -99,10 +99,12 @@ label.error {
     <section>
         <div class="row no-gutters">
             <div class="col-5 offset-2">
-                <form action="tourplans.php" method="POST" name="form" id="form">
+                <!-- <form action="tourplans.php" method="POST" name="form" id="form"> -->
                     <input id="search-loged" name="search-loged" value="" type="text" class="form-control mt-2" placeholder="Search...">
-                </form>
+                <!-- </form> -->
             </div>
+       
+      
             <!--<div class="col-2">
                 <button id="filters" class="btn btn-success my-2  ml-4" style="width:200px;" data-toggle="collapse" data-target="#collapseExample"
                     aria-expanded="false" aria-controls="collapseExample">
@@ -222,7 +224,8 @@ if (isset($where)) {
             $i = 0;
             while ($row = $result->fetch_assoc()) {
                 $session = $_SESSION["email"];
-                echo '<form action = "userAll/userTour.php" method = "POST"><div class="card text-center mt-4 ">
+                echo '<div class="myDIV">
+                <form action = "userAll/userTour.php" method = "POST"><div class="card text-center mt-4 myDIV" >
             <div class="card-header text-success h3 text-uppercase ">' .
                     $row["type"] . '
             </div>
@@ -285,6 +288,7 @@ if (isset($where)) {
                     <i class="far fa-clock mr-2 "></i> ' . $row["days"] . '</small>
             </div>
             </div></form>
+            </div>
             ';
                 $i++;
 
@@ -293,8 +297,9 @@ if (isset($where)) {
         } else {
             $i = 0;
             while ($row = $result->fetch_assoc()) {
-                echo '<form action = "userAll/userTour.php" method = "POST"><div class="card text-center mt-4 ">
-          <div class="card-header text-success h3 text-uppercase ">' .
+                echo '<div class="myDIV">
+                <form action = "userAll/userTour.php" method = "POST"><div class="card text-center mt-4 ">
+          <div class="card-header text-success h3 text-uppercase myDIV">' .
                     $row["type"] . '
           </div>
           <input type="text" value=" ' . $row["ID"] . ' "  name="idnum" id="idnum" hidden>
@@ -357,6 +362,7 @@ if (isset($where)) {
                   <i class="far fa-clock mr-2 "></i> ' . $row["days"] . '</small>
           </div>
           </div></form>
+          </div>
           ';
                 $i++;
 
@@ -381,7 +387,8 @@ if (isset($where)) {
 
                 $session = $_SESSION["email"];
 
-                echo '<form action = "userAll/userTour.php" method = "POST"><div class="card text-center mt-4 ">
+                echo '<div class="myDIV">
+                <form action = "userAll/userTour.php" method = "POST"><div class="card text-center mt-4 myDIV">
             <div class="card-header text-success h3 text-uppercase ">' .
                     $row["type"] . '
             </div>
@@ -447,6 +454,7 @@ if (isset($where)) {
                     <i class="far fa-clock mr-2 "></i> ' . $row["days"] . '</small>
             </div>
             </div></form>
+            </div>
             ';
                 $i++;
 
@@ -457,7 +465,8 @@ if (isset($where)) {
             while ($row = $result->fetch_assoc()) {
 
 
-                echo '<form action = "userAll/userTour.php" method = "POST"><div class="card text-center mt-4 ">
+                echo '<div class="myDIV">
+                <form action = "userAll/userTour.php" method = "POST"><div class="card text-center mt-4 ">
             <div class="card-header text-success h3 text-uppercase ">' .
                     $row["type"] . '
             </div>
@@ -522,6 +531,7 @@ if (isset($where)) {
                     <i class="far fa-clock mr-2 "></i> ' . $row["days"] . '</small>
             </div>
             </div></form>
+            </div>
             ';
                 $i++;
 
@@ -537,6 +547,19 @@ $dbc->close();
 ?>
 
 </section>
+
+     <script>
+             
+
+  $("#search-loged").on("keyup", function() {
+      console.log($(this).val().toLowerCase())
+    var value = $(this).val().toLowerCase();
+    $(".myDIV form ").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+
+</script>
 
     <div id="footerInclude"></div>
 

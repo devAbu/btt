@@ -201,28 +201,29 @@ footer {
     z-index: -1 !important;
 }
 
-#prva img:hover {
+.prva1 {
     z-index: 1;
 }
 
-#prva:hover+#druga {
-    z-index: -1;
-}
-
-#druga img:hover {
-    z-index: 1;
-}
-
-#druga:hover+#treca {
+.prva2 {
     z-index: -1;
 }
 
 .index2 {
     transition: transform 2s;
+    border-radius: 5%;
+    -webkit-border-radius: 5%;
+    -moz-border-radius: 5%;
+    -ms-border-radius: 5%;
+    -o-border-radius: 5%;
 }
 
 .index2:hover {
     transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
 }
 
 .tourPlans {

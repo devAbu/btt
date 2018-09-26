@@ -5,8 +5,6 @@ session_start();
 <html lang="en">
 <!--TODO: sve da bude responsive (sve stranice) -->
 <!--TODO: vidjet da se uradi bolji redirect  -->
-<!--TODO: oko promijeniti-->
-<!--TODO: modal stavit da bude centriran vertikalno-->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -158,12 +156,13 @@ $sql = "SELECT * FROM tourplan limit 3";
 $result = $dbc->query($sql);
 
 $count = $result->num_rows;
-//TODO: popravit efekat
 if ($count > 0) {
     if (isset($_SESSION["email"])) {
         echo '<div class="card-group mt-3">';
+        $i = 0;
         while ($row = $result->fetch_assoc()) {
-            echo '<div class="card ml-2" style="border-radius:2% !important;" id="prva">
+            $i++;
+            echo '<div class="card ml-2" style="border-radius:2% !important;" id="prva' . $i . '" class="" >
                 <a href="tourPlans.php">
                     <img class="card-img-top img-fluid index " src="' . $row["img"] . '" style="border-radius:2% !important; height: 250px;" alt="' . $row["title"] . '">
                 </a>
@@ -188,6 +187,55 @@ if ($count > 0) {
 }
 $dbc->close();
 ?>
+
+<script>
+    $('#prva1').hover(function(){
+        console.log('prva')
+        $('#prva1').addClass('prva1')
+        $('#prva2').addClass("prva2")
+    })
+    $('#prva1').mouseleave(function () { 
+       console.log('prva out')
+        $('#prva1').removeClass('prva1')
+        $('#prva2').removeClass("prva2") 
+        $('#prva2').removeClass('prva1')
+        $('#prva1').removeClass("prva2") 
+        $('#prva3').removeClass('prva1')
+        $('#prva3').removeClass("prva2") 
+    });
+    $('#prva2').hover(function(){
+        console.log('druga')
+        $('#prva2').addClass('prva1')
+        $('#prva3').addClass("prva2")
+    })
+    $('#prva2').mouseleave(function () { 
+       console.log('druga out')
+        $('#prva1').removeClass('prva1')
+        $('#prva2').removeClass("prva2") 
+        $('#prva2').removeClass('prva1')
+        $('#prva1').removeClass("prva2") 
+        $('#prva3').removeClass('prva1')
+        $('#prva3').removeClass("prva2") 
+        
+    });
+    $('#prva3').hover(function(){
+        console.log('treca')
+        $('#prva3').addClass('prva1')
+        $('#prva2').addClass("prva2")
+    })
+    $('#prva3').mouseleave(function () { 
+       console.log('treca out')
+        $('#prva1').removeClass('prva1')
+        $('#prva2').removeClass("prva2") 
+        $('#prva2').removeClass('prva1')
+        $('#prva1').removeClass("prva2") 
+        $('#prva3').removeClass('prva1')
+        $('#prva3').removeClass("prva2") 
+    });
+    
+</script>
+
+
 </section>
 
 <!--TODO: podaci iz baze-->
@@ -203,7 +251,7 @@ $dbc->close();
                     <li data-target="#carousel3" data-slide-to="3" class=""></li>
                 </ol>
                 <div class="carousel-inner " role="listbox">
-                    <div class="carousel-item" style="border-radius:5%;">
+                    <div class="carousel-item">
                         <a href="bestPlaces.php">
                             <img src="images/konjic.jpg" alt="slide1" style="border-radius:5%;" class="d-block img-fluid index2">
                         </a>
@@ -213,9 +261,9 @@ $dbc->close();
                             </a>
                         </div>
                     </div>
-                    <div class="carousel-item active" style="border-radius:5%;">
+                    <div class="carousel-item">
                         <a href="bestPlaces.php">
-                            <img src="images/mostar.jpg" alt="slide2" style="border-radius:5%;" class="d-block img-fluid index2" />
+                            <img src="images/mostar.jpg" alt="slide2"  class="d-block img-fluid index2" style="border-radius:5%;"/>
                         </a>
                         <div class="carousel-caption">
                             <a href="bestPlaces.php" style="text-decoration:none !important;">
@@ -223,7 +271,7 @@ $dbc->close();
                             </a>
                         </div>
                     </div>
-                    <div class="carousel-item" style="border-radius:5%;">
+                    <div class="carousel-item">
                         <a href="bestPlaces.php">
                             <img src="images/bjelasnica.jpg" alt="slide3" style="border-radius:5%;" class="d-block img-fluid index2">
                         </a>
@@ -233,9 +281,9 @@ $dbc->close();
                             </a>
                         </div>
                     </div>
-                    <div class="carousel-item" style="border-radius:5%;">
+                    <div class="carousel-item active">
                         <a href="bestPlaces.php">
-                            <img src="images/sebilj.jpg" alt="slide4" style="border-radius:5%;" class="d-block img-fluid index2">
+                            <img src="images/sebilj.jpg" alt="slide4"  class="d-block img-fluid index2">
                         </a>
                         <div class="carousel-caption">
                             <a href="bestPlaces.php" style="text-decoration:none !important;">
@@ -302,6 +350,8 @@ $dbc->close();
             </div>
         </div>
     </div>
+
+    
 
     <section class="mt-4">
         <div class="row no-gutters">
