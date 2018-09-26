@@ -554,7 +554,7 @@ $dbc->close();
   $("#search-loged").on("keyup", function() {
       console.log($(this).val().toLowerCase())
     var value = $(this).val().toLowerCase();
-    $(".myDIV form ").filter(function() {
+    $(".myDIV form ").not( $('#select') ).filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
   });
