@@ -41,6 +41,8 @@ session_start();
 
     <script src="jquery.validate.js"></script>
 
+    <link rel="stylesheet" href="loaders.min.css" />
+
 
     <script>
         $(function (){
@@ -48,8 +50,18 @@ session_start();
             $('#footerInclude').load("./template/footer.php");
         })
     </script>
-<!--TODO: preload da se uradi-->
 <style>
+    .loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 999;
+    transform: scale(4);
+}
+.hidden{
+    display:none;
+}
+
 .pass {
     position: relative;
 }
@@ -79,11 +91,16 @@ label.error {
 
 <body>
 
+    <div class="loader">
+        <div class="loader-inner ball-scale-multiple">
+        </div>
+    </div>
+
 <div id="navbarInclude"></div>
 
 
-    <section id="jumbotron" class="jumbotron8 jumbotron-fluid text-white d-flex justify-content-center align-items-center">
-        <div class="container text-center">
+    <section id="jumbotron" class=" jumbotron-fluid text-white d-flex justify-content-center align-items-center">
+        <div class="container text-center hidden">
             <h1 class="display-1 text-primary text-uppercase">BTT</h1>
             <p class="display-4 d-none d-sm-block">Bosnian Tourist Travel</p>
             <p class="lead">Visit Bosnia & Herzegovina with us!</p>
@@ -493,6 +510,19 @@ label.error {
             var budget = document.getElementById('budget').value;
         }
     </script>
+
+    <script>
+        $("body > *").not("body > .loader").addClass('hidden');
+        $('body').css('background-color', '#d1d1d1')
+        $(window).ready(function() {
+                $('body').css('background-color', '')
+                $('.hidden').removeClass('hidden')
+                $('#jumbotron').addClass('jumbotron8')
+                $('.loader').hide()  
+        });
+    </script>
+
+    <script src="loaders.css.js "></script>
 
 </body>
 

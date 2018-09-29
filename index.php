@@ -41,6 +41,8 @@ session_start();
 
     <script src="jquery.validate.js"></script>
 
+    <link rel="stylesheet" href="loaders.min.css" />
+
 
     <script>
         $(function (){
@@ -48,8 +50,20 @@ session_start();
             $('#footerInclude').load("./template/footer.php");
         })
     </script>
-<!--TODO: preload da se uradi-->
+
+
+
 <style>
+.loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 999;
+    transform: scale(4);
+}
+.hidden{
+    display:none;
+}
 .pass {
     position: relative;
 }
@@ -72,17 +86,22 @@ label.error {
     margin-top: 3px;
     color: red;
     font-size: 17px;
-}
-</style>
+}</style>
 
 </head>
 
 <body>
 
-    <div id="navbarInclude"></div>
+    <div class="loader">
+        <div class="loader-inner ball-scale-multiple">
+        </div>
+    </div>
 
-    <section id="jumbotron" class="jumbotron jumbotron-fluid text-white d-flex justify-content-center align-items-center">
-        <div class="container text-center">
+
+   <div id="navbarInclude" class="hidden"></div>
+
+    <section id="jumbotron" class=" jumbotron-fluid text-white d-flex justify-content-center align-items-center">
+        <div class="container text-center hidden">
             <h1 class="display-1 text-primary text-uppercase">BTT</h1>
             <p class="display-4 d-none d-sm-block">Bosnian Tourist Travel</p>
             <p class="lead">Visit Bosnia & Herzegovina with us!</p>
@@ -95,7 +114,7 @@ label.error {
         </div>
     </section>
 
-    <section>
+    <section class="hidden">
     <!--TODO: iz baze slike-->
         <h2 class="display-4 text-center text-info">BTT</h2>
         <p class="text-center h4 text-primary mb-5">The beauty of Bosnia & Herzegovina</p>
@@ -147,7 +166,7 @@ label.error {
         </div>
     </section>
 
-<section>
+<section class="hidden">
 
 <?php
 require 'connection/connect.php';
@@ -239,7 +258,7 @@ $dbc->close();
 </section>
 
 <!--TODO: podaci iz baze-->
-    <div class="row no-gutters">
+    <div class="row no-gutters hidden">
         <div class="col-5 ml-5 mt-4">
             <h2 class="text-info text-center">Bosnia & Herzegovina</h2>
             <p class="h4 text-primary mb-3 text-center">Our best places</p>
@@ -353,7 +372,7 @@ $dbc->close();
 
     
 
-    <section class="mt-4">
+    <section class="mt-4 hidden">
         <div class="row no-gutters">
             <div class="col-3">
                 <div class="card" id="why" style="height:180px;">
@@ -393,8 +412,21 @@ $dbc->close();
         </div>
     </section>
 
-    <div id="footerInclude"></div>
+    <div id="footerInclude" class="hidden"></div>
 
+    <script>
+        $("body > *").not("body > .loader").addClass('hidden');
+        $('body').css('background-color', '#d1d1d1')
+        $(window).ready(function() {
+                $('body').css('background-color', '')
+                $('.hidden').removeClass('hidden')
+                $('#jumbotron').addClass('jumbotron')
+                $('.loader').hide()  
+        });
+    </script>
+
+    <script src="loaders.css.js "></script>
+   
 
 </body>
 
