@@ -16,9 +16,8 @@ $('#logButton').click(function () {
                 $('#passLog').val("");
                 var delay = 1500;
                 setTimeout(function () {
-                    window.location = "index.php";
+                    window.location.replace(window.location.href)
                 }, delay);
-                //TODO: bolji redirect
             } else if (data.indexOf('pass') > -1) {
                 $("#alertLog").addClass('alert-danger');
                 $("#alertLog").html('Password is incorrect');
@@ -31,7 +30,7 @@ $('#logButton').click(function () {
         },
         error: function (data, err) {
             $("#alertLog").addClass('alert-danger');
-            $("#alertLog").html('Some problem occured. We are sorry.');
+            $("#alertLog").html('Some problem occurred. We are sorry.');
             $("#alertLog").slideDown(500).delay(1000).slideUp(500);
         }
     });

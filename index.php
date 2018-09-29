@@ -4,7 +4,6 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 <!--TODO: sve da bude responsive (sve stranice) -->
-<!--TODO: vidjet da se uradi bolji redirect  -->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">

@@ -43,7 +43,10 @@ $('#signButton').click(function () {
                     $('#lastSign').val("");
                     $('#emailSign').val("");
                     $('#passSign').val("");
-                    //TODO: redirect
+                    var delay = 2000;
+                    setTimeout(function () {
+                        window.location.replace(window.location.href)
+                    }, delay);
                 } else {
                     $("#alert").addClass('alert-danger');
                     $("#alert").html('The email is already exists.');
