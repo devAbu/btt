@@ -3,7 +3,6 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<!--TODO: sve da bude responsive (sve stranice) -->
 <!-- TODO: provjeriti preload...izgleda da ne radi -->
 <head>
   <meta charset="UTF-8">
