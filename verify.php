@@ -1,3 +1,5 @@
+<!-- TODO: bolji dizajn -->
+
 <?php
 
 require('connection/connect.php');
@@ -22,16 +24,6 @@ if ($_REQUEST['email']) {
                         echo 'Your email address activated successfully! Now you can <a href="login.php">login</a>';
                     }
                 }
-
-                /* $query = "UPDATE registacija set password = '$hashedPass' where email = '$emailLog'";
-
-                $response = @mysqli_query($dbc, $query);
-                if ($response) {
-                    echo ('sent');
-                } else {
-                    echo mysqli_error($dbc);
-                } */
-
             }
         }
     } else {
