@@ -322,3 +322,69 @@ footer {
     position: absolute;
     left: 38%;
 }
+
+@media only screen and (min-width: 1200px) {
+    #carouselHotel {
+        margin-left: 135px !important;
+    }
+}
+
+@media only screen and (max-width: 1199px) {
+    #carouselHotel {
+        margin-left: 40px !important;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    #carouselHotel {
+        margin-left: 0px !important;
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    #footerEmail {
+        margin-left: 0px !important;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    #footerEmail {
+        margin-left: 60px !important;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    #footerEmail {
+        margin-left: 60px !important;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    #footerAddress {
+        margin-left: 50px !important;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    #bestPlacesMain {
+        margin-left: 25px !important;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    #feedback {
+        margin-left: 0px !important;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #copyright {
+        margin-left: 0px !important;
+    }
+}
+
+@media only screen and (min-width: 1199px) {
+    #forgotLogin {
+        margin-left: 80px !important;
+    }
+}

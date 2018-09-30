@@ -69,39 +69,49 @@
     </nav>
 
     <div id="bg">
-        <div class="offset-lg-4 ">
+        <div >
         <form name="regForm" id="regForm">
-            <div class="card" style="width: 22rem; margin-top:-30px;background:none !important; border:none;">
+            <div class="card" style=" margin-top:-30px;background:none !important; border:none;">
                 <div class="card-body text-center">
-                    <img class="card-img-top" src="images/icon.png" style="width:90px !important; margin-top:150px !important; margin-left:100px !important;" height="80" alt="Card image cap">
-                    <h3 class="card-title text-uppercase text-warning" style="margin-left:100px !important;">Create free account</h3>
+                    <img class="card-img-top" src="images/icon.png" style="width:90px !important; margin-top:150px !important; " height="80" alt="Card image cap">
+                    <h3 class="card-title text-uppercase text-warning" >Create free account</h3>
                 </div>
                 <ul class="list-group list-group-flush" style="margin-top:-20px;">
-                    <li class="list-group-item bg-info" style="background:none !important;">
-                        <input type="text" placeholder="First name..." id="firstSign" name="lastSign" class="form-control mb-2" required="" data-msg="Please insert your first name">
-                    </li>
-                    <li class="list-group-item bg-info" style="border:none; margin-top:-20px; background:none !important;">
-                        <input type="text" placeholder="Last name..." id="lastSign" name="lastSign" class="form-control mb-2"  required="" data-msg="Please insert your last name">
-                    </li>
-                    <li class="list-group-item bg-info" style="border:none; margin-top:-20px; background:none !important;">
-                        <input type="email" placeholder="you@example.com" id="emailSign" name="emailSign" class="form-control " required="" data-msg-required="Please insert your email address" data-msg-email="Please insert validate email">
-                    </li>
-                    <li class="list-group-item bg-info" style="background:none !important;">
-                        <div class="pass">
-                            <input type="password" placeholder="Password..." class="form-control" name="passSign" id="passSign" required data-msg="Please enter your password!!!">
-                            <i class="far fa-eye passIcon" id="passIcon"></i>
-                        </div>
-                    </li>
+                    <div class="col-lg-4 col-md-6 offset-md-4">
+                        <li class="list-group-item bg-info" style="background:none !important;">
+                            <input type="text" placeholder="First name..." id="firstSign" name="lastSign" class="form-control mb-2" required="" data-msg="Please insert your first name">
+                        </li>
+                    </div>
+                    <div class="col-lg-4 col-md-6 offset-md-4">
+                        <li class="list-group-item bg-info" style="border:none; margin-top:-20px; background:none !important;">
+                            <input type="text" placeholder="Last name..." id="lastSign" name="lastSign" class="form-control mb-2"  required="" data-msg="Please insert your last name">
+                        </li>
+                    </div>
+                    <div class="col-lg-4 col-md-6 offset-md-4">
+                        <li class="list-group-item bg-info" style="border:none; margin-top:-20px; background:none !important;">
+                            <input type="email" placeholder="you@example.com" id="emailSign" name="emailSign" class="form-control " required="" data-msg-required="Please insert your email address" data-msg-email="Please insert validate email">
+                        </li>
+                    </div>
+                    <div class="col-lg-4 col-md-6 offset-md-4">
+                        <li class="list-group-item bg-info" style="background:none !important;">
+                            <div class="pass">
+                                <input type="password" placeholder="Password..." class="form-control" name="passSign" id="passSign" required data-msg="Please enter your password!!!">
+                                <i class="far fa-eye passIcon" id="passIcon"></i>
+                            </div>
+                        </li>
+                    </div>
                 </ul>
                 <div style="margin-top:-10px;">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item bg-info" style="background:none !important;">
-                            <a href="login.php" class="badge text-warning" style="text-decoration:none;"><span style="font-size:13px;">Already has account?</span></a>
-                        </li>
+                        <div class="offset-lg-4 col-2">
+                            <li class="list-group-item bg-info" style="background:none !important;">
+                                <a href="login.php" class="badge text-warning" style="text-decoration:none;"><span style="font-size:13px;">Already has account?</span></a>
+                            </li>
+                        </div>
                     </ul>
                 </div>
 
-                <div class="card-body text-center" style="margin-left:100px !important;">
+                <div class="card-body text-center">
                     <button type="button" class="btn btn-warning text-white" id="signButton" name="signButton">Sign up for free<i class="fas fa-user-plus ml-2"></i></button>
                 </div>
 
@@ -109,8 +119,8 @@
             <div class="alert mt-3 ml-3" id="alert" style="width:400px;"></div>
             </form>
         </div>
-        <div class="text-center text-warning" style="margin-left:-25px !important;">
-            <p style="font-size:20px; ">Copyright &copy; 2018 Abdurahman Almonajed</p>
+        <div class="text-center text-warning">
+            <p style="font-size:20px; margin-bottom:0px;">Copyright &copy; 2018 Abdurahman Almonajed</p>
         </div>
     </div>
 

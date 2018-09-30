@@ -82,23 +82,27 @@
     </nav>
 
             <div id="bg">
-                <div class="offset-4">
-                    <div class="card" style="width: 22rem; margin-top:-15px;background:none !important; border:none;">
+                <div>
+                    <div class="card" style="margin-top:-15px;background:none !important; border:none;">
                         <form id="loginForm" name="loginForm">
                             <div class="card-body text-center">
                                 <img class="card-img-top mb-3" src="images/icon.png" style="width:90px !important; margin-top:150px !important;" height="80" alt="Card image cap">
                                 <h3 class="card-title text-uppercase text-warning">CHANGE PASSWORD</h3>
                             </div>
                             <ul class="list-group list-group-flush" style="margin-top:-20px;">
-                                <li class="list-group-item bg-info" style="background:none !important;">
-                                    <input type="email" placeholder="you@example.com" class="form-control mb-2" id="emailLog" name="emailLog" required>
-                                </li>
-                                <li class="list-group-item bg-info" style="background:none !important;">
-                                    <div class="pass">
-                                        <input type="password" placeholder="Password..." class="form-control" name="passLog" id="passLog" required data-msg="Please enter your password!!!">
-                                        <i class="far fa-eye passIcon" id="passIcon"></i>
-                                    </div>
-                                </li>
+                                <div class="col-lg-4 col-md-6 offset-md-4">
+                                    <li class="list-group-item bg-info" style="background:none !important;">
+                                        <input type="email" placeholder="you@example.com" class="form-control mb-2" id="emailLog" name="emailLog" required data-msg-required="Please enter your email!!!" data-msg-email="Please enter validate email!!!">
+                                    </li>
+                                </div>
+                                <div class="col-lg-4 col-md-6 offset-md-4">
+                                    <li class="list-group-item bg-info" style="background:none !important;">
+                                        <div class="pass">
+                                            <input type="password" placeholder="Password..." class="form-control" name="passLog" id="passLog" required data-msg="Please enter your password!!!">
+                                            <i class="far fa-eye passIcon" id="passIcon"></i>
+                                        </div>
+                                    </li>
+                                </div>  
                             </ul>
                             <div class="card-body text-center">
                                 <button type="button" class="btn btn-warning text-white" id="logButton" name="logButton">CHANGE PASSWORD<i class="fas fa-sign-in-alt ml-2"></i></button>
@@ -107,8 +111,8 @@
                     </div>
                     <div class="alert mt-3 ml-3" id="alertLog" style="width:350px;"></div>
                 </div>
-                <div class="text-center text-warning" style="margin-left:-100px;">
-                    <p style="font-size:20px;">Copyright &copy; 2018 Abdurahman Almonajed</p>
+                <div class="text-center text-warning">
+                    <p style="font-size:20px; margin-bottom:0px">Copyright &copy; 2018 Abdurahman Almonajed</p>
                 </div>
             </div>
 

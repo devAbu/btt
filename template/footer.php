@@ -1,6 +1,6 @@
  <footer class="bg-secondary">
         <div class="row no-gutters">
-            <div class="col-6 mt-5">
+            <div class="col-md-6 col-sm-12 col-xs-12 mt-5">
                 <img src="images/icon.png" alt="logo" class="img-fluid ml-2" width="100" height="100" />
                 <label class="text-uppercase text-center text-warning h1" style="opacity:0.7;">Bosnian Tourist Travel</label>
                 <p class="ml-3 text-dark mt-4" style="max-width:400px;">Home to medieval villages, rivers and lakes, plus the craggy Dinaric Alps, and many more, explore our Country.</p>
@@ -8,11 +8,11 @@
                     <a href="tourPlans.php" class="text-warning" style="text-decoration:none;">LINK.</a>
                 </p>
             </div>
-            <div class="col-5 mt-5 offset-1">
+            <div class="col-md-5 col-sm-12 col-xs-12 mt-5 offset-md-1">
                 <h1 class="text-warning mb-5 text-uppercase" style="margin-top:13px !important; opacity:0.7;">Contact info</h1>
                 <ul class="list-group list-group-flush" style="width:500px; border:none;">
                     <li class="list-group-item text-warning bg-secondary mt-4">Address:
-                        <span class="ml-5">
+                        <span class="ml-lg-5 ml-md-0 ml-sm-5" id="footerAddress">
                             <a href="#" id="map" data-toggle="modal" class="text-warning" data-target="#map7" style="text-decoration:none;">
                                 <i class="fas fa-map-marker mr-2"></i>Grada Bakua 11, Sarajevo, B&H</a>
                         </span>
@@ -24,7 +24,7 @@
                         </span>
                     </li>
                     <li class="list-group-item text-warning bg-secondary">E-mail:
-                        <span style="margin-left:60px;">
+                        <span  id="footerEmail">
                             <a href="mailto:abdulrahman.almonajed@gmail.com" style="text-decoration:none;" class="text-warning">
                                 <i class="far fa-envelope mr-2"></i>abdulrahman.almonajed@gmail.com</a>
                         </span>

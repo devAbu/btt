@@ -199,12 +199,12 @@ session_start();
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-5 mr-4">
+                        <div class="col-7 col-sm-7 col-md-7 col-lg-7 col-xl-7">
                             <a href="register.php" class="badge ml-3 text-warning" style="text-decoration:none;">
                                 <span style="font-size:13px;">No account?</span>
                             </a>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-5 ml-4">
+                        <div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5">
                             <a href="forgotPass.php" class="badge ml-4 text-primary">
                                 <span style="font-size:13px;">Forgot password?</span>
                             </a>

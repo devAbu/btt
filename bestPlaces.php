@@ -1,4 +1,5 @@
-﻿<?php
+﻿<!-- TODO: popravit malo responsive -->
+<?php
 session_start();
 ?>
 <!DOCTYPE html>
@@ -119,7 +120,7 @@ $count = $result->num_rows;
 if ($count > 0) {
     echo '<div class="row bg">';
     while ($row = $result->fetch_assoc()) {
-        echo '<div class="col-5  mt-3" style="margin-left: 70px;" >
+        echo '<div class=" col-sm-12 col-12 col-lg-5  mt-3" style="margin-left: 70px;" id="bestPlacesMain">
         <a href="#" data-toggle="modal" data-target="#' . $row["ID"] . '">
             <img src=" data:image/jpeg;base64,' . base64_encode($row["img"]) . '" alt="' . $row['title'] . '" class="img-fluid best" /></a>
             <h2 class="text-warning text-uppercase text-center">' . $row["title"] . '</h2>

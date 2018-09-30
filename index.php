@@ -259,7 +259,7 @@ $dbc->close();
 
 <!--TODO: podaci iz baze-->
     <div class="row no-gutters hidden">
-        <div class="col-5 ml-5 mt-4">
+        <div class="col-md-5 col-xs-12 col-sm-12 ml-sm-5 mt-4">
             <h2 class="text-info text-center">Bosnia & Herzegovina</h2>
             <p class="h4 text-primary mb-3 text-center">Our best places</p>
             <div id="carousel3" class="carousel slide" data-ride="carousel">
@@ -314,7 +314,7 @@ $dbc->close();
             </div>
         </div>
         <!--TODO: podaci iz baze-->
-        <div class="col-5 mt-4" style="margin-left:135px !important;">
+        <div class="col-md-5 col-xs-12 col-sm-12 mt-4" id="carouselHotel">
             <h2 class="text-info text-center">Bosnia & Herzegovina</h2>
             <p class="h4 text-primary mb-3 text-center">The best hotels in Sarajevo</p>
             <div id="carousel2" class="carousel slide" data-ride="carousel">
@@ -326,43 +326,43 @@ $dbc->close();
                 </ol>
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item" style="border-radius:5%;">
-                        <a href="hotel.php">
+                        <!-- <a href="hotel.php"> -->
                             <img src="images/krone.jpg" alt="slide1" style="border-radius:5%;" class="d-block img-fluid index2">
-                        </a>
+                       <!--  </a> -->
                         <div class="carousel-caption">
-                            <a href="hotel.php" style="text-decoration:none !important;">
+                            <!-- <a href="hotel.php" style="text-decoration:none !important;"> -->
                                 <h3 class="display-4 text-warning">Krone Hotel</h3>
-                            </a>
+                            <!-- </a> -->
                         </div>
                     </div>
                     <div class="carousel-item" style="border-radius:5%;">
-                        <a href="hotel.php">
+                        <!-- <a href="hotel.php"> -->
                             <img src="images/scc.jpg" alt="slide2" style="border-radius:5%;" class="d-block img-fluid index2">
                         </a>
                         <div class="carousel-caption">
-                            <a href="hotel.php" style="text-decoration:none !important;">
+                            <!-- <a href="hotel.php" style="text-decoration:none !important;"> -->
                                 <h3 class="display-4 text-warning">Al Shidi - SCC Hotel</h3>
-                            </a>
+                            <!-- </a> -->
                         </div>
                     </div>
                     <div class="carousel-item active" style="border-radius:5%;">
-                        <a href="hotel.php">
+                        <!-- <a href="hotel.php"> -->
                             <img src="images/malak.jpg" alt="slide3" style="border-radius:5%;" class="d-block img-fluid index2">
-                        </a>
+                        <!-- </a> -->
                         <div class="carousel-caption">
-                            <a href="hotel.php" style="text-decoration:none !important;">
+                            <!-- <a href="hotel.php" style="text-decoration:none !important;"> -->
                                 <h3 class="display-4 text-warning">Malak Hotel</h3>
-                            </a>
+                            <!-- </a> -->
                         </div>
                     </div>
                     <div class="carousel-item" style="border-radius:5%;">
-                        <a href="hotel.php">
+                        <!-- <a href="hotel.php"> -->
                             <img src="images/mariot.jpg" alt="slide4" style="border-radius:5%;" class="d-block img-fluid index2">
-                        </a>
+                        <!-- </a> -->
                         <div class="carousel-caption">
-                            <a href="hotel.php" style="text-decoration:none !important;">
+                            <!-- <a href="hotel.php" style="text-decoration:none !important;"> -->
                                 <h3 class="display-4 text-warning">Marriott Hotel</h3>
-                            </a>
+                            <!-- </a> -->
                         </div>
                     </div>
                 </div>
@@ -374,7 +374,7 @@ $dbc->close();
 
     <section class="mt-4 hidden">
         <div class="row no-gutters">
-            <div class="col-3">
+            <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="card" id="why" style="height:180px;">
                     <div class="card-body">
                         <h3 class="card-title text-white text-center " style="margin-top:50px; font-size:37px;">WHY BTT?</h3>
@@ -382,7 +382,7 @@ $dbc->close();
                     </div>
                 </div>
             </div>
-            <div class="col-3" style="padding-right:0px !important; padding-left:0px; ">
+            <div class="col-md-3 col-sm-6 col-xs-12" style="padding-right:0px !important; padding-left:0px; ">
                 <div class="card">
                     <div class="card-body why-2 text-white text-center" style="height:180px;">
                         <i class="fas fa-thumbs-up fa-3x mb-3 text-primary"></i>
@@ -391,7 +391,7 @@ $dbc->close();
                     </div>
                 </div>
             </div>
-            <div class="col-3" style="padding-right:0px !important; padding-left:0px;">
+            <div class="col-md-3 col-sm-6 col-xs-12" style="padding-right:0px !important; padding-left:0px;">
                 <div class="card">
                     <div class="card-body why-2 text-white text-center" style="height:180px;">
                         <i class="fab fa-envira fa-3x mb-3 text-success"></i>
@@ -400,7 +400,7 @@ $dbc->close();
                     </div>
                 </div>
             </div>
-            <div class="col-3" style="padding-right:0px !important; padding-left:0px;">
+            <div class="col-md-3 col-sm-6 col-xs-12" style="padding-right:0px !important; padding-left:0px;">
                 <div class="card">
                     <div class="card-body why-2 text-white text-center" style="height:180px;">
                         <i class="fas fa-certificate fa-3x mb-3 text-warning"></i>

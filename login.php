@@ -56,7 +56,7 @@
 </head>
 <body>
 
-    <nav class="navbar bg-warning navbar-light  navbar-expand-md fixed-top" style="opacity:0.7; font-size:18px;">
+    <nav class="navbar bg-warning navbar-light  navbar-expand-sm fixed-top" style="opacity:0.7; font-size:18px;">
         <a href="index.php" class="navbar-brand"><img src="images/icon.png" alt="logo" class="img-fluid mr-3" width="45" height="45" /><span class="h4">BTT</span></a>
         <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expended="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -77,33 +77,37 @@
     </nav>
 
             <div id="bg">
-                <div class="offset-4">
+                <div>
                     <form id="loginForm" name="loginForm">
-                        <div class="card" style="width: 22rem; margin-top:-15px;background:none !important; border:none;">
+                        <div class="card" style=" margin-top:-15px;background:none !important; border:none;">
                             <div class="card-body text-center">
                                 <img class="card-img-top mb-3" src="images/icon.png" style="width:90px !important; margin-top:150px !important;" height="80" alt="Card image cap">
                                 <h3 class="card-title text-uppercase text-warning">Login</h3>
                             </div>
                             <ul class="list-group list-group-flush" style="margin-top:-20px;">
-                                <li class="list-group-item bg-info" style="background:none !important;">
-                                    <div class="em">
-                                        <input type="email" placeholder="you@example.com" class="form-control mb-2" id="emailLog" name="emailLog" required data-msg-required="Please enter your email!!!" data-msg-email="Please enter validate email!!!">
-                                        <i class="far fa-envelope-open emIcon"></i>
-                                    </div>
-                                </li>
-                                <li class="list-group-item bg-info" style="background:none !important;">
-                                    <div class="pass">
-                                        <input type="password" placeholder="Password..." class="form-control" name="passLog" id="passLog" required data-msg="Please enter your password!!!">
-                                        <i class="far fa-eye passIcon" id="passIcon"></i>
-                                    </div>
-                                </li>
+                                <div class="col-lg-4 col-md-6 offset-md-4">
+                                    <li class="list-group-item bg-info" style="background:none !important;">
+                                        <div class="em">
+                                            <input type="email" placeholder="you@example.com" class="form-control mb-2" id="emailLog" name="emailLog" required data-msg-required="Please enter your email!!!" data-msg-email="Please enter validate email!!!">
+                                            <i class="far fa-envelope-open emIcon"></i> 
+                                        </div>
+                                    </li>
+                                </div>
+                                <div class="col-lg-4 col-md-6 offset-md-4">
+                                    <li class="list-group-item bg-info" style="background:none !important;">
+                                        <div class="pass">
+                                            <input type="password" placeholder="Password..." class="form-control" name="passLog" id="passLog" required data-msg="Please enter your password!!!">
+                                            <i class="far fa-eye passIcon" id="passIcon"></i>
+                                        </div>
+                                    </li>
+                                </div>
                             </ul>
                             <div class="row no-gutters">
 
-                                <div class="col-7">
-                                    <a href="register.php" class="badge ml-3 text-warning" style="text-decoration:none;"><span style="font-size:13px;">No account?</span></a>
+                                <div class="col-2 offset-md-4">
+                                    <a href="register.php" class="badge ml-4 text-warning" style="text-decoration:none;"><span style="font-size:13px;">No account?</span></a>
                                 </div>
-                                <div class="col-5">
+                                <div class="col-1 col-sm-2 col-md-4 offset-md-2 offset-lg-0 offset-sm-7 offset-6" id="forgotLogin">
                                     <a href="forgotPass.php" class="badge text-warning" style="text-decoration:none;"><span style="font-size:13px;">Forgot password?</span></a>
                                 </div>
                             </div>
@@ -114,8 +118,8 @@
                         <div class="alert mt-3 ml-3" id="alertLog" style="width:350px;"></div>
                     </form>
                 </div>
-                <div class="text-center text-warning" style="margin-left:-100px;">
-                    <p style="font-size:20px;">Copyright &copy; 2018 Abdurahman Almonajed</p>
+                <div class="text-center text-warning" id="copyright">
+                    <p style="font-size:20px; margin-bottom:0px;">Copyright &copy; 2018 Abdurahman Almonajed</p>
                   
                 </div>
             </div>

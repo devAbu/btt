@@ -112,17 +112,17 @@ label.error {
 
     <section class="bg">
         <div class="row no-gutters">
-            <div class="col-2 offset-2 mt-5">
+            <div class="col-md-2 col-12 offset-5 offset-md-2 mt-5">
                 <h2 class="text-uppercase text-warning">About Us:</h2>
             </div>
-            <div class="col-6 ml-5 mt-5">
+            <div class="col-md-6 col-8 ml-md-5 offset-2 offset-md-0  mt-5">
                 <p style="font-size:22px; color: rgb(255, 255, 0);">
                   Bosnia Travels agency is run by young and creative team who can respond all your needs. In cooperation with our partners (hotels, restaurants, real estate agencies, rent-a-car companies, professional tourist guides) we guarantee you to get the best services!
 
 Either you are looking for VIP services or low budget trip; we will make the best offer according to your demands. Our goal is to deliver you the best of the quality services!
                 </p>
             </div>
-            <div class="col-5 offset-2">
+            <div class="col-md-5  offset-md-2 col-12 offset-4">
                 <div class="card" style="width: 20rem;">
                     <img class="card-img-top aboutUs" src="images/abu.jpg" alt="Owner" height="250">
                     <div class="card-body text-center">
@@ -153,7 +153,7 @@ Either you are looking for VIP services or low budget trip; we will make the bes
                     </button>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-4 offset-4 offset-md-0 mt-3 mt-md-0">
                 <div class="card" style="width: 20rem;">
                     <img class="card-img-top aboutUs" src="images/oba.jpg" alt="Owner" width="250" height="250">
                     <div class="card-body text-center">

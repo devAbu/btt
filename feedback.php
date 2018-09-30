@@ -116,11 +116,11 @@ label.error {
         <h2 class="display-4 text-center text-info mb-5 mt-4">Be free to contact us, we are here to please you.</h2>
         <form id="feedbackForm" name="feedbackForm">
             <p class="text-center h2 text-primary mb-5">Tell us what you think!</p>
-            <div class="col-9 offset-3">
-                <textarea cols="50" rows="10" class="form-control error" style="max-width:550px;margin-left:50px;" placeholder="Please write your opinion..." id="feedback" name="feedback" required data-msg="This field is required"></textarea>
+            <div class="col-md-9 offset-md-3 ">
+                <textarea cols="50" rows="10" class="form-control error" style="max-width:550px;margin-left:50px;resize: none" placeholder="Please write your opinion..." id="feedback" name="feedback" required data-msg="This field is required"></textarea>
             </div>
             <div class="col-lg-6 offset-5 ">
-                <input type="button" id="feedbackButton" name="feedbackButton" class="btn btn-lg btn-outline-success mt-3 ml-5 mb-2" value="SEND" />
+                <input type="button" id="feedbackButton" name="feedbackButton" class="btn btn-lg btn-outline-success mt-3 ml-md-5 mb-2" value="SEND" />
             </div>
             <div class="alert mt-3" id="alertFeedback"></div>
         </form>';
