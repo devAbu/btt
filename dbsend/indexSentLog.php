@@ -9,25 +9,29 @@ $hashedPass = $hash_pass = password_hash($passLog, PASSWORD_DEFAULT);
 
 if ($_REQUEST['task'] == "login") {
 
-    $sql = "SELECT `email`, `password` FROM `registacija` WHERE `email` = '$emailLog'";
+    $sql = "SELECT `email`, `password`, `activated` FROM `registacija` WHERE `email` = '$emailLog'";
     $result = $dbc->query($sql);
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             if ($row['email'] == $emailLog) {
-                if (password_verify($passLog, $row['password'])) {
-                    $query = "INSERT INTO `login` (`name`,`password`) VALUES ('$emailLog', '$hashedPass')";
+                if ($row['activated'] == 1) {
+                    if (password_verify($passLog, $row['password'])) {
+                        $query = "INSERT INTO `login` (`name`,`password`) VALUES ('$emailLog', '$hashedPass')";
 
-                    $response = @mysqli_query($dbc, $query);
-                    if ($response) {
-                        echo ('sent');
-                        session_start();
-                        $_SESSION["email"] = $row["email"];
+                        $response = @mysqli_query($dbc, $query);
+                        if ($response) {
+                            echo ('sent');
+                            session_start();
+                            $_SESSION["email"] = $row["email"];
+                        } else {
+                            echo mysqli_error($dbc);
+                        }
                     } else {
-                        echo mysqli_error($dbc);
+                        echo ('pass');
                     }
                 } else {
-                    echo ('pass');
+                    echo ('activated');
                 }
             } else {
                 echo ('mail');

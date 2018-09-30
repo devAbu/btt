@@ -10,7 +10,7 @@ $passSign = $_REQUEST['passSign'];
 $hashedPass = $hash_pass = password_hash($passSign, PASSWORD_DEFAULT);
 
 if ($_REQUEST['task'] == "register") {
-    $query = "INSERT INTO registacija (`name`, `surname`, email, `password`) VALUES ('$firstSign','$lastSign', '$emailSign', '$hashedPass')";
+    $query = "INSERT INTO registacija (`name`, `surname`, email, `password`, `activated`) VALUES ('$firstSign','$lastSign', '$emailSign', '$hashedPass', 0)";
 
     $response = @mysqli_query($dbc, $query);
     if ($response) {

@@ -18,6 +18,10 @@ $('#logButton').click(function () {
                 setTimeout(function () {
                     window.location.replace(window.location.href)
                 }, delay);
+            } else if (data.indexOf('activated') > -1) {
+                $("#alertLog").addClass('alert-danger');
+                $("#alertLog").html('Please activate your email address');
+                $("#alertLog").slideDown(500).delay(1000).slideUp(500);
             } else if (data.indexOf('pass') > -1) {
                 $("#alertLog").addClass('alert-danger');
                 $("#alertLog").html('Password is incorrect');

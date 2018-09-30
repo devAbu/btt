@@ -6,7 +6,16 @@ use PHPMailer\PHPMailer\Exception;
 //Load Composer's autoloader
 require 'vendor/autoload.php';
 
-$mail = new PHPMailer(true);                              // Passing `true` enables exceptions
+$mail = new PHPMailer(true);   // Passing `true` enables exceptions
+
+$firstSign = $_REQUEST['firstSign'];
+$lastSign = $_REQUEST['lastSign'];
+$emailSign = $_REQUEST['emailSign'];
+
+echo $firstSign . '<br>';
+echo $lastSign . '<br>';
+echo $emailSign . '<br>';
+
 try {
     //Server settings
     $mail->SMTPDebug = 1;                                 // Enable verbose debug output
@@ -20,24 +29,45 @@ try {
 
     //Recipients
     $mail->setFrom('no-reply@btt.ba', 'BTT');
-    $mail->addAddress('obada_almonajed@hotmail.com');     // Add a recipient
+    /* TODO: povuc email od korisnika i na taj poslat verifikaciju */
+    $mail->addAddress($emailSign);     // Add a recipient
           // Name is optional
     /* $mail->addReplyTo('info@example.com', 'Information');
     $mail->addCC('cc@example.com');
     $mail->addBCC('bcc@example.com');
      */
     //Attachments
-    /* $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-    $mail->addAttachment('/tmp/image.jpg', 'new.jpg');  */   // Optional name
+     /*$mail->addAttachment('/var/tmp/file.tar.gz');           // Add attachments
+    $mail->addAttachment('images/icon.png', 'BTT logo');  */ // Optional name
 
     //Content
     $mail->isHTML(true);                                  // Set email format to HTML
-    $mail->Subject = 'Here is the subject';
-    $mail->Body = 'This is the HTML message body <b>in bold!</b>';
-    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+    $mail->Subject = 'BTT.ba | E-mail verification';
+    $mail->Body = '<center>
+    Dear <b>' . $firstSign . ' ' . $lastSign . '</b>, <br> 
+    First of all, we want to thank you for creating account at BTT.BA <br>
+    Before you can login with your account information, please click on link below to verify your email address<br>
+    http://localhost/github/btt/verify.php?email=' . $emailSign . '
+        </center> ';
+    $mail->AltBody = ' This is the body in plain text for non - HTML mail clients ';
 
+
+    echo ' Message has been sent < br > ';
+
+    $_SESSION[' url '] = $_SERVER[' HTTP_REFERER '];
+    if (isset($_SESSION[' url '])) {
+        if ($_SESSION[' url '] != ' http ://localhost/github/btt/myCart.php')
+            $url = $_SESSION['url'];
+        else
+            $url = "index.php";
+    } else {
+        $url = "index.php";
+    }
+    echo $url;
+
+    header("location:" . $url);
     $mail->send();
-    echo 'Message has been sent';
+
 } catch (Exception $e) {
     echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
 }

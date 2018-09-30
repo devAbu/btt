@@ -37,16 +37,17 @@ $('#signButton').click(function () {
             success: function (data) {
                 if (data.indexOf('sent') > -1) {
                     $("#alert").addClass('alert-success');
-                    $("#alert").html('Your account created successfully. Now you can login with your information');
+                    $("#alert").html('Your account created successfully. Please verify your email');
                     $("#alert").slideDown(500).delay(2000).slideUp(500);
                     $('#firstSign').val("");
                     $('#lastSign').val("");
                     $('#emailSign').val("");
                     $('#passSign').val("");
-                    var delay = 2000;
+                    window.location = "http://localhost/github/btt/phpSendEmail?emailSign=" + emailSign + "&firstSign=" + firstSign + "&lastSign=" + lastSign
+                    /* var delay = 2000;
                     setTimeout(function () {
-                        window.location.replace(window.location.href)
-                    }, delay);
+                        window.location = "http://localhost/github/btt/phpSendEmail";
+                    }, delay); */
                 } else {
                     $("#alert").addClass('alert-danger');
                     $("#alert").html('The email is already exists.');
