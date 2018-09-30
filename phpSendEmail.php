@@ -29,7 +29,6 @@ try {
 
     //Recipients
     $mail->setFrom('no-reply@btt.ba', 'BTT');
-    /* TODO: povuc email od korisnika i na taj poslat verifikaciju */
     $mail->addAddress($emailSign);     // Add a recipient
           // Name is optional
     /* $mail->addReplyTo('info@example.com', 'Information');
