@@ -1,9 +1,9 @@
 <?php
 session_start();
 ?>
-<nav class="navbar bg-primary navbar-dark navbar-expand-md fixed-top" style="opacity:0.7; font-size:18px;">
+<nav class="navbar bg-primary navbar-dark navbar-expand-md fixed-top" id="navbar" style="opacity:0.7; font-size:18px;">
         <a href="index.php" class="navbar-brand">
-            <img src="images/icon.png" alt="logo" class="img-fluid mr-3" width="45" height="45" />
+            <img src="images/icon.png" alt="logo" class="img-fluid mr-sm-3" width="45" height="45" />
             <span class="h4">BTT</span>
         </a>
         <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"

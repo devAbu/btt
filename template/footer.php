@@ -10,7 +10,7 @@
             </div>
             <div class="col-md-5 col-sm-12 col-xs-12 mt-5 offset-md-1">
                 <h1 class="text-warning mb-5 text-uppercase" style="margin-top:13px !important; opacity:0.7;">Contact info</h1>
-                <ul class="list-group list-group-flush" style="width:500px; border:none;">
+                <ul class="list-group list-group-flush" style=" border:none;">
                     <li class="list-group-item text-warning bg-secondary mt-4">Address:
                         <span class="ml-lg-5 ml-md-0 ml-sm-5" id="footerAddress">
                             <a href="#" id="map" data-toggle="modal" class="text-warning" data-target="#map7" style="text-decoration:none;">

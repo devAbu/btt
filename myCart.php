@@ -159,9 +159,14 @@ label.error {
                         <i class="fas fa-euro-sign mr-4 "></i> ' . $row["price"] . '</p>
                 </li>
             </ul>
+             <ul class="navbar-nav ml-auto selectTour" style="float:right; margin-top:-100px;">
+                <li class="list-group-item" style="border:none;">
+                    <input type="submit" name="select" id="select" class="btn btn-warning " value="Delete " style="width:100px; " />
+                </li>
+            </ul>
 
-            <ul class="list-group list-group-flush mr-5 " style=" border:none;float:right; margin-top:-100px; ">
-                <!-- <li class="list-group-item text-warning mt-4 " style="border:none; ">
+            <!-- <ul class="list-group list-group-flush mr-5 " style=" border:none;float:right; margin-top:-100px; ">
+                <li class="list-group-item text-warning mt-4 " style="border:none; ">
                     <p class="card-text "></p>
                     <input type="button " class="btn btn-warning " value="More Detalis " />
                 </li
@@ -173,13 +178,13 @@ label.error {
                         <i class="far fa-star "></i>
                         <i class="far fa-star "></i>
                     </p>
-                </li>>-->';
+                </li>';
                         echo '
 
                 <li class="list-group-item " style="border:none">
                     <input type="submit" name="select" id="select" class="btn btn-warning " value="Delete " style="width:100px; " />
                 </li>
-            </ul>
+            </ul>-->
             </div>
             <div class="card-footer text-muted ">
                 <small class="text-muted ">
@@ -219,32 +224,32 @@ label.error {
                 <input type="text" value=" ' . $count . ' "  name="count" id="count" hidden>
                 <div class="card-body ">
                     <div class="row">
-                        <div class="col-4 mb-2">
+                        <div class="col-md-4 col-12 mb-2">
                             <label>City: </label>
                             <input type="text" class="form-control" id="city"  value="' . $row["city"] . '" readonly>
 
                         </div>
-                        <div class="col-6 mb-2">
+                        <div class="col-md-6 col-12 mb-2">
                         <label>Length: </label>
                             <input type="number" class="form-control" id="length" value="' . $row["length"] . '" readonly>
                         </div>
-                        <div class="col-4 mb-2">
+                        <div class="col-md-4 col-12 mb-2">
                         <label>budget: </label>
                             <input type="number" class="form-control" id="budget"  value="' . $row["budget"] . '" readonly>
                         </div>
-                        <div class="col-6 mb-2">
+                        <div class="col-md-6 col-12 mb-2">
                         <label>people: </label>
                             <input type="number"  class="form-control" id="people" value="' . $row["people"] . '" readonly>
                         </div>
-                        <div class="col-4 mb-2">
+                        <div class="col-md-4 col-12 mb-2">
                         <label>period: </label>
                             <input type="text" class="form-control" id="period" value="' . $row["period"] . '" readonly>
                         </div>
-                        <div class="col-6 mb-2">
+                        <div class="col-12 col-md-6 mb-2">
                         <label>interpreter: </label>
                             <input type="text" class="form-control" id="interpreter" value="' . $row["interpreter"] . '" readonly>
                         </div>
-                        <div class="col-4 mb-2">
+                        <div class="col-12 col-md-4 mb-2">
                         <label>price: </label>
                             <input type="number" class="form-control" id="price" value="' . $row["price"] . '" readonly>
                         </div>

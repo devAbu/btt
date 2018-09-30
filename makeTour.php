@@ -15,8 +15,8 @@ session_start();
   <meta name="author" content="abu">
   <meta name="keywords" content="btt, bosnian, tourist, travel, agency, arabic, bosna">
   <meta name="description" content="BTT - Bosnian Tourist Travel offers the best tour plans and the best hotels in B&H. ">
- <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
-      crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+      crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -116,83 +116,130 @@ label.error {
     <section>
      <?php
     if (isset($_SESSION["email"])) {
-        echo '<div class="row">
-            <div class="offset-1 col-3">
-                <h4 class="text-success">City:</h4>
+        echo '<div class="row" >
+                <div class="offset-1 col-12 col-md-5 col-lg-4 col-sm-12 offset-sm-3 offset-md-1">
+                    <h4 class="text-success">City:</h4>
+                    
+                        <div class="form-check form-check-inline">
+                            <label for="sarajevo" class="col-2 col-form-label">Sarajevo</label>
+                            <div class="col-1">
+                                <input class="w3-check" id="sarajevo" onclick="price()" name="sarajevo" type="checkbox">
+                            </div>
+                            <label for="mostar" class="col-2 col-form-label">Mostar</label>
+                            <div class="col-1">
+                                <input class="w3-check " id="mostar" name="mostar" onclick="price()" type="checkbox">
+                            </div>
+                            <label for="jajce" class="col-2 col-form-label">Jajce</label>
+                            <div class="col-1">
+                                <input class="w3-check" id="jajce" name="jajce" onclick="price()" type="checkbox">
+                            </div>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <label for="jajce" class="col-2 col-form-label">Jajce</label>
+                            <div class="col-1">
+                                <input class="w3-check" id="jajce" name="jajce" onclick="price()" type="checkbox">
+                            </div>
+                            <label for="konjic" class="col-2 col-form-label">Konjic</label>
+                            <div class="col-1">
+                                <input class="w3-check" id="konjic" name="konjic" onclick="price()" type="checkbox">
+                            </div>
+                            
+                            <label for="trebevic" class="col-2 col-form-label">Trebevic</label>
+                            <div class="col-1">
+                                <input class="w3-check" id="trebevic" name="trebevic" onclick="price()" type="checkbox">
+                            </div>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <label for="igman" class="col-2 col-form-label">Igman</label>
+                            <div class="col-1">
+                                <input class="w3-check" id="igman" name="igman" onclick="price()" type="checkbox">
+                            </div>
+                            <label for="jahorina" class="col-2 col-form-label">Jahorina</label>
+                            <div class="col-1">
+                                <input class="w3-check" id="jahorina" onclick="price()" name="jahorina" type="checkbox">
+                            </div>
+                            <label for="bjelasnica" class="col-2 col-form-label">Bjelasnica</label>
+                            <div class="col-1">
+                                <input class="w3-check " id="bjelasnica" name="bjelasnica" onclick="price()" type="checkbox">
+                            </div>
+                        </div>
+                        <div class="col-8 col-sm-6 col-md-10">
+                            <input type="text" class="form-control mt-2" id="other" onchange="price()" name="other" placeholder="Other..." />
+                        </div>
+                    
+                </div>
+                <div class="col-12 offset-1 mr-md-5 mr-lg-0 col-md-5 col-lg-3 col-sm-5 ml-lg-2 offset-sm-3 offset-md-0 mt-sm-3 mt-md-0">
+                    <div class="row">
+                        <div class="col-sm-12 col-8">
+                            <h4 class="text-success">Budget:</h4>
+                            <div class="input-group">
+                                <span class="input-group-addon">$</span>
+                                <input type="number" id="budget" onchange="price()" name="budget" value="0" min="0" step="10"  max="8999" class="form-control currency"
+                                />
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-8">
+                            <h4 class="text-success">No. of people:</h4>
 
-                <input class="w3-check mr-1" id="sarajevo" onclick="price()" name="sarajevo" type="checkbox">Sarjevo
-                <input class="w3-check mr-1" id="mostar" name="mostar" onclick="price()" type="checkbox">Mostar
-                <input class="w3-check mr-1" id="jajce" name="jajce" onclick="price()" type="checkbox">Jajce
-                <input class="w3-check mr-1" id="konjic" name="konjic" onclick="price()" type="checkbox">Konjic
-                <br />
-                <input class="w3-check  mr-1 mt-1" id="bjelasnica" name="bjelasnica" onclick="price()" type="checkbox">Bjelasnica
-                <input class="w3-check mr-1" id="trebevic" name="trebevic" onclick="price()" type="checkbox">Trebevic
-                <input class="w3-check mr-1" id="igman" name="igman" onclick="price()" type="checkbox">Igman
-                <br />
-                <input class="w3-check mr-1 mt-1" id="jahorina" onclick="price()" name="jahorina" type="checkbox">Jahorina
-                <br />
-                <input type="text" class="form-control mt-2" id="other" onchange="price()" name="other" placeholder="Other..." />
-                <!-- title="For multiple places please use ', '" -->
-            </div>
-            <div class="col-3 mr-5">
-                <div class="row">
-                    <div class="col-12">
-                        <h4 class="text-success">Budget:</h4>
-                        <div class="input-group">
-                            <span class="input-group-addon">$</span>
-                            <input type="number" id="budget" onchange="price()" name="budget" value="0" min="0" step="10"  max="8999" class="form-control currency"
+                            <input type="number" id="people" onchange="price()" name="people" value="0" min="0" step="1" max="15" class="form-control"
                             />
                         </div>
                     </div>
-                    <div class="col-12">
-                        <h4 class="text-success">No. of people:</h4>
-
-                        <input type="number" id="people" onchange="price()" name="people" value="0" min="0" step="1" max="15" class="form-control"
-                        />
-                    </div>
                 </div>
-            </div>
-            <div class="col-3 ml-5">
-                <div class="row">
-                    <div class="col-12">
-                        <h4 class="text-success">Price:</h4>
-                        <div class="input-group">
-                            <span class="input-group-addon">$</span>
-                            <input type="number" value="0" id="price" name="price" readonly data-number-to-fixed="2" style="height:50px;" class="form-control currency"
-                            />
+                <div class="col-8 offset-1 mt-4 mt-md-4 col-md-5 offset-md-1 col-lg-3 offset-lg-0 ml-lg-5 col-sm-5 offset-sm-3 mt-sm-4">
+                    <div class="row">
+                        <div class="col-12">
+                            <h4 class="text-success">Price:</h4>
+                            <div class="input-group">
+                                <span class="input-group-addon">$</span>
+                                <input type="number" value="0" id="price" name="price" readonly data-number-to-fixed="2" style="height:50px;" class="form-control currency"
+                                />
+                            </div>
                         </div>
                     </div>
-                    <div class="col-12 mt-4">
-                        <button class="btn btn-lg btn-success" style="width: 315px;" id="send" name="send"> Send request</button>
-                    </div>
+                </div>
+                <div class="col-8 offset-1 offset-lg-1 col-md-5 col-sm-5 col-lg-3 mt-4 mb-3 offset-sm-3 offset-md-0">
+                    <h4 class="text-success">Tour Length (days):</h4>
+
+                    <input type="number" id="length"  name="length" value="0" min="0" max="10" step="1" class="form-control"
+                    />
+                </div>
+                <div class=" col-8 offset-1 mt-4 col-md-5 offset-md-1 col-sm-5 offset-sm-1 col-lg-3 offset-lg-0 offset-sm-3">
+                    <h4 class="text-success">Period:</h4>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="zima">Zima</label>
+                                <input class="w3-check  mr-1" id="zima" onclick="price()" name="zima" type="checkbox">
+                        </div>
+                        <div class="col-6">
+                            <label for="ljeto">Ljeto</label>
+                                <input class="w3-check mr-1" id="ljeto" onclick="price()" name="ljeto" type="checkbox">
+                        </div>
+                        <div class="col-6">
+                            <label for="proljece">Proljece</label>
+                                <input class="w3-check mr-1" id="proljece" onclick="price()" name="proljece" type="checkbox">
+                        </div>
+                        <div class="col-6">
+                            <label for="jesen">Jesen</label>
+                                <input class="w3-check mr-1" id="jesen" onclick="price()" name="jesen" type="checkbox">
+                                <br />
+                        </div>
+                       </div>
+                </div>
+                <div class="col-8 offset-1  offset-md-0 col-md-5 offset-sm-3 col-lg-3 offset-lg-1 mt-4">
+                    <h4 class="text-success">Interpreter:</h4>
+
+                    <input type="radio"  id="yes" onclick="price()" name="interpreter" />Yes
+                    <input type="radio" id="no" onclick="price()" name="interpreter" />No
+                </div>
+                <div class="col-8 mt-4 offset-1 offset-md-4 offset-sm-3">
+                    <button class="btn btn-lg btn-success" style="width: 315px;" id="send" name="send"> Send request</button>
                 </div>
             </div>
-            <div class="col-3 offset-1 mt-4 mb-3">
-                <h4 class="text-success">Tour Length (days):</h4>
-
-                <input type="number" id="length"  name="length" value="0" min="0" max="10" step="1" class="form-control"
-                />
-            </div>
-            <div class=" col-3 mt-4">
-                <h4 class="text-success">Period:</h4>
-
-                <input class="w3-check  mr-1" id="zima" onclick="price()" name="zima" type="checkbox">Zima
-                <input class="w3-check mr-1" id="ljeto" onclick="price()" name="ljeto" type="checkbox">Ljeto
-                <input class="w3-check mr-1" id="proljece" onclick="price()" name="proljece" type="checkbox">Proljece
-                <input class="w3-check mr-1" id="jesen" onclick="price()" name="jesen" type="checkbox">Jesen
-                <br />
-            </div>
-            <div class="col-3 offset-1 mt-4">
-                <h4 class="text-success">Interpreter:</h4>
-
-                <input type="radio"  id="yes" onclick="price()" name="interpreter" />Yes
-                <input type="radio" id="no" onclick="price()" name="interpreter" />No
-            </div>
-        </div>
-        <div class="alertReq" id="alertReq"></div>
+            <div class="alertReq" id="alertReq"></div>
         <div id="dialog" title="Warning">
-        <p>Your budget is smaller than the total price!!!</p>
-            </div>
+            <p>Your budget is smaller than the total price!!!</p>
+        </div>
         ';
     } else {
         echo "<div class='row'><div class='offset-5 text-center mt-5 mb-5'><a href='#' data-toggle='modal' data-target='#LoginModal'><span class='text-warning' style='font-size: 20px;'>LOGIN</span></a> to be able to make tour request!!!</div></div>";

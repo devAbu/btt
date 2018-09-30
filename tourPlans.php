@@ -442,28 +442,15 @@ if (isset($where)) {
                     <p class="card-text " style="float:left; ">
                         <i class="fas fa-euro-sign mr-4 "></i> ' . $row["price"] . '</p>
                 </li>
+                
             </ul>
-
-            <ul class="list-group list-group-flush mr-5 " style=" border:none;float:right; margin-top:-100px; ">
-                <!-- <li class="list-group-item text-warning mt-4 " style="border:none; ">
-                    <p class="card-text "></p>
-                    <input type="button " class="btn btn-warning " value="More Detalis " />
-                </li>
-                <li class="list-group-item text-warning " style=" border:none;">
-                    <p class="card-text ">
-                        <i class="far fa-star "></i>
-                        <i class="far fa-star "></i>
-                        <i class="far fa-star "></i>
-                        <i class="far fa-star "></i>
-                        <i class="far fa-star "></i>
-                    </p>
-                </li>-->';
-                echo '
-                <input type="number" value="' . $i . '" id="test" hidden>
-                <li class="list-group-item " style="border:none">
+            <ul class="navbar-nav ml-auto selectTour" style="float:right; margin-top:-100px;">
+                <li class="list-group-item" style="border:none;">
                     <input type="submit" name="select" id="select" class="btn btn-warning " value="Select " style="width:100px; " />
                 </li>
             </ul>
+
+            
             </div>
             <div class="card-footer text-muted ">
                 <small class="text-muted ">
@@ -518,9 +505,16 @@ if (isset($where)) {
                         <i class="fas fa-euro-sign mr-4 "></i> ' . $row["price"] . '</p>
                 </li>
             </ul>
+            <ul class="navbar-nav ml-auto selectTour" style="float:right; margin-top:-100px;">
+                <li class="list-group-item" style="border:none;">
+                <a href="login.php">
+                    <input type="button" name="select" id="select" class="btn btn-warning " value="Login " style="width:100px; " />
+                    </a>
+                </li>
+            </ul>
 
-            <ul class="list-group list-group-flush mr-5 " style=" border:none;float:right; margin-top:-100px; ">
-                <!-- <li class="list-group-item text-warning mt-4 " style="border:none; ">
+            <!--<ul class="list-group list-group-flush mr-5 " style=" border:none;float:right; margin-top:-100px; ">
+                 <li class="list-group-item text-warning mt-4 " style="border:none; ">
                     <p class="card-text "></p>
                     <input type="button " class="btn btn-warning " value="More Detalis " />
                 </li>
@@ -532,15 +526,15 @@ if (isset($where)) {
                         <i class="far fa-star "></i>
                         <i class="far fa-star "></i>
                     </p>
-                </li>-->';
+                </li>';
                 echo '
                 <input type="number" value="' . $i . '" id="test" hidden>
                 <li class="list-group-item " style="border:none">
-                <a href="login.php">
-                    <input type="button" name="select" id="select" class="btn btn-warning " value="Login " style="width:100px; " />
+                    <a href="login.php">
+                        <input type="button" name="select" id="select" class="btn btn-warning " value="Login " style="width:100px; " />
                     </a>
                 </li>
-            </ul>
+            </ul>-->
             </div>
             <div class="card-footer text-muted ">
                 <small class="text-muted ">
