@@ -250,7 +250,7 @@ label.error {
     ?>
     </section>
 
-
+<!-- TODO: kad requesta da mu dodje email -->
     <div id="footerInclude"></div>
     
 <!-- TODO: ubacit driver u bazu -->

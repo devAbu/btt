@@ -123,6 +123,7 @@ label.error {
                 $count = $result->num_rows;
                 if ($count > 0) {
                     while ($row = $result->fetch_assoc()) {
+                        //TODO: vidjet da se doda update kad bude datum ubacen
                         echo '<form action = "delete/deleteTour.php" method = "POST"><div class="card text-center mt-4 ">
             <div class="card-header text-success h3 text-uppercase ">' .
                             $row["type"] . '
@@ -132,14 +133,14 @@ label.error {
             <input type="text" value=" ' . $count . ' "  name="count" id="count" hidden>
             <div class="card-body ">
                 <h5 class="card-title text-left ml-5 h1 text-primary "> ' . $row["title"] . '</h5>
-                <a href="# " style="text-decoration:none; ">
+                <!--<a href="# " style="text-decoration:none; ">-->
                     <img src="' . $row["img"] . '" class="tourPlans " alt="skijanje " width="400 " height="250
             " style="float:left; " />
-            </a>
+            <!--</a>-->
 
-            <a href="# " style="text-decoration:none; ">
+            <!--<a href="# " style="text-decoration:none; ">-->
                 <label class="card-text " style="max-width:800px; ">' . $row["description"] . '</label>
-            </a>
+            <!--</a>-->
 
             <ul class="list-group list-group-flush tourPlans2 " style="width:390px; border:none; ">
                 <li class="list-group-item text-warning mt-4 " style="border:none; ">
@@ -254,16 +255,64 @@ label.error {
                             <input type="number" class="form-control" id="price" value="' . $row["price"] . '" readonly>
                         </div>
                         <label class="ml-3 mt-4">Options: </label>
-
-                        <div class="col-2 mt-4">
+                        
+                        <div class="col-1 mt-4">
+                            <input type="button" id="update" class="btn btn-warning" value="Update" data-toggle="collapse" data-target="#collapseExample' . $row["id"] . '" aria-expanded="false" aria-controls="collapseExample">
+                        </div>
+                        <div class="col-1 mt-4">
                             <input type="submit" id="delete" class="btn btn-danger" value="Delete">
                         </div>
+                        
                     </div>
                 </div>
             </div>
             </form>
-            <div class="alert" id="alert"></div>
+                <div class="collapse" id="collapseExample' . $row["id"] . '">
+                      <div class="card card-body">
+                          <div class="row">
+                            <div class="col-12">
+                            <form action="updateTour.php" method="post">
+                            <input type="text" value=" ' . $row["id"] . ' "  name="idnum2" id="idnum2" hidden>
+                                <div class="col-6 mt-3">
+                                  <label for="tourCity" class="labelStyle">Tour cities: </label>
+                                  <input type="text" value=" ' . $row["city"] . ' "  name="tourCity" id="tourCity" class="form-control">
+                                </div>
+                                <div class="col-6 mt-3">
+                                  <label for="tourLength" class="labelStyle">Tour length: </label>
+                                  <input type="text" value=" ' . $row["length"] . ' "  name="tourLength" id="tourLength" class="form-control">
+                                </div>
+                                  <div class="col-6 mt-3">
+                                    <label for="tourBudget" class="labelStyle">User budget: </label>
+                                    <input type="text" value=" ' . $row["budget"] . ' "  name="tourBudget" id="tourBudget" class="form-control">
+                                </div>
+                                  <div class="col-6 mt-3">
+                                    <label for="tourPeople" class="labelStyle">No. people: </label>
+                                    <input type="text" value=" ' . $row["people"] . ' "  name="tourPeople" id="tourPeople" class="form-control">
+                                </div>
+                                  <div class="col-6 mt-3">
+                                    <label for="tourPeriod" class="labelStyle">Tour period: </label>
+                                    <input type="text" value=" ' . $row["price"] . ' "  name="tourPeriod" id="tourPeriod" class="form-control">
+                                </div>
+                                <div class="col-6 mt-3">
+                                  <label for="tourInterpreter" class="labelStyle">Interpreter: </label>
+                                  <input type="text" value=" ' . $row["interpreter"] . ' "  name="tourInterpreter" id="tourInterpreter" class="form-control">
+                                </div>
+                                  <div class="col-6 mt-3">
+                                    <label for="tourPrice" class="labelStyle">Tour price: </label>
+                                    <input type="text" value=" ' . $row["price"] . ' "  name="tourPrice" id="tourPrice" readonly class="form-control" >
+                                  </div>
+                                  <div class="offset-3 mt-3">
+                                    <input type="submit" value="Update" class="btn btn-success mb-2"  id="change">
+                                  </div>
+                                </form>
+                                </div>
+
+                          </div>
+                      </div>
+                    </div>
+
             ';
+/* TODO: na update da se cijena mijenja */
                 }
             } else {
                 echo '<div class=text-center>

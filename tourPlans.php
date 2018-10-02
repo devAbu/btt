@@ -388,7 +388,7 @@ echo $where;*/
 
     }
 }  */
-
+/* TODO: kad selektuje da mu dodje email */
 $sql = "SELECT * FROM tourplan ";
 $result = $dbc->query($sql);
 
