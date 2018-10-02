@@ -14,6 +14,11 @@ $('#logButton').click(function () {
                 $("#alertLog").slideDown(500).delay(1000).slideUp(500);
                 $('#emailLog').val("");
                 $('#passLog').val("");
+                if (window.location.href == "http://localhost/github/btt/login.php") {
+                    setTimeout(function () {
+                        window.history.back();
+                    }, 1500);
+                }
                 var delay = 1500;
                 setTimeout(function () {
                     window.location.replace(window.location.href)

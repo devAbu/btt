@@ -1,4 +1,3 @@
-<!--TODO: vidjet sa combetom jel treba sta dodat/popravit-->
 <?php
 session_start();
 ?>
@@ -172,25 +171,24 @@ label.error {
                     <div class="row">
                         <div class="col-sm-12 col-8">
                             <h4 class="text-success">Budget:</h4>
-                            <div class="input-group">
+                            <div class="input-group ml-3">
                                 <span class="input-group-addon">$</span>
                                 <input type="number" id="budget" onchange="price()" name="budget" value="0" min="0" step="10"  max="8999" class="form-control currency"
                                 />
                             </div>
                         </div>
-                        <div class="col-sm-12 col-8">
+                        <div class="col-sm-12 col-8 mt-4">
                             <h4 class="text-success">No. of people:</h4>
 
-                            <input type="number" id="people" onchange="price()" name="people" value="0" min="0" step="1" max="15" class="form-control"
-                            />
+                            <input type="number" id="people" onchange="price()" name="people" value="0" min="0" step="1" max="15" class="form-control ml-3"/>
                         </div>
                     </div>
                 </div>
-                <div class="col-8 offset-1 mt-4 mt-md-4 col-md-5 offset-md-1 col-lg-3 offset-lg-0 ml-lg-5 col-sm-5 offset-sm-3 mt-sm-4">
+                <div class="col-8 offset-1 col-md-5 offset-md-1 col-lg-3 offset-lg-0 ml-lg-5 col-sm-5 offset-sm-3" style="margin-top:4%" id="priceField">
                     <div class="row">
                         <div class="col-12">
                             <h4 class="text-success">Price:</h4>
-                            <div class="input-group">
+                            <div class="input-group ml-3" id="priceInput">
                                 <span class="input-group-addon">$</span>
                                 <input type="number" value="0" id="price" name="price" readonly data-number-to-fixed="2" style="height:50px;" class="form-control currency"
                                 />
@@ -201,12 +199,12 @@ label.error {
                 <div class="col-8 offset-1 offset-lg-1 col-md-5 col-sm-5 col-lg-3 mt-4 mb-3 offset-sm-3 offset-md-0">
                     <h4 class="text-success">Tour Length (days):</h4>
 
-                    <input type="number" id="length"  name="length" value="0" min="0" max="10" step="1" class="form-control"
+                    <input type="number" id="length"  name="length" value="0" min="0" max="30" step="1" class="form-control ml-3"
                     />
                 </div>
-                <div class=" col-8 offset-1 mt-4 col-md-5 offset-md-1 col-sm-5 offset-sm-1 col-lg-3 offset-lg-0 offset-sm-3">
+                <div class=" col-8 offset-1 mt-4 col-md-5 offset-md-1 col-sm-5 offset-sm-1 col-lg-3 offset-lg-1 offset-sm-3">
                     <h4 class="text-success">Period:</h4>
-                    <div class="row">
+                    <div class="row ml-3">
                         <div class="col-6">
                             <label for="zima">Zima</label>
                                 <input class="w3-check  mr-1" id="zima" onclick="price()" name="zima" type="checkbox">
@@ -229,8 +227,13 @@ label.error {
                 <div class="col-8 offset-1  offset-md-0 col-md-5 offset-sm-3 col-lg-3 offset-lg-1 mt-4">
                     <h4 class="text-success">Interpreter:</h4>
 
-                    <input type="radio"  id="yes" onclick="price()" name="interpreter" />Yes
-                    <input type="radio" id="no" onclick="price()" name="interpreter" />No
+                    <input type="radio"  id="yes" onclick="price()" name="interpreter" class="ml-3" />Yes
+                    <input type="radio" id="no" onclick="price()" name="interpreter" class="ml-3" />No
+
+                     <h4 class="text-success mt-3">Driver:</h4>
+
+                    <input type="radio"  id="yes" onclick="price()" name="interpreter" class="ml-3" />Yes
+                    <input type="radio" id="no" onclick="price()" name="interpreter" class="ml-3" />No
                 </div>
                 <div class="col-8 mt-4 offset-1 offset-md-4 offset-sm-3">
                     <button class="btn btn-lg btn-success" style="width: 315px;" id="send" name="send"> Send request</button>
@@ -249,8 +252,8 @@ label.error {
 
 
     <div id="footerInclude"></div>
-
-<!--TODO: funkcije prebacit u poseban fajl/folder -->
+    
+<!-- TODO: ubacit driver u bazu -->
     <script>
         $( function() {
             var otherPlaces = [

@@ -114,10 +114,8 @@ label.error {
 
     <section>
         <div class="row no-gutters">
-            <div class="col-5 offset-2">
-                <!-- <form action="tourplans.php" method="POST" name="form" id="form"> -->
-                    <input id="search-loged" name="search-loged" value="" type="text" class="form-control mt-2" placeholder="Search...">
-                <!-- </form> -->
+            <div class="col-sm-5 col-10 offset-2">
+                <input id="search-loged" name="search-loged" value="" type="text" class="form-control mt-2" placeholder="Search...">
             </div>
        
       
@@ -128,8 +126,8 @@ label.error {
                     Filters
                 </button>
             </div>-->
-            <div class="col-2">
-                <button id="makeTour" onclick="window.open('makeTour.php');" class="btn btn-warning my-2  ml-4" style="width:200px;">
+            <div class="col-2 offset-3 offset-sm-0">
+                <button id="makeTour" onclick="window.open('makeTour.php');" class="btn btn-warning my-2  ml-sm-4" style="width:200px;">
                     <i class="fa fa-paper-plane mr-2"></i>
                     Make Own Tour
                 </button>
@@ -221,14 +219,14 @@ label.error {
 
 require 'connection/connect.php';
 
-//$where = $_GET['search-loged'];
+/*$where = $_GET['search-loged'];
 if (!empty($_POST)) {
     $where = $_REQUEST['search-loged'];
 }
 
-//echo $where;
+echo $where;*/
 
-if (isset($where)) {
+/* if (isset($where)) {
 
     $sql = "SELECT * FROM tourplan where title like '$where' or type like '$where' ";
     $result = $dbc->query($sql);
@@ -389,24 +387,24 @@ if (isset($where)) {
         echo " 0 results";
 
     }
-} else {
+}  */
 
-    $sql = "SELECT * FROM tourplan ";
-    $result = $dbc->query($sql);
+$sql = "SELECT * FROM tourplan ";
+$result = $dbc->query($sql);
 
-    $count = $result->num_rows;
+$count = $result->num_rows;
 
-    if ($count > 0) {
-        if (isset($_SESSION["email"])) {
-            $i = 0;
-            while ($row = $result->fetch_assoc()) {
+if ($count > 0) {
+    if (isset($_SESSION["email"])) {
+        $i = 0;
+        while ($row = $result->fetch_assoc()) {
 
-                $session = $_SESSION["email"];
+            $session = $_SESSION["email"];
 
-                echo '<div class="myDIV">
+            echo '<div class="myDIV">
                 <form action = "userAll/userTour.php" method = "POST"><div class="card text-center mt-4 myDIV">
             <div class="card-header text-success h3 text-uppercase ">' .
-                    $row["type"] . '
+                $row["type"] . '
             </div>
 
             <input type="text" value=" ' . $session . '  "  name="session" id="session" hidden>
@@ -459,19 +457,19 @@ if (isset($where)) {
             </div></form>
             </div>
             ';
-                $i++;
+            $i++;
 
-            }
+        }
 
-        } else {
-            $i = 0;
-            while ($row = $result->fetch_assoc()) {
+    } else {
+        $i = 0;
+        while ($row = $result->fetch_assoc()) {
 
 
-                echo '<div class="myDIV">
+            echo '<div class="myDIV">
                 <form action = "userAll/userTour.php" method = "POST"><div class="card text-center mt-4 ">
             <div class="card-header text-success h3 text-uppercase ">' .
-                    $row["type"] . '
+                $row["type"] . '
             </div>
 
             <input type="text" value=" ' . $row["ID"] . ' "  name="idnum" id="idnum" hidden>
@@ -527,7 +525,7 @@ if (isset($where)) {
                         <i class="far fa-star "></i>
                     </p>
                 </li>';
-                echo '
+            echo '
                 <input type="number" value="' . $i . '" id="test" hidden>
                 <li class="list-group-item " style="border:none">
                     <a href="login.php">
@@ -543,15 +541,14 @@ if (isset($where)) {
             </div></form>
             </div>
             ';
-                $i++;
+            $i++;
 
-            }
         }
-
-    } else {
-        echo " 0 results";
-
     }
+
+} else {
+    echo " 0 results";
+
 }
 $dbc->close();
 ?>

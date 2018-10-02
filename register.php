@@ -113,10 +113,13 @@
 
                 <div class="card-body text-center">
                     <button type="button" class="btn btn-warning text-white" id="signButton" name="signButton">Sign up for free<i class="fas fa-user-plus ml-2"></i></button>
+                    <div class="col-2 offset-md-4">
+                        <div class="alert mt-3 ml-3" id="alert" style="width:400px;"></div>
+                    </div>
                 </div>
 
             </div>
-            <div class="alert mt-3 ml-3" id="alert" style="width:400px;"></div>
+            
             </form>
         </div>
         <div class="text-center text-warning">
