@@ -8,13 +8,12 @@ require 'vendor/autoload.php';
 
 $mail = new PHPMailer(true);   // Passing `true` enables exceptions
 
-$firstSign = $_REQUEST['firstSign'];
-$lastSign = $_REQUEST['lastSign'];
-$emailSign = $_REQUEST['emailSign'];
 
-echo $firstSign . '<br>';
-echo $lastSign . '<br>';
-echo $emailSign . '<br>';
+$emailLog = $_REQUEST['emailLog'];
+$passLog = $_REQUEST['passLog'];
+
+echo $emailLog . '<br>';
+echo $passLog . '<br>';
 
 try {
     //Server settings
@@ -29,7 +28,7 @@ try {
 
     //Recipients
     $mail->setFrom('no-reply@btt.ba', 'BTT');
-    $mail->addAddress($emailSign);     // Add a recipient
+    $mail->addAddress($emailLog);     // Add a recipient
           // Name is optional
     /* $mail->addReplyTo('info@example.com', 'Information');
     $mail->addCC('cc@example.com');
@@ -41,12 +40,10 @@ try {
 
     //Content
     $mail->isHTML(true);                                  // Set email format to HTML
-    $mail->Subject = 'BTT.ba | E-mail verification';
+    $mail->Subject = 'BTT.ba | Request for changing password';
     $mail->Body = '<center>
-    Dear <b>' . $firstSign . ' ' . $lastSign . '</b>, <br> 
-    First of all, we want to thank you for creating account at BTT.BA <br>
-    Before you can login with your account information, please click on link below to verify your email address<br>
-    http://localhost/github/btt/verify.php?email=' . $emailSign . '
+    There are request from your account for changing the password, if it was you please click on link below to verify password changing<br>
+    http://localhost/github/btt/verifyPassword.php?email=' . $emailLog . '&password=' . $passLog . '
         </center> <br>
     If it was not you please contact us!!!';
     $mail->AltBody = ' This is the body in plain text for non - HTML mail clients ';

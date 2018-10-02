@@ -106,10 +106,13 @@
                             </ul>
                             <div class="card-body text-center">
                                 <button type="button" class="btn btn-warning text-white" id="logButton" name="logButton">CHANGE PASSWORD<i class="fas fa-sign-in-alt ml-2"></i></button>
+                                <div class="col-2 offset-md-4">
+                                    <div class="alert mt-3 ml-3" id="alertLog" style="width:350px;"></div>
+                                </div>
                             </div>
                         </form>
                     </div>
-                    <div class="alert mt-3 ml-3" id="alertLog" style="width:350px;"></div>
+                    
                 </div>
                 <div class="text-center text-warning">
                     <p style="font-size:20px; margin-bottom:0px">Copyright &copy; 2018 Abdurahman Almonajed</p>

@@ -1,5 +1,4 @@
-﻿<!-- TODO: popravit malo responsive -->
-<?php
+﻿<?php
 session_start();
 ?>
 <!DOCTYPE html>
