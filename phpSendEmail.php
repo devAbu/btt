@@ -38,8 +38,8 @@ try {
     //Attachments
      /*$mail->addAttachment('/var/tmp/file.tar.gz');           // Add attachments
     $mail->addAttachment('images/icon.png', 'BTT logo');  */ // Optional name
-
-    //Content
+/* TODO: bolji dizajn maila */
+    //Content 
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = 'BTT.ba | E-mail verification';
     $mail->Body = '<center>

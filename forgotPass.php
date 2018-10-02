@@ -1,5 +1,3 @@
-<!--TODO: da se uradi email verify-->
-<!--TODO: skontat bolji dizajn/izgled-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
