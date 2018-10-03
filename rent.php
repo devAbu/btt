@@ -357,7 +357,6 @@ if (isset($where)) {
     }
 }  else { */
 
-    /* TODO: kad selektuje da mu dodje email */
 
 $sql = "SELECT * FROM cars";
 $result = $dbc->query($sql);

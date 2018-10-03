@@ -8,7 +8,7 @@ $session = $_REQUEST['session'];
 echo "idnum = " . $idnum;
 echo "session = " . $session;
 
-$query = "Delete from tourrequest where id = $idnum and name LIKE '%" . trim($session) . "%' ";
+$query = "Delete from tourrequest where id = $idnum and name LIKE '%" . trim($session) . "%' limit 1";
 //$query = "Delete from usertour where tourID = $idnum and name LIKE '%$session%' ";
 //$query = "Delete from usertour where tourID = $idnum and name LIKE concat('%', '$session', '%') ";
 //$query = "DELETE FROM `usertour` WHERE `tourID` = '" . $idnum . "' AND `name` LIKE '%" . mysqli_real_escape_string($dbc, $session) . "%' ";

@@ -250,7 +250,6 @@ label.error {
     ?>
     </section>
 
-<!-- TODO: kad requesta da mu dodje email -->
     <div id="footerInclude"></div>
     
 <!-- TODO: ubacit driver u bazu -->
@@ -429,7 +428,8 @@ label.error {
                         if(data.indexOf('sent') > -1){
                             $("#alertReq").addClass('alert-success');
 							$("#alertReq").html('Request sent!!!');
-							$("#alertReq").slideDown(500).delay(1000).slideUp(500);
+                            $("#alertReq").slideDown(500).delay(1000).slideUp(500);
+                            window.location = "http://localhost/github/btt/phpSendEmailForRequestTour?session=" + session + "&price=" + price
                             $('#other').val("");
                             $('#length').val("");
                             $('#budget').val("");

@@ -8,7 +8,7 @@ $session = $_REQUEST['session'];
 echo "idnum = " . $idnum;
 echo "session = " . $session;
 
-$query = "Delete from usertour where tourID = $idnum and name LIKE '%" . trim($session) . "%' ";
+$query = "Delete from usertour where tourID = $idnum and name LIKE '%" . trim($session) . "%' limit 1 ";
 
 echo "query:" . $query;
 
