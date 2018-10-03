@@ -27,7 +27,19 @@
 
     <script src="jquery.validate.js"></script>
 
+     <link rel="stylesheet" href="loaders.min.css" />
+
     <style>
+    .loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 999;
+    transform: scale(4);
+}
+.hidden{
+    display:none;
+}
     .pass{
             position: relative;
         }
@@ -55,6 +67,11 @@
         </style>
 </head>
 <body>
+
+<div class="loader">
+        <div class="loader-inner ball-scale-multiple">
+        </div>
+    </div>
 
     <nav class="navbar bg-warning navbar-light  navbar-expand-md fixed-top" style="opacity:0.7; font-size:18px;">
         <a href="index" class="navbar-brand"><img src="images/icon.png" alt="logo" class="img-fluid mr-3" width="45" height="45" /><span class="h4">BTT</span></a>
@@ -124,6 +141,8 @@
     $('#logButton').css('cursor', 'not-allowed');
 
     jQuery(document).ready(function ($) {
+    
+        
         console.log('juhu')
         $('#loginForm').validate();
 
@@ -144,7 +163,9 @@
         $('#loginForm input').on('blur change keyup', function (e) {
             checkForm($(this));
             if(e.keyCode == 13){
-                $('#logButton').trigger('click');
+                /* if(){
+                    $('#logButton').trigger('click');
+                } */
             }
         });
         
@@ -165,6 +186,21 @@
 
     })
             </script>
+
+            <script>
+        $("body > *").not("body > .loader").addClass('hidden');
+        $('body').css('background-color', '#d1d1d1')
+        $( window ).on( "load", function() {
+            $( document ).ready(function() {
+                $('body').css('background-color', '')
+                $('.hidden').removeClass('hidden')
+                /* $('.bg').attr('id', 'jumbotronFeedback') */
+                $('.loader').hide()  
+            })
+        });
+    </script>
+
+    <script src="loaders.css.js "></script>
 
             <script src="password/forgotPass.js"></script>
 

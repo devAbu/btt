@@ -93,9 +93,14 @@ label.error {
 
 <div id="navbarInclude"></div>
 
+<div class="loader">
+        <div class="loader-inner ball-scale-multiple">
+        </div>
+    </div>
 
-    <section id="jumbotron" class="jumbotron9 jumbotron-fluid text-white d-flex justify-content-center align-items-center">
-        <div class="container text-center">
+
+    <section id="jumbotron" class=" jumbotron-fluid text-white d-flex justify-content-center align-items-center">
+        <div class="container text-center hidden">
             <h1 class="display-1 text-primary text-uppercase">BTT</h1>
             <p class="display-4 d-none d-sm-block">Bosnian Tourist Travel</p>
             <p class="lead text-uppercase" style="font-size:30px; color:gold;">Choose the best hotel for your need!</p>
@@ -444,7 +449,24 @@ if (isset($where)) {
 
 
 
+
 <div id="footerInclude"></div>
+
+ <script>
+        $("body > *").not("body > .loader").addClass('hidden');
+        $('body').css('background-color', '#d1d1d1')
+        $( window ).on( "load", function() {
+            $( document ).ready(function() {
+                $('body').css('background-color', '')
+                $('.hidden').removeClass('hidden')
+                $('#jumbotron').addClass('jumbotron9')
+                $('.loader').hide()  
+            })
+        });
+    </script>
+
+
+<script src="loaders.css.js "></script>
 
 </body>
 

@@ -137,6 +137,7 @@ label.error {
     $('#feedbackButton').css('cursor', 'not-allowed');
 
     jQuery(document).ready(function ($) {
+        
         console.log('juhu')
         $('#feedbackForm').validate({
             errorPlacement: function (label, element) {
@@ -174,11 +175,13 @@ label.error {
     <script>
         $("body > *").not("body > .loader").addClass('hidden');
         $('body').css('background-color', '#d1d1d1')
-        $(window).ready(function() {
+        $( window ).on( "load", function() {
+            $( document ).ready(function() {
                 $('body').css('background-color', '')
                 $('.hidden').removeClass('hidden')
                 $('.bg').attr('id', 'jumbotronFeedback')
                 $('.loader').hide()  
+            })
         });
     </script>
 

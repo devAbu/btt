@@ -151,11 +151,14 @@ $dbc->close();
     <script>
         $("body > *").not("body > .loader").addClass('hidden');
         $('body').css('background-color', '#d1d1d1')
-        $(window).ready(function() {
+        $( window ).on( "load", function() {
+
+            $( document ).ready(function() {
                 $('body').css('background-color', '')
                 $('#jumbotron').addClass('jumbotron5')
                 $('.loader').fadeOut()  
                 $('.hidden').removeClass('hidden')
+            })
         });
     </script>
 

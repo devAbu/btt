@@ -564,11 +564,13 @@ label.error {
     <script>
         $("body > *").not("body > .loader").addClass('hidden');
         $('body').css('background-color', '#d1d1d1')
-        $(window).ready(function() {
+        $( window ).on( "load", function() {
+            $( document ).ready(function() {
                 $('body').css('background-color', '')
                 $('.hidden').removeClass('hidden')
                 $('#jumbotron').addClass('jumbotron8')
                 $('.loader').hide()  
+            })
         });
     </script>
 
