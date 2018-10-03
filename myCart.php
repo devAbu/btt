@@ -15,8 +15,8 @@ session_start();
   <meta name="author" content="abu">
   <meta name="keywords" content="btt, bosnian, tourist, travel, agency, arabic, bosna">
   <meta name="description" content="BTT - Bosnian Tourist Travel offers the best tour plans and the best hotels in B&H. ">
- <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
-      crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+      crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -84,6 +84,43 @@ label.error {
     color: red;
     font-size: 17px;
 }
+#payButton {
+    width: 6em;
+}
+
+#payButton:hover span {
+    display: none;
+}
+
+#payButton:hover {
+    background-color: #28a745  !important;
+}
+
+#payButton:hover:before {
+    font-family: "Font Awesome\ 5 Free";
+    font-weight: 900;
+    content: "\f155";
+    color: #e0e0e0;
+}
+#pay {
+    width: 6em;
+}
+
+#pay:hover span {
+    display: none;
+}
+
+#pay:hover {
+    background-color: #28a745  !important;
+}
+
+#pay:hover:before {
+    font-family: "Font Awesome\ 5 Free";
+    font-weight: 900;
+    font-size: 50px;
+    content: "\f155";
+    color: #e0e0e0;
+}
 </style>
 
 </head>
@@ -110,6 +147,19 @@ label.error {
         </div>
     </section>
     <section>
+        <div class="text-center mt-3">
+            <label for="totalPrice" style="font-size:25px; color:gold">Total Price:</label>
+            <div class="row">
+                <div class="offset-md-4 col-md-6 col-lg-4 col-10 offset-1">
+                    <div class="input-group ml-3" id="priceInput">
+                        <span class="input-group-addon">$</span>
+                        <input type="number" value="0" id="price" name="price" readonly data-number-to-fixed="2" style="height:50px;" class="form-control currency price" />
+                    </div>
+                </div>
+            </div>
+            
+            <button id="payButton" class="btn btn-lg btn-primary my-3"><span>Pay now</span></button>
+        </div>
         <h2 class="display-4 text-center text-info">Tour Plans</h2>
             <?php
             require 'connection/connect.php';
@@ -158,6 +208,7 @@ label.error {
                 <li class="list-group-item text-warning ">
                     <p class="card-text " style="float:left; ">
                         <i class="fas fa-euro-sign mr-4 "></i> ' . $row["price"] . '</p>
+                        <input type="number" value="' . $row["price"] . '" id="tourPrice" hidden>
                 </li>
             </ul>
              <ul class="navbar-nav ml-auto selectTour" style="float:right; margin-top:-100px;">
@@ -253,9 +304,11 @@ if (isset($_SESSION["email"])) {
                     <input type="submit" name="select" id="select" class="btn btn-warning " value="Delete " style="width:100px; " />
                 </li>
             </ul>
+
             </div>
             <div class="card-footer text-muted ">
             <span style="float:left !important"><i class="fas fa-dollar-sign mr-2"></i>' . $row["price"] . ' per day</span>
+            <input type="number" value="' . $row["price"] . '" id="apartmentPrice" hidden>
                 <small class="text-muted ">
                     <i class="fa  fa-map-marker mr-2"></i> ' . $row["place"] . '</small>
             </div>
@@ -316,11 +369,17 @@ if (isset($_SESSION["email"])) {
                 <li class="list-group-item text-warning ">
                     <p class="card-text " style="float:left; ">
                         <i class="fas fa-euro-sign mr-4 "></i> ' . $row["price"] . '</p>
+                        <input type="number" value="' . $row["price"] . '" id="carPrice" hidden>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto selectTour" style="float:right; margin-top:-100px;">
+                <li class="list-group-item" style="border:none;">
+                    <input type="submit" name="select" id="select" class="btn btn-warning " value="Delete " style="width:100px; " />
                 </li>
             </ul>
 
-            <ul class="list-group list-group-flush mr-5 " style=" border:none;float:right; margin-top:-100px; ">
-                <!-- <li class="list-group-item text-warning mt-4 " style="border:none; ">
+            <!--<ul class="list-group list-group-flush mr-5 " style=" border:none;float:right; margin-top:-100px; ">
+                 <li class="list-group-item text-warning mt-4 " style="border:none; ">
                     <p class="card-text "></p>
                     <input type="button " class="btn btn-warning " value="More Detalis " />
                 </li>
@@ -332,11 +391,11 @@ if (isset($_SESSION["email"])) {
                         <i class="far fa-star "></i>
                         <i class="far fa-star "></i>
                     </p>
-                </li>>-->
+                </li>
                 <li class="list-group-item " style="border:none">
                     <input type="submit" name="select" id="select" class="btn btn-warning " value="Delete " style="width:100px; " />
                 </li>
-            </ul>
+            </ul>-->
             </div>
             </div></form>
             ';
@@ -349,6 +408,18 @@ if (isset($_SESSION["email"])) {
 }
 ?>
 
+        <div class="text-center ">
+            <label for="totalPrice" style="font-size:25px; color:gold">Total Price:</label>
+            <div class="row">
+                <div class="offset-md-4 col-md-6 col-lg-4 col-10 offset-1">
+                    <div class="input-group ml-3" id="priceInput">
+                        <span class="input-group-addon">$</span>
+                        <input type="number" value="0"  name="price" readonly data-number-to-fixed="2" style="height:50px;" class="form-control currency price" />
+                    </div>
+                </div>
+            </div>
+            <button id="pay" class="btn btn-lg btn-primary my-4 col-6" style="height:100px !important; width: 100%; "><span style="font-size:20px">Pay now</span></button>
+        </div>
      
         <h2 class="display-4 text-center text-info">Requested tour plan(s)</h2>
 
@@ -589,6 +660,18 @@ if (isset($_SESSION["email"])) {
                 $('.hidden').removeClass('hidden')
                 $('#jumbotron').addClass('jumbotronMy')
                 $('.loader').hide()  
+
+                var tourPrice = parseInt($('#tourPrice').val())
+                var apartmentPrice = parseInt($('#apartmentPrice').val())
+                var carPrice = parseInt($('#carPrice').val())
+                console.log(tourPrice)
+                console.log(apartmentPrice)
+                console.log(carPrice)
+
+                var totalPrice = tourPrice + apartmentPrice + carPrice
+                console.log(totalPrice)
+
+                $('.price').val(totalPrice)
             })
         });
     </script>
