@@ -38,17 +38,31 @@ try {
     //Attachments
      /*$mail->addAttachment('/var/tmp/file.tar.gz');           // Add attachments
     $mail->addAttachment('images/icon.png', 'BTT logo');  */ // Optional name
-/* TODO: bolji dizajn maila */
     //Content 
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = 'BTT.ba | E-mail verification';
-    $mail->Body = '<center>
-    Dear <b>' . $firstSign . ' ' . $lastSign . '</b>, <br> 
-    First of all, we want to thank you for creating account at BTT.BA <br>
-    Before you can login with your account information, please click on link below to verify your email address<br>
-    http://localhost/github/btt/verify.php?email=' . $emailSign . '
-        </center> <br>
-    If it was not you please contact us!!!';
+    $mail->Body = '
+
+    <center>
+        <div style="background-color: silver; height: 30%;">
+            <div style="font-size: 3vw;">
+            <div> 
+                    Dear <b style="color:gold; ">' . ucfirst($firstSign) . ' ' . ucfirst($lastSign) . ',</b>
+                </div>
+            </div>
+        </div>
+        <div style="font-size: 1.5vw;margin-top:10px;">
+            First of all, we want to thank You for creating account at <a href="localhost/github/btt" style="color:gold; text-decoration:none;">BTT.BA</a>
+        </div>
+        <div style="font-size: 1.5vw;">
+            Before You can login with your account information, please click on link below to verify your email address<br>
+            http://localhost/github/btt/verify.php?email=' . $emailSign . '
+        </div>
+    </center> 
+    <div style="color: red; font-size: 1.5vw; margin-top: 10px;">
+        If it was not you please <a href="mailto:abdulrahman.almonajed@gmail.com" style="color: gold; text-decoration:none">contact us</a>!!! 
+    </div>
+     <br>';
     $mail->AltBody = ' This is the body in plain text for non - HTML mail clients ';
 
 
