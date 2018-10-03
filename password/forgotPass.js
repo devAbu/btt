@@ -23,38 +23,12 @@ $('#logButton').click(function () {
         $("#alertLog").html("Please enter your password!!!");
         $("#alertLog").fadeIn(500).delay(1000).fadeOut(500);
     } else {
-        $.ajax({
-            url: "dbSend/changePass.php?task=login&emailLog=" + emailLog + "&passLog=" + passLog,
-            success: function (data) {
-                if (data.indexOf('sent') > -1) {
-                    $("#alertLog").addClass('alert-success');
-                    $("#alertLog").html('Password changed');
-                    $("#alertLog").slideDown(500).delay(1000).slideUp(500);
-                    $('#emailLog').val("");
-                    $('#passLog').val("");
-                    window.location = "http://localhost/github/btt/phpSendEmailForPassword?emailLog=" + emailLog + "&passLog=" + passLog
-                } else {
-                    $("#alertLog").addClass('alert-danger');
-                    $("#alertLog").html('Email is incorrect');
-                    $("#alertLog").slideDown(500).delay(1000).slideUp(500);
-                }
-            },
-            error: function (data, err) {
-                $("#alertLog").addClass('alert-danger');
-                $("#alertLog").html('Some problem occured. We are sorry.');
-                $("#alertLog").slideDown(500).delay(1000).slideUp(500);
-            }
-        })
-    }
-});
+        window.location = "http://localhost/github/btt/phpSendEmailForPassword?emailLog=" + emailLog + "&passLog=" + passLog
+        $("#alertLog").addClass('alert-success');
+        $("#alertLog").html('New password requested');
+        $("#alertLog").slideDown(500).delay(1000).slideUp(500);
+        $('#emailLog').val("");
+        $('#passLog').val("");
 
-$('#eyeLog').click(function () {
-    /* var elementType = $('#passSign').prev().prop('pass'); */
-    var elementType = $('#passLog').attr('type');
-    console.log(elementType);
-    if (elementType == "text") {
-        $('#passLog').attr('type', 'password');
-    } else if (elementType == "password") {
-        $('#passLog').attr('type', 'text');
     }
 });

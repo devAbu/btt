@@ -43,10 +43,10 @@ $('#signButton').click(function () {
                     $('#lastSign').val("");
                     $('#emailSign').val("");
                     $('#passSign').val("");
-                    window.location = "http://localhost/github/btt/phpSendEmailForPassword?emailSign=" + emailSign + "&firstSign=" + firstSign + "&lastSign=" + lastSign
-                    /* var delay = 2000;
+                    window.location = "http://localhost/github/btt/phpSendEmail?emailSign=" + emailSign + "&firstSign=" + firstSign + "&lastSign=" + lastSign
+                    /* var delay = 1000;
                     setTimeout(function () {
-                        window.location = "http://localhost/github/btt/phpSendEmail";
+                        window.location = "http://localhost/github/btt/phpSendEmail?emailSign=" + emailSign + "&firstSign=" + firstSign + "&lastSign=" + lastSign
                     }, delay); */
                 } else {
                     $("#alert").addClass('alert-danger');
