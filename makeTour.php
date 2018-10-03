@@ -232,8 +232,8 @@ label.error {
 
                      <h4 class="text-success mt-3">Driver:</h4>
 
-                    <input type="radio"  id="yes" onclick="price()" name="interpreter" class="ml-3" />Yes
-                    <input type="radio" id="no" onclick="price()" name="interpreter" class="ml-3" />No
+                    <input type="radio"  id="driverYes" onclick="price()" name="driver" class="ml-3" />Yes
+                    <input type="radio" id="driverNo" onclick="price()" name="driver" class="ml-3" />No
                 </div>
                 <div class="col-8 mt-4 offset-1 offset-md-4 offset-sm-3">
                     <button class="btn btn-lg btn-success" style="width: 315px;" id="send" name="send"> Send request</button>
@@ -252,7 +252,6 @@ label.error {
 
     <div id="footerInclude"></div>
     
-<!-- TODO: ubacit driver u bazu -->
     <script>
         $( function() {
             var otherPlaces = [
@@ -392,6 +391,19 @@ label.error {
                 console.log(checkyes);
             }
 
+            var driverYes = $('#driverYes').is(':checked');
+            var driverNo = $('#driverNo').is(':checked');
+
+            var checkDriver = "";
+
+            if(driverYes == true){
+                checkDriver += "yes"
+                console.log(checkDriver);
+            } else if(driverNo == true) {
+                checkDriver += "no"
+                console.log(checkDriver);
+            }
+
 
 
             if(sarajevo == false && mostar == false && jajce == false && konjic == false && bjelasnica == false && trebevic == false && igman == false && jahorina == false && other == ""){
@@ -418,12 +430,16 @@ label.error {
                 $("#alertReq").addClass('alert-danger');
                 $("#alertReq").html("Please select if you need interpreter or not!!!");
                 $("#alertReq").fadeIn(500).delay(1000).fadeOut(500);
+            } else if( driverYes == false && driverNo == false) {
+                $("#alertReq").addClass('alert-danger');
+                $("#alertReq").html("Please select if you need interpreter or not!!!");
+                $("#alertReq").fadeIn(500).delay(1000).fadeOut(500);
             } else if (budget < price) {
                 $( "#dialog" ).show();
                 $( "#dialog" ).dialog();
             } else {
                 $.ajax({
-                    url: "dbSend/makeRequest?task=request&check="+check+"&people="+people+"&length="+length+"&period="+period+"&checkyes="+checkyes+"&price="+price+"&budget="+budget+"&session="+session,
+                    url: "dbSend/makeRequest?task=request&check="+check+"&people="+people+"&length="+length+"&period="+period+"&checkyes="+checkyes+"&price="+price+"&budget="+budget+"&session="+session+"&checkDriver="+checkDriver,
                     success: function (data){
                         if(data.indexOf('sent') > -1){
                             $("#alertReq").addClass('alert-success');
@@ -553,6 +569,14 @@ label.error {
             var no = document.getElementById('no').checked;
 
             if (yes == true) {
+                price += 100;
+            }
+            document.getElementById("price").value = price;
+
+            var driverYes = document.getElementById('driverYes').checked;
+            var driverNo = document.getElementById('driverNo').checked;
+
+            if (driverYes == true) {
                 price += 100;
             }
             document.getElementById("price").value = price;

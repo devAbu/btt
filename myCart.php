@@ -210,7 +210,7 @@ if (isset($_SESSION["email"])) {
     $session = $_SESSION["email"];
     //echo 'session = ' . $session;
     //echo 'length = ' . strlen($session);
-    $sql = "Select userapartment.apartmentID,userapartment.name, apartment.ID, apartment.title, apartment.description, apartment.place, apartment.img from userapartment inner join apartment on apartment.ID = userapartment.apartmentID having userapartment.name like '%" . trim($session) . "%' ";
+    $sql = "Select userapartment.apartmentID,userapartment.name, apartment.ID, apartment.title, apartment.description, apartment.place, apartment.img, apartment.price from userapartment inner join apartment on apartment.ID = userapartment.apartmentID having userapartment.name like '%" . trim($session) . "%' ";
     $result = $dbc->query($sql);
 
     $count = $result->num_rows;
@@ -255,6 +255,7 @@ if (isset($_SESSION["email"])) {
             </ul>
             </div>
             <div class="card-footer text-muted ">
+            <span style="float:left !important"><i class="fas fa-dollar-sign mr-2"></i>' . $row["price"] . ' per day</span>
                 <small class="text-muted ">
                     <i class="fa  fa-map-marker mr-2"></i> ' . $row["place"] . '</small>
             </div>

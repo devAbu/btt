@@ -399,7 +399,7 @@ if ($count > 0) {
                 </li>
                 <li class="list-group-item text-warning ">
                     <p class="card-text " style="float:left; ">
-                        <i class="fas fa-euro-sign mr-4 "></i> ' . $row["price"] . '</p>
+                        <i class="fas fa-euro-sign mr-4 "></i> ' . $row["price"] . ' per day</p>
                 </li>
             </ul>
 			<ul class="navbar-nav ml-auto selectTour" style="float:right; margin-top:-100px;">

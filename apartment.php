@@ -341,6 +341,8 @@ if (isset($where)) {
                     <img src="' . $row["img"] . '"  class="tourPlans " alt="skijanje " width="400 " height="250
             " style="float:left; " />
 
+            
+
 
 
                 <label class="card-text " style="max-width:800px; ">' . $row["description"] . '</label>
@@ -369,6 +371,7 @@ if (isset($where)) {
             </ul>
             </div>
             <div class="card-footer text-muted ">
+            <span style="float:left !important"><i class="fas fa-dollar-sign mr-2"></i>' . $row["price"] . ' per day</span>
                 <small class="text-muted ">
                     <i class="fa  fa-map-marker mr-2"></i> ' . $row["place"] . '</small>
             </div>

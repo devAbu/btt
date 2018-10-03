@@ -10,9 +10,10 @@ $checkyes = $_REQUEST['checkyes'];
 $price = $_REQUEST['price'];
 $budget = $_REQUEST['budget'];
 $session = $_REQUEST['session'];
+$checkDriver = $_REQUEST['checkDriver'];
 
 if ($_REQUEST['task'] == "request") {
-    $query = "INSERT INTO tourrequest (`name`, `city`, `length`, `budget`, `people`, `period`, `interpreter`, `price`) VALUES ('$session', '$check', '$length',  '$budget', '$people',  '$period', '$checkyes', '$price')";
+    $query = "INSERT INTO tourrequest (`name`, `city`, `length`, `budget`, `people`, `period`, `interpreter`, `price`, `driver`) VALUES ('$session', '$check', '$length',  '$budget', '$people',  '$period', '$checkyes', '$price', '$checkDriver')";
 
     $response = @mysqli_query($dbc, $query);
     if ($response) {
