@@ -1,5 +1,4 @@
 <!-- TODO: vidjet da se doda update kad bude datum ubacen (ture, apartmani i auto) -->
-<!--TODO: ubacit konacnu cijenu (tour + apartment + car)-->
 <?php
 session_start();
 ?>
@@ -149,9 +148,9 @@ label.error {
     <section>
         <div class="text-center mt-3">
             <label for="totalPrice" style="font-size:25px; color:gold">Total Price:</label>
-            <div class="row">
-                <div class="offset-md-4 col-md-6 col-lg-4 col-10 offset-1">
-                    <div class="input-group ml-3" id="priceInput">
+            <div class="row ">
+                <div class="offset-md-4 col-md-6 col-lg-4 col-10 offset-1 ">
+                    <div class="input-group ml-3 " id="priceInput">
                         <span class="input-group-addon">$</span>
                         <input type="number" value="0" id="price" name="price" readonly data-number-to-fixed="2" style="height:50px;" class="form-control currency price" />
                     </div>
@@ -468,15 +467,17 @@ if (isset($_SESSION["email"])) {
                         <label>interpreter: </label>
                             <input type="text" class="form-control" id="interpreter" value="' . $row["interpreter"] . '" readonly>
                         </div>
+                        <div class="col-md-4 col-12 mb-2">
+                        <label>interpreter: </label>
+                            <input type="text" class="form-control" id="driver" value="' . $row["driver"] . '" readonly>
+                        </div>
                         <div class="col-12 col-md-4 mb-2">
                         <label>price: </label>
                             <input type="number" class="form-control" id="price" value="' . $row["price"] . '" readonly>
                         </div>
                         <label class="ml-3 mt-4">Options: </label>
                         
-                        <div class="col-1 mt-4">
-                            <input type="button" id="update" class="btn btn-warning" value="Update" data-toggle="collapse" data-target="#collapseExample' . $row["id"] . '" aria-expanded="false" aria-controls="collapseExample">
-                        </div>
+                        
                         <div class="col-1 mt-4">
                             <input type="submit" id="delete" class="btn btn-danger" value="Delete">
                         </div>
@@ -485,52 +486,78 @@ if (isset($_SESSION["email"])) {
                 </div>
             </div>
             </form>
-                <div class="collapse" id="collapseExample' . $row["id"] . '">
-                      <div class="card card-body">
-                          <div class="row">
-                            <div class="col-12">
-                            <form action="updateTour.php" method="post">
-                            <input type="text" value=" ' . $row["id"] . ' "  name="idnum2" id="idnum2" hidden>
-                                <div class="col-6 mt-3">
-                                  <label for="tourCity" class="labelStyle">Tour cities: </label>
-                                  <input type="text" value=" ' . $row["city"] . ' "  name="tourCity" id="tourCity" class="form-control">
-                                </div>
-                                <div class="col-6 mt-3">
-                                  <label for="tourLength" class="labelStyle">Tour length: </label>
-                                  <input type="text" value=" ' . $row["length"] . ' "  name="tourLength" id="tourLength" class="form-control">
-                                </div>
-                                  <div class="col-6 mt-3">
-                                    <label for="tourBudget" class="labelStyle">User budget: </label>
-                                    <input type="text" value=" ' . $row["budget"] . ' "  name="tourBudget" id="tourBudget" class="form-control">
-                                </div>
-                                  <div class="col-6 mt-3">
-                                    <label for="tourPeople" class="labelStyle">No. people: </label>
-                                    <input type="text" value=" ' . $row["people"] . ' "  name="tourPeople" id="tourPeople" class="form-control">
-                                </div>
-                                  <div class="col-6 mt-3">
-                                    <label for="tourPeriod" class="labelStyle">Tour period: </label>
-                                    <input type="text" value=" ' . $row["price"] . ' "  name="tourPeriod" id="tourPeriod" class="form-control">
-                                </div>
-                                <div class="col-6 mt-3">
-                                  <label for="tourInterpreter" class="labelStyle">Interpreter: </label>
-                                  <input type="text" value=" ' . $row["interpreter"] . ' "  name="tourInterpreter" id="tourInterpreter" class="form-control">
-                                </div>
-                                  <div class="col-6 mt-3">
-                                    <label for="tourPrice" class="labelStyle">Tour price: </label>
-                                    <input type="text" value=" ' . $row["price"] . ' "  name="tourPrice" id="tourPrice" readonly class="form-control" >
-                                  </div>
-                                  <div class="offset-3 mt-3">
-                                    <input type="submit" value="Update" class="btn btn-success mb-2"  id="change">
-                                  </div>
-                                </form>
-                                </div>
-
-                          </div>
-                      </div>
-                    </div>
 
             ';
-/* TODO: na update da se cijena mijenja */
+/* TODO: uradit update
+
+<div class="col-1 mt-4 mr-2 mr-lg-0">
+    <button type="button" id="update" class="btn btn-warning"  data-toggle="modal" data-target="#updateModal' . $row["id"] . '">
+    Update
+    </button>
+</div>
+            <div class="modal fade" id="updateModal' . $row["id"] . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Update your request</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        
+                                <div class="row">
+                                    <div class="col-12">
+                                    <form action="updateTour.php" method="post">
+                                    <input type="text" value=" ' . $row["id"] . ' "  name="idnum2" id="idnum2" hidden>
+                                        <div class="col-12 mt-3">
+                                        <label for="tourCity" class="labelStyle">Tour cities: </label>
+                                        <input type="text" value=" ' . $row["city"] . ' "  name="tourCity" id="tourCity" class="form-control">
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                        <label for="tourLength" class="labelStyle">Tour length: </label>
+                                        <input type="text" value=" ' . $row["length"] . ' "  name="tourLength" id="tourLength" class="form-control">
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <label for="tourBudget" class="labelStyle">User budget: </label>
+                                            <input type="text" value=" ' . $row["budget"] . ' "  name="tourBudget" id="tourBudget" class="form-control">
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <label for="tourPeople" class="labelStyle">No. people: </label>
+                                            <input type="text" value=" ' . $row["people"] . ' "  name="tourPeople" id="tourPeople" class="form-control">
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <label for="tourPeriod" class="labelStyle">Tour period: </label>
+                                            <input type="text" value=" ' . $row["price"] . ' "  name="tourPeriod" id="tourPeriod" class="form-control">
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                        <label for="tourInterpreter" class="labelStyle">Interpreter: </label>
+                                        <input type="text" value=" ' . $row["interpreter"] . ' "  name="tourInterpreter" id="tourInterpreter" class="form-control">
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                        <label for="tourDriver" class="labelStyle">Driver: </label>
+                                        <input type="text" value=" ' . $row["driver"] . ' "  name="tourDriver" id="tourDriver" class="form-control">
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <label for="tourPrice" class="labelStyle">Tour price: </label>
+                                            <input type="text" value=" ' . $row["price"] . ' "  name="tourPrice" id="tourPrice" readonly class="form-control" >
+                                        </div>
+                                        <div class="mt-3 ml-3">
+                                            <input type="submit" value="Update" class="btn btn-success mb-2"  id="change">
+                                        </div>
+                                        </form>
+                                        </div>
+                               
+                            </div>
+                    </div>
+                    
+                    </div>
+                </div>
+            </div>
+
+
+
+*/
                 }
             } else {
                 echo '<div class=text-center>
@@ -542,6 +569,9 @@ if (isset($_SESSION["email"])) {
     </section>
 
    <!--
+
+
+
        <div class="col-1 mb-2">
                             <input type="button" class="btn btn-warning" id="edit" value="Edit">
                         </div>
