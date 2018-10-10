@@ -1,3 +1,4 @@
+<!--TODO: porpavit responsive-->
 <?php
 session_start();
 ?>
