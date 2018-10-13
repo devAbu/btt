@@ -7,6 +7,7 @@ session_start();
 <!--TODO: vidjet da se uradi star rating-->
 
 <!-- TODO: uradit opsirniji description svake ture -->
+<!--TODO: uradit date validaciju -->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">

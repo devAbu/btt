@@ -5,7 +5,7 @@ session_start();
 <html lang="en">
 <!--TODO: vidjet da se uradi numTaken-->
 <!--TODO: vidjet da se uradi star rating-->
-
+<!--TODO: uradit date validaciju-->
 
 <head>
   <meta charset="UTF-8">

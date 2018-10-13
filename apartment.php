@@ -5,6 +5,7 @@ session_start();
 <html lang="en">
 <!--TODO: vidjet da se uradi numTaken-->
 <!--TODO: vidjet da se uradi star rating-->
+<!--TODO: validaciju za datum -->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
