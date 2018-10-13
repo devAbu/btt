@@ -1,4 +1,3 @@
-<!-- TODO: respnsive popravit -->
 <?php
 session_start();
 ?>
@@ -6,7 +5,7 @@ session_start();
 <html lang="en">
     <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" conte04:44 PMnt="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="css/style.css" type="text/css" rel="stylesheet">
   <title>BTT</title>
@@ -148,14 +147,12 @@ label.error {
     <section>
         <div class="text-center mt-3">
             <label for="totalPrice" style="font-size:25px; color:gold">Total Price:</label>
-            <div class="row ">
                 <div class="offset-md-4 col-md-6 col-lg-4 col-10 offset-1 ">
                     <div class="input-group ml-3 " id="priceInput">
                         <span class="input-group-addon">$</span>
                         <input type="number" value="0" id="price" name="price" readonly data-number-to-fixed="2" style="height:50px;" class="form-control currency price" />
                     </div>
                 </div>
-            </div>
             
             <button id="payButton" class="btn btn-lg btn-primary my-3"><span>Pay now</span></button>
         </div>
@@ -243,7 +240,7 @@ label.error {
                         <i class="far fa-star "></i>
                     </p>
                 </li>';
-                
+
                         echo '
 
                 <li class="list-group-item " style="border:none">
@@ -451,14 +448,14 @@ if (isset($_SESSION["email"])) {
 
         <div class="text-center ">
             <label for="totalPrice" style="font-size:25px; color:gold">Total Price:</label>
-            <div class="row">
+            
                 <div class="offset-md-4 col-md-6 col-lg-4 col-10 offset-1">
                     <div class="input-group ml-3" id="priceInput">
                         <span class="input-group-addon">$</span>
                         <input type="number" value="0"  name="price" readonly data-number-to-fixed="2" style="height:50px;" class="form-control currency price" />
                     </div>
                 </div>
-            </div>
+            
             <button id="pay" class="btn btn-lg btn-primary my-4 col-6" style="height:100px !important; width: 100%; "><span style="font-size:20px">Pay now</span></button>
         </div>
      
@@ -599,7 +596,7 @@ if (isset($_SESSION["email"])) {
 
 
 
-*/
+                     */
                 }
             } else {
                 echo '<div class=text-center>

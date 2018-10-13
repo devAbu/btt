@@ -5,7 +5,7 @@ session_start();
 <html lang="en">
 <!--TODO: vidjet da se uradi numTaken-->
 <!--TODO: vidjet da se uradi star rating-->
-<!--TODO: vidjet da se prvo trazi od usera datum boravka...pa da na osnovu toga mu predlozi ture / il samo kad hoce da selecta mora unijet datume -->
+
 
 <head>
   <meta charset="UTF-8">
@@ -422,7 +422,7 @@ if ($count > 0) {
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" name="select" id="select" class="btn btn-primary">Save changes</button>
+                        <button type="submit" name="select" id="select" class="btn btn-primary">Select car</button>
                     </div>
                     </div>
                 </div>

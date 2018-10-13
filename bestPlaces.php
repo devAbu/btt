@@ -117,12 +117,12 @@ $result = $dbc->query($sql);
 $count = $result->num_rows;
 
 if ($count > 0) {
-    echo '<div class="row bg">';
+    echo '<div class="row  bg" style="margin:0px">';
     while ($row = $result->fetch_assoc()) {
-        echo '<div class=" col-sm-12 col-12 col-lg-5  mt-3" style="margin-left: 70px;" id="bestPlacesMain">
+        echo '<div class=" col-sm-12 col-11 col-md-5 col-lg-5" style="margin-left: 70px;" id="bestPlacesMain">
         <a href="#" data-toggle="modal" data-target="#' . $row["ID"] . '">
-            <img src=" data:image/jpeg;base64,' . base64_encode($row["img"]) . '" alt="' . $row['title'] . '" class="img-fluid best" /></a>
-            <h2 class="text-warning text-uppercase text-center">' . $row["title"] . '</h2>
+            <img src=" data:image/jpeg;base64,' . base64_encode($row["img"]) . '" alt="' . $row['title'] . '" class="img-fluid best mt-3" /></a>
+            <h2 class="text-warning text-uppercase text-center" style="margin-bottom:0px;">' . $row["title"] . '</h2>
         </div>
         <div class="modal fade" id="' . $row['ID'] . '" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
