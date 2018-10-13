@@ -1,3 +1,4 @@
+<!--TODO: porpavit responsive za hotels-->
 <?php
 session_start();
 ?>
@@ -257,7 +258,7 @@ $dbc->close();
 
 <!--TODO: podaci iz baze-->
     <div class="row no-gutters hidden">
-        <div class="col-md-5 col-xs-12 col-sm-12 ml-sm-5 mt-4">
+        <div class="col-md-5 col-xs-12 col-sm-12 ml-md-5 mt-4">
             <h2 class="text-info text-center">Bosnia & Herzegovina</h2>
             <p class="h4 text-primary mb-3 text-center">Our best places</p>
             <div id="carousel3" class="carousel slide" data-ride="carousel">
@@ -312,7 +313,7 @@ $dbc->close();
             </div>
         </div>
         <!--TODO: podaci iz baze-->
-        <div class="col-md-5 col-xs-12 col-sm-12 mt-4" id="carouselHotel">
+        <div class="col-md-5 col-12 col-sm-12 mt-4" id="carouselHotel" >
             <h2 class="text-info text-center">Bosnia & Herzegovina</h2>
             <p class="h4 text-primary mb-3 text-center">The best hotels in Sarajevo</p>
             <div id="carousel2" class="carousel slide" data-ride="carousel">
@@ -336,7 +337,7 @@ $dbc->close();
                     <div class="carousel-item" style="border-radius:5%;">
                         <!-- <a href="hotel.php"> -->
                             <img src="images/scc.jpg" alt="slide2" style="border-radius:5%;" class="d-block img-fluid index2">
-                        </a>
+                        <!-- </a> -->
                         <div class="carousel-caption">
                             <!-- <a href="hotel.php" style="text-decoration:none !important;"> -->
                                 <h3 class="display-4 text-warning">Al Shidi - SCC Hotel</h3>

@@ -122,8 +122,8 @@ label.error {
 Either you are looking for VIP services or low budget trip; we will make the best offer according to your demands. Our goal is to deliver you the best of the quality services!
                 </p>
             </div>
-            <div class="col-md-5  offset-md-2 ml-3 ml-sm-0 col-10 offset-0">
-                <div class="card" style="width: 20rem;">
+            <div class="col-md-7  offset-md-2 ml-3 ml-sm-0 col-10">
+                <div class="card offset-md-4 offset-sm-2" style="width: 20rem;">
                     <img class="card-img-top aboutUs" src="images/abu.jpg" alt="Owner" height="250">
                     <div class="card-body text-center">
                         <h5 class="card-title" style="font-size:30px;">Abdurahman A.</h5>
@@ -154,7 +154,7 @@ Either you are looking for VIP services or low budget trip; we will make the bes
                 </div>
             </div>
             <div class="col-4 offset-0  ml-3 ml-sm-0 offset-md-0 mt-3 mt-md-0">
-                <div class="card" style="width: 20rem;">
+                <div class="card offset-sm-5 offset-md-0" style="width: 20rem;">
                     <img class="card-img-top aboutUs" src="images/oba.jpg" alt="Owner" width="250" height="250">
                     <div class="card-body text-center">
                         <h5 class="card-title" style="font-size:30px;">Obada A.</h5>

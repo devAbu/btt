@@ -376,7 +376,7 @@ if ($count > 0) {
             <div class="card-body ">
                 <h5 class="card-title text-left ml-5 h1 text-primary "> ' . $row["type"] . '</h5>
 
-                    <img src=" ' . $row["img"] . '" class="tourPlans " alt="skijanje " width="400 " height="250
+                    <img src=" ' . $row["img"] . '" class="tourPlans img-fluid" alt="skijanje " width="400 " height="250
             " style="float:left; " />
 
 
@@ -384,7 +384,7 @@ if ($count > 0) {
                 <label class="card-text " style="max-width:800px; ">' . $row["description"] . '</label>
 
 
-            <ul class="list-group list-group-flush tourPlans2 " style="width:390px; border:none; ">
+            <ul class="list-group list-group-flush tourPlans2 col-12" style="width:390px; border:none; ">
                 <li class="list-group-item text-warning mt-4 " style="border:none; ">
                     <p class="card-text " style="float:left; ">
                         <i class="fas fa-users "></i>
@@ -443,7 +443,7 @@ if ($count > 0) {
           <div class="card-body ">
               <h5 class="card-title text-left ml-5 h1 text-primary "> ' . $row["type"] . '</h5>
 
-                  <img src=" ' . $row["img"] . '" class="tourPlans " alt="skijanje " width="400 " height="250
+                  <img src=" ' . $row["img"] . '" class="tourPlans img-fluid" alt="skijanje " width="400 " height="250
           " style="float:left; " />
 
 
@@ -451,7 +451,7 @@ if ($count > 0) {
               <label class="card-text " style="max-width:800px; ">' . $row["description"] . '</label>
 
 
-          <ul class="list-group list-group-flush tourPlans2 " style="width:390px; border:none; ">
+          <ul class="list-group list-group-flush tourPlans2 col-12" style="width:390px; border:none; ">
               <li class="list-group-item text-warning mt-4 " style="border:none; ">
                   <p class="card-text " style="float:left; ">
                       <i class="fas fa-users "></i>

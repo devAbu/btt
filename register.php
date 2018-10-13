@@ -118,7 +118,7 @@
                 </ul>
                 <div style="margin-top:-10px;">
                     <ul class="list-group list-group-flush">
-                        <div class="offset-lg-4 col-2">
+                        <div class="offset-lg-4 offset-sm-4 col-2">
                             <li class="list-group-item bg-info" style="background:none !important;">
                                 <a href="login.php" class="badge text-warning" style="text-decoration:none;"><span style="font-size:13px;">Already has account?</span></a>
                             </li>

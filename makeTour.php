@@ -247,7 +247,7 @@ label.error {
         </div>
         ';
     } else {
-        echo "<div class='row'><div class='offset-5 text-center mt-5 mb-5'><a href='#' data-toggle='modal' data-target='#LoginModal'><span class='text-warning' style='font-size: 20px;'>LOGIN</span></a> to be able to make tour request!!!</div></div>";
+        echo "<div class='offset-sm-1 text-center mt-5 mb-5'><a href='#' data-toggle='modal' data-target='#LoginModal'><span class='text-warning' style='font-size: 20px;'>LOGIN</span></a> to be able to make tour request!!!</div>";
     }
     ?>
     </section>

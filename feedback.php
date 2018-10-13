@@ -119,56 +119,56 @@ label.error {
             <div class="col-md-9 offset-md-3 ">
                 <textarea cols="50" rows="10" class="form-control error" style="max-width:550px;margin-left:50px;resize: none" placeholder="Please write your opinion..." id="feedback" name="feedback" required data-msg="This field is required"></textarea>
             </div>
-            <div class="col-lg-6 offset-5 ">
+            <div class="col-lg-6 offset-md-5 offset-4 col-7">
                 <input type="button" id="feedbackButton" name="feedbackButton" class="btn btn-lg btn-outline-success mt-3 ml-md-5 mb-2" value="SEND" />
             </div>
             <div class="alert mt-3" id="alertFeedback"></div>
         </form>';
     } else {
-        echo "<div class='row'><div class='offset-5 text-center mt-5 mb-5'><a href='#' data-toggle='modal' data-target='#LoginModal'><span class='text-warning' style='font-size: 20px;'>LOGIN</span></a> to be able to leave feedback!!!</div></div>";
+        echo "<div><div class='offset-sm-5 offset-1 col-10 col-sm-7 text-center mt-5 mb-5'><a href='#' data-toggle='modal' data-target='#LoginModal'><span class='text-warning' style='font-size: 20px;'>LOGIN</span></a> to be able to leave feedback!!!</div></div>";
     }
     ?>
     </section>
 
     <script src="feedbackJS/feedback.js"></script>
 
-    <script>//TODO: vidjet da se stavi u poseban fajl-->
-    $('#feedbackButton').prop('disabled', true);
-    $('#feedbackButton').css('cursor', 'not-allowed');
+    <script>//TODO: vidjet da se stavi u poseban fajl
+        $('#feedbackButton').prop('disabled', true);
+        $('#feedbackButton').css('cursor', 'not-allowed');
 
-    jQuery(document).ready(function ($) {
-        
-        console.log('juhu')
-        $('#feedbackForm').validate({
-            errorPlacement: function (label, element) {
-                label.insertAfter(element);
-            },
-            wrapper: 'span'
-        });
+        jQuery(document).ready(function ($) {
+            
+            console.log('juhu')
+            $('#feedbackForm').validate({
+                errorPlacement: function (label, element) {
+                    label.insertAfter(element);
+                },
+                wrapper: 'span'
+            });
 
-        function checkForm(currentInput) {
-            if (currentInput.valid() == true) {
-                if ($('#feedbackForm').validate().checkForm()) {
-                    $('#feedbackButton').prop('disabled', false);
-                    $('#feedbackButton').css('cursor', '');
+            function checkForm(currentInput) {
+                if (currentInput.valid() == true) {
+                    if ($('#feedbackForm').validate().checkForm()) {
+                        $('#feedbackButton').prop('disabled', false);
+                        $('#feedbackButton').css('cursor', '');
+                    } else {
+                        $('#feedbackButton').prop('disabled', true);
+                        $('#feedbackButton').css('cursor', 'not-allowed');
+                    }
                 } else {
                     $('#feedbackButton').prop('disabled', true);
                     $('#feedbackButton').css('cursor', 'not-allowed');
                 }
-            } else {
-                $('#feedbackButton').prop('disabled', true);
-                $('#feedbackButton').css('cursor', 'not-allowed');
             }
-        }
-        $('#feedbackForm textarea').on('blur change keyup', function (e) {
-            checkForm($(this));
-            if(e.keyCode == 13){
-                $('#feedbackButton').trigger('click');
-            }
-        });
+            $('#feedbackForm textarea').on('blur change keyup', function (e) {
+                checkForm($(this));
+                if(e.keyCode == 13){
+                    $('#feedbackButton').trigger('click');
+                }
+            });
 
 
-    })
+        })
     </script>
     <div id="footerInclude"></div>
 

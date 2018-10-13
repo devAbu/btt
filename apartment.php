@@ -205,115 +205,6 @@ label.error {
     <section>
     <?php
     require 'connection/connect.php';
-/* if (!empty($_POST)) {
-    $where = $_REQUEST['search-loged'];
-}
-if (isset($where)) {
-    $sql = "SELECT * FROM apartment where title like '$where'";
-    $result = $dbc->query($sql);
-
-    $count = $result->num_rows;
-
-    if ($count > 0) {
-        if (isset($_SESSION["email"])) {
-            /* echo '<div class="card-group mt-5">
-            <div class="row">'; 
-    while ($row = $result->fetch_assoc()) {
-
-        $session = $_SESSION["email"];
-        echo '<form action = "userAll/userApartment.php" method = "POST"><div class="card text-center mt-4 ">
-
-            <input type="text" value=" ' . $session . '  "  name="session" id="session" hidden>
-            <input type="text" value=" ' . $row["ID"] . ' "  name="idnum" id="idnum" hidden>
-            <input type="text" value=" ' . $count . ' "  name="count" id="count" hidden>
-            <div class="card-body ">
-                <h5 class="card-title text-left ml-5 h1 text-primary "> ' . $row["title"] . '</h5>
-                    <img src="' . $row["img"] . '" class="tourPlans " alt="skijanje " width="400 " height="250
-            " style="float:left; " />
-                <label class="card-text " style="max-width:800px; ">' . $row["description"] . '</label>
-
-
-            <ul class="list-group list-group-flush mr-5 mt-3" style=" border:none;float:right; margin-top:-100px; ">
-                <!-- <li class="list-group-item text-warning mt-4 " style="border:none; ">
-                    <p class="card-text "></p>
-                    <input type="button " class="btn btn-warning " value="More Detalis " />
-                </li>
-                <li class="list-group-item text-warning " style=" border:none;">
-                    <p class="card-text ">
-                        <i class="far fa-star "></i>
-                        <i class="far fa-star "></i>
-                        <i class="far fa-star "></i>
-                        <i class="far fa-star "></i>
-                        <i class="far fa-star "></i>
-                    </p>
-                </li>-->';
-        echo '
-
-                <li class="list-group-item " style="border:none">
-                    <input type="submit" name="select" id="select" class="btn btn-warning " value="Select " style="width:100px; " />
-                </li>
-            </ul>
-            </div>
-            <div class="card-footer text-muted ">
-                <small class="text-muted ">
-                    <i class="fa  fa-map-marker mr-2"></i> ' . $row["place"] . '</small>
-            </div>
-            </div></form>
-            ';
-
-    }
-
-} else {
-    while ($row = $result->fetch_assoc()) {
-
-        echo '<form action = "userAll/userApartment.php" method = "POST"><div class="card text-center mt-4 ">
-
-          <input type="text" value=" ' . $row["ID"] . ' "  name="idnum" id="idnum" hidden>
-          <input type="text" value=" ' . $count . ' "  name="count" id="count" hidden>
-          <div class="card-body ">
-              <h5 class="card-title text-left ml-5 h1 text-primary "> ' . $row["title"] . '</h5>
-                  <img src=" ' . $row["img"] . '" class="tourPlans " alt="skijanje " width="400 " height="250
-          " style="float:left; " />
-              <label class="card-text " style="max-width:800px; ">' . $row["description"] . '</label>
-
-
-          <ul class="list-group list-group-flush mr-5 mt-3" style=" border:none;float:right; margin-top:-100px; ">
-              <!-- <li class="list-group-item text-warning mt-4 " style="border:none; ">
-                  <p class="card-text "></p>
-                  <input type="button " class="btn btn-warning " value="More Detalis " />
-              </li>
-              <li class="list-group-item text-warning " style=" border:none;">
-                  <p class="card-text ">
-                      <i class="far fa-star "></i>
-                      <i class="far fa-star "></i>
-                      <i class="far fa-star "></i>
-                      <i class="far fa-star "></i>
-                      <i class="far fa-star "></i>
-                  </p>
-              </li>-->';
-        echo '
-
-              <li class="list-group-item " style="border:none">
-              <a href="login.php">
-                  <input type="button" name="select" id="select" class="btn btn-warning " value="Login " style="width:100px; " />
-                  </a>
-              </li>
-          </ul>
-          </div>
-          <div class="card-footer text-muted ">
-              <small class="text-muted ">
-                  <i class="fa  fa-map-marker mr-2"></i> ' . $row["place"] . '</small>
-          </div>
-          </div></form>
-          ';
-
-    }
-}
-} else {
-    echo '0 results';
-}
-} else {
-     */
 
 
 
@@ -337,7 +228,7 @@ if (isset($where)) {
             <div class="card-body ">
                 <h5 class="card-title text-left ml-5 h1 text-primary "> ' . $row["title"] . '</h5>
 
-                    <img src="' . $row["img"] . '"  class="tourPlans " alt="skijanje " width="400 " height="250
+                    <img src="' . $row["img"] . '"  class="tourPlans img-fluid" alt="skijanje " width="400 " height="250
             " style="float:left; " />
 
             
@@ -411,7 +302,7 @@ if (isset($where)) {
           <input type="text" value=" ' . $count . ' "  name="count" id="count" hidden>
           <div class="card-body ">
               <h5 class="card-title text-left ml-5 h1 text-primary "> ' . $row["title"] . '</h5>
-                  <img src="' . $row["img"] . '" class="tourPlans " alt="skijanje " width="400 " height="250
+                  <img src="' . $row["img"] . '" class="tourPlans img-fluid" alt="skijanje " width="400 " height="250
           " style="float:left; " />
               <label class="card-text " style="max-width:800px; ">' . $row["description"] . '</label>
 
