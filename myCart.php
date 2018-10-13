@@ -1,4 +1,4 @@
-<!-- TODO: vidjet da se doda update kad bude datum ubacen (ture, apartmani i auto) -->
+<!-- TODO: respnsive popravit -->
 <?php
 session_start();
 ?>
@@ -167,7 +167,7 @@ label.error {
                 $session = $_SESSION["email"];
     //echo 'session = ' . $session;
     //echo 'length = ' . strlen($session);
-                $sql = "Select usertour.tourID,usertour.name, tourplan.ID, tourplan.type, tourplan.title, tourplan.description, tourplan.people, tourplan.available, tourplan.price, tourplan.days, tourplan.img from usertour inner join tourplan on tourplan.ID = usertour.tourID having usertour.name like '%" . trim($session) . "%' ";
+                $sql = "Select usertour.tourID,usertour.name, usertour.arrival, usertour.departure, tourplan.ID, tourplan.type, tourplan.title, tourplan.description, tourplan.people, tourplan.available, tourplan.price, tourplan.days, tourplan.img from usertour inner join tourplan on tourplan.ID = usertour.tourID having usertour.name like '%" . trim($session) . "%' ";
                 $result = $dbc->query($sql);
 
                 $count = $result->num_rows;
@@ -207,9 +207,22 @@ label.error {
                 <li class="list-group-item text-warning ">
                     <p class="card-text " style="float:left; ">
                         <i class="fas fa-euro-sign mr-4 "></i> ' . $row["price"] . '</p>
-                        <input type="number" value="' . $row["price"] . '" id="tourPrice" hidden>
+                        <input type="number" readonly value="' . $row["price"] . '" id="tourPrice" hidden>
+                </li>
+                <li class="list-group-item text-warning ">
+                    <p class="card-text " style="float:left; ">
+                        <i class="fas fa-calendar-alt "></i>
+                        <span class="ml-3 ">Arrival: ' . $row["arrival"] . '</span>
+                    </p>
+                </li>
+                <li class="list-group-item text-warning ">
+                    <p class="card-text " style="float:left; ">
+                        <i class="fas fa-calendar-alt "></i>
+                        <span class="ml-3 ">Departure: ' . $row["departure"] . '</span>
+                    </p>
                 </li>
             </ul>
+            <!--TODO: uradit change date-->
              <ul class="navbar-nav ml-auto selectTour" style="float:right; margin-top:-100px;">
                 <li class="list-group-item" style="border:none;">
                     <input type="submit" name="select" id="select" class="btn btn-warning " value="Delete " style="width:100px; " />
@@ -230,6 +243,7 @@ label.error {
                         <i class="far fa-star "></i>
                     </p>
                 </li>';
+                
                         echo '
 
                 <li class="list-group-item " style="border:none">
@@ -252,6 +266,9 @@ label.error {
             }
             ?>
 
+          
+
+
             <h2 class="display-4 text-center text-info">Apartment</h2>
 
 <?php
@@ -260,7 +277,7 @@ if (isset($_SESSION["email"])) {
     $session = $_SESSION["email"];
     //echo 'session = ' . $session;
     //echo 'length = ' . strlen($session);
-    $sql = "Select userapartment.apartmentID,userapartment.name, apartment.ID, apartment.title, apartment.description, apartment.place, apartment.img, apartment.price from userapartment inner join apartment on apartment.ID = userapartment.apartmentID having userapartment.name like '%" . trim($session) . "%' ";
+    $sql = "Select userapartment.apartmentID,userapartment.name, userapartment.arrival, userapartment.departure, apartment.ID, apartment.title, apartment.description, apartment.place, apartment.img, apartment.price from userapartment inner join apartment on apartment.ID = userapartment.apartmentID having userapartment.name like '%" . trim($session) . "%' ";
     $result = $dbc->query($sql);
 
     $count = $result->num_rows;
@@ -281,7 +298,20 @@ if (isset($_SESSION["email"])) {
             
                 <label class="card-text " style="max-width:800px; ">' . $row["description"] . '</label>
          
-
+            <ul class="list-group list-group-flush tourPlans2 " style="width:390px; border:none; ">
+                <li class="list-group-item text-warning ">
+                    <p class="card-text " style="float:left; ">
+                        <i class="fas fa-calendar-alt "></i>
+                        <span class="ml-3 ">Arrival: ' . $row["arrival"] . '</span>
+                    </p>
+                </li>
+                <li class="list-group-item text-warning ">
+                    <p class="card-text " style="float:left; ">
+                        <i class="fas fa-calendar-alt "></i>
+                        <span class="ml-3 ">Departure: ' . $row["departure"] . '</span>
+                    </p>
+                </li>
+            </ul>
 
             <ul class="list-group list-group-flush mr-5 mt-3" style=" border:none;float:right; margin-top:-100px; ">
                 <!-- <li class="list-group-item text-warning mt-4 " style="border:none; ">
@@ -303,7 +333,7 @@ if (isset($_SESSION["email"])) {
                     <input type="submit" name="select" id="select" class="btn btn-warning " value="Delete " style="width:100px; " />
                 </li>
             </ul>
-
+            <!--TODO: uradit change date-->
             </div>
             <div class="card-footer text-muted ">
             <span style="float:left !important"><i class="fas fa-dollar-sign mr-2"></i>' . $row["price"] . ' per day</span>
@@ -329,7 +359,7 @@ if (isset($_SESSION["email"])) {
     $session = $_SESSION["email"];
     //echo 'session = ' . $session;
     //echo 'length = ' . strlen($session);
-    $sql = "Select usercar.carID,usercar.name, cars.ID, cars.title, cars.type, cars.description, cars.people, cars.year, cars.price, cars.img from usercar inner join cars on cars.ID = usercar.carID having usercar.name like '%" . trim($session) . "%' ";
+    $sql = "Select usercar.carID,usercar.name, usercar.arrival, usercar.departure, cars.ID, cars.title, cars.type, cars.description, cars.people, cars.year, cars.price, cars.img from usercar inner join cars on cars.ID = usercar.carID having usercar.name like '%" . trim($session) . "%' ";
     $result = $dbc->query($sql);
 
     $count = $result->num_rows;
@@ -370,13 +400,25 @@ if (isset($_SESSION["email"])) {
                         <i class="fas fa-euro-sign mr-4 "></i> ' . $row["price"] . '</p>
                         <input type="number" value="' . $row["price"] . '" id="carPrice" hidden>
                 </li>
+                <li class="list-group-item text-warning ">
+                    <p class="card-text " style="float:left; ">
+                        <i class="fas fa-calendar-alt "></i>
+                        <span class="ml-3 ">Model Year: ' . $row["arrival"] . '</span>
+                    </p>
+                </li>
+                <li class="list-group-item text-warning ">
+                    <p class="card-text " style="float:left; ">
+                        <i class="fas fa-calendar-alt "></i>
+                        <span class="ml-3 ">Model Year: ' . $row["departure"] . '</span>
+                    </p>
+                </li>
             </ul>
             <ul class="navbar-nav ml-auto selectTour" style="float:right; margin-top:-100px;">
                 <li class="list-group-item" style="border:none;">
                     <input type="submit" name="select" id="select" class="btn btn-warning " value="Delete " style="width:100px; " />
                 </li>
             </ul>
-
+<!--TODO: uradit change date-->
             <!--<ul class="list-group list-group-flush mr-5 " style=" border:none;float:right; margin-top:-100px; ">
                  <li class="list-group-item text-warning mt-4 " style="border:none; ">
                     <p class="card-text "></p>
@@ -690,13 +732,19 @@ if (isset($_SESSION["email"])) {
                 $('.hidden').removeClass('hidden')
                 $('#jumbotron').addClass('jumbotronMy')
                 $('.loader').hide()  
-
-                var tourPrice = parseInt($('#tourPrice').val())
-                var apartmentPrice = parseInt($('#apartmentPrice').val())
-                var carPrice = parseInt($('#carPrice').val())
-                console.log(tourPrice)
-                console.log(apartmentPrice)
-                console.log(carPrice)
+                var tourPrice = parseInt($("#tourPrice").val()) 
+                var apartmentPrice = parseInt($("#apartmentPrice").val()) 
+                var carPrice = parseInt($("#carPrice").val()) 
+                
+                if (isNaN(tourPrice)){
+                    tourPrice = 0
+                }
+                if (isNaN(apartmentPrice)){
+                    apartmentPrice = 0
+                }
+                if (isNaN(carPrice)){
+                    carPrice = 0
+                }
 
                 var totalPrice = tourPrice + apartmentPrice + carPrice
                 console.log(totalPrice)

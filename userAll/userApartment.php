@@ -12,8 +12,10 @@ $mail = new PHPMailer(true);
 
 $email = $_REQUEST['session'];
 $apartmentID = $_REQUEST['idnum'];
+$arrival = $_REQUEST['arrival'];
+$departure = $_REQUEST['departure'];
 
-$query = "INSERT INTO userapartment (`name`, `apartmentID`) VALUES ('$email', '$apartmentID')";
+$query = "INSERT INTO userapartment (`name`, `apartmentID`, `arrival`, `departure`) VALUES ('$email', '$apartmentID', '$arrival', '$departure')";
 
 $response = @mysqli_query($dbc, $query);
 if ($response) {

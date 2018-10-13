@@ -11,8 +11,10 @@ $mail = new PHPMailer(true);
 
 $email = $_REQUEST['session'];
 $carID = $_REQUEST['idnum'];
+$arrival = $_REQUEST['arrival'];
+$departure = $_REQUEST['departure'];
 
-$query = "INSERT INTO usercar (`name`, `carID`) VALUES ('$email', '$carID')";
+$query = "INSERT INTO usercar (`name`, `carID`, `arrival`, `departure`) VALUES ('$email', '$carID', '$arrival', '$departure')";
 
 $response = @mysqli_query($dbc, $query);
 if ($response) {

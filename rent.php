@@ -404,27 +404,29 @@ if ($count > 0) {
             </ul>
 			<ul class="navbar-nav ml-auto selectTour" style="float:right; margin-top:-100px;">
                 <li class="list-group-item" style="border:none;">
-                    <input type="submit" name="select" id="select" class="btn btn-warning " value="Select " style="width:100px; " />
+                    <input class="btn btn-warning " value="Select " style="width:100px; " data-toggle="modal" data-target="#dateSelection" />
                 </li>
             </ul>
-            <!--<ul class="list-group list-group-flush mr-5 " style=" border:none;float:right; margin-top:-100px; ">
-                 <li class="list-group-item text-warning mt-4 " style="border:none; ">
-                    <p class="card-text "></p>
-                    <input type="button " class="btn btn-warning " value="More Detalis " />
-                </li>
-                <li class="list-group-item text-warning " style=" border:none;">
-                    <p class="card-text ">
-                        <i class="far fa-star "></i>
-                        <i class="far fa-star "></i>
-                        <i class="far fa-star "></i>
-                        <i class="far fa-star "></i>
-                        <i class="far fa-star "></i>
-                    </p>
-                </li>
-                <li class="list-group-item " style="border:none" >
-                    <input type="submit" name="select" id="select" class="btn btn-warning " value="Select " style="width:100px; " />
-                </li>
-            </ul> -->
+            <div class="modal fade" id="dateSelection" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Visit date</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" class="form-control" placeholder="Date of arrival" name="arrival" id="arrival">
+                        <input type="text" class="form-control" placeholder="Date of departure" name="departure" id="departure">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" name="select" id="select" class="btn btn-primary">Save changes</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
             </div>
             </div></form></div>
             ';
@@ -536,6 +538,18 @@ $dbc->close();
                 $('.hidden').removeClass('hidden')
                 $('#jumbotron').addClass('jumbotron6')
                 $('.loader').hide()  
+
+                var currentDate = new Date()
+                var month = currentDate.getMonth()+1;
+                var day = currentDate.getDate();
+
+                var date = currentDate . getFullYear()+'-'+
+                        ((''+month) . length < 2 ? '0' : '') + month+'-'+
+                        ((''+day) . length < 2 ? '0' : '') + day;
+                        console.log(date) 
+
+                $( "#arrival" ).datepicker({dateFormat: 'yy-mm-dd', minDate: date});
+                $( "#departure" ).datepicker({dateFormat: 'yy-mm-dd', minDate: date});
             })
         });
     </script>
