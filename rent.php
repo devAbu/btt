@@ -5,6 +5,7 @@ session_start();
 <html lang="en">
 <!--TODO: vidjet da se uradi numTaken-->
 <!--TODO: vidjet da se uradi star rating-->
+<!--TODO: uradit feedback svakog auta-->
 <!--TODO: uradit date validaciju-->
 
 <head>
@@ -111,6 +112,8 @@ label.error {
                 <i class="fab fa-facebook mr-2" aria-hidden="true"></i>Facebook</a>
         </div>
     </section>
+    
+    <!--TODO: ubacit strelicu da ga odma prebaci na rezervaciju -->
 
     <section>
         <div class="row no-gutters">

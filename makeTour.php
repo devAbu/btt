@@ -1,4 +1,13 @@
-<!--TODO: uradit date -->
+<!--TODO: uradit date umjesto period-->
+<!--TODO: prave cijene ubacit -->
+<!--TODO: interpreter-a i budget izbacit iz baze-->
+<!--TODO: cijena se racuna * dani -->
+<!--TODO: footer malo spustit -->
+<!--TODO: CIjena ide na kraju -->
+<!--TODO: kad request-a pitat ga da li zeli hotel, apartman il auto...ako hoce da odredjenu ga stranicu bacit -->
+<!--TODO: broj starih/mladjih osoba -->
+
+
 <?php
 session_start();
 ?>
@@ -113,6 +122,8 @@ label.error {
         </div>
     </section>
 
+    <!--TODO: ubacit strelicu da ga odma prebaci na rezervaciju -->
+
     <section>
      <?php
     if (isset($_SESSION["email"])) {
@@ -169,14 +180,14 @@ label.error {
                 </div>
                 <div class="col-12 offset-1 mr-md-5 mr-lg-0 col-md-5 col-lg-3 col-sm-5 ml-lg-2 offset-sm-3 offset-md-0 mt-sm-3 mt-md-0">
                     <div class="row">
-                        <div class="col-sm-12 col-10">
+                        <!-- <div class="col-sm-12 col-10">
                             <h4 class="text-success">Budget:</h4>
                             <div class="input-group ml-3">
                                 <span class="input-group-addon">$</span>
                                 <input type="number" id="budget" onchange="price()" name="budget" value="0" min="0" step="10"  max="8999" class="form-control currency"
                                 />
                             </div>
-                        </div>
+                        </div>-->
                         <div class="col-sm-12 col-10 mt-4">
                             <h4 class="text-success">No. of people:</h4>
 
@@ -228,11 +239,11 @@ label.error {
                        </div>
                 </div>
                 <div class="col-8 offset-1  offset-md-0 col-md-5 offset-sm-3 col-lg-3 offset-lg-1 mt-4">
-                    <h4 class="text-success">Interpreter:</h4>
+                    <!--<h4 class="text-success">Interpreter:</h4>
 
                     <input type="radio"  id="yes" onclick="price()" name="interpreter" class="ml-3" />Yes
                     <input type="radio" id="no" onclick="price()" name="interpreter" class="ml-3" />No
-
+                    -->
                      <h4 class="text-success mt-3">Driver:</h4>
 
                     <input type="radio"  id="driverYes" onclick="price()" name="driver" class="ml-3" />Yes

@@ -5,6 +5,7 @@ session_start();
 <html lang="en">
 <!--TODO: vidjet da se uradi numTaken-->
 <!--TODO: vidjet da se uradi star rating-->
+<!--TODO: uradit feedback svake ture-->
 
 <!-- TODO: uradit opsirniji description svake ture -->
 <!--TODO: uradit date validaciju -->
@@ -112,6 +113,8 @@ label.error {
                 <i class="fab fa-facebook mr-2" aria-hidden="true"></i>Facebook</a>
         </div>
     </section>
+    
+    <!--TODO: ubacit strelicu da ga odma prebaci na rezervaciju -->
 
     <section>
         <div class="row no-gutters">
@@ -128,7 +131,7 @@ label.error {
                 </button>
             </div>-->
             <div class="col-2 offset-3 offset-sm-0">
-                <button id="makeTour" onclick="window.open('makeTour.php');" class="btn btn-warning my-2  ml-sm-4" style="width:200px;">
+                <button id="makeTour" onclick="window.open('makeTour.php', '_self');" class="btn btn-warning my-2  ml-sm-4" style="width:200px;">
                     <i class="fa fa-paper-plane mr-2"></i>
                     Make Own Tour
                 </button>

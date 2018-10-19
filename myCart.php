@@ -1,3 +1,4 @@
+<!--TODO: na delete pitat user-a jel siguran-->
 <?php
 session_start();
 ?>

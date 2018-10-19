@@ -1,5 +1,6 @@
 ﻿<!--TODO: bolju stranicu uradit (kada user nije logovan)-->
 <!--TODO: malo bolji feed, myb ocjenu ubacit -->
+<!--TODO: skontat obacit feedback za vozaca-->
 <?php
 session_start();
 ?>
