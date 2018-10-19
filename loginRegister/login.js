@@ -1,5 +1,5 @@
 $('#alertLog').hide()
-$('#logButton').click(function () {
+$('#logButton').click(function() {
     $("#alertLog").removeClass('alert-success').removeClass('alert-danger');
     var emailLog = $('#emailLog').val();
     var passLog = $('#passLog').val();
@@ -7,22 +7,23 @@ $('#logButton').click(function () {
 
     $.ajax({
         url: "dbSend/indexSentLog.php?task=login&emailLog=" + emailLog + "&passLog=" + passLog,
-        success: function (data) {
+        success: function(data) {
             if (data.indexOf('sent') > -1) {
                 $("#alertLog").addClass('alert-success');
                 $("#alertLog").html('Logged in successfully');
                 $("#alertLog").slideDown(500).delay(1000).slideUp(500);
                 $('#emailLog').val("");
                 $('#passLog').val("");
-                if (window.location.href == "http://localhost/github/btt/login.php") {
-                    setTimeout(function () {
+                if (window.location.href == "login.php") {
+                    setTimeout(function() {
                         window.history.back();
                     }, 1500);
+                } else {
+                    var delay = 1500;
+                    setTimeout(function() {
+                        window.location.replace(window.location.href)
+                    }, delay);
                 }
-                var delay = 1500;
-                setTimeout(function () {
-                    window.location.replace(window.location.href)
-                }, delay);
             } else if (data.indexOf('activated') > -1) {
                 $("#alertLog").addClass('alert-danger');
                 $("#alertLog").html('Please activate your email address');
@@ -37,7 +38,7 @@ $('#logButton').click(function () {
                 $("#alertLog").slideDown(500).delay(1000).slideUp(500);
             }
         },
-        error: function (data, err) {
+        error: function(data, err) {
             $("#alertLog").addClass('alert-danger');
             $("#alertLog").html('Some problem occurred. We are sorry.');
             $("#alertLog").slideDown(500).delay(1000).slideUp(500);
@@ -45,7 +46,7 @@ $('#logButton').click(function () {
     });
 });
 
-$('#eyeLog').click(function () {
+$('#eyeLog').click(function() {
     /* var elementType = $('#passSign').prev().prop('pass'); */
     var elementType = $('#passLog').attr('type');
     console.log(elementType);
