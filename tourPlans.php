@@ -111,12 +111,25 @@ label.error {
                 <i class="fab fa-instagram mr-2" aria-hidden="true"></i>Instagram</a>
             <a href="https://www.facebook.com" target="_blank" class="btn btn-lg btn-primary mb-1">
                 <i class="fab fa-facebook mr-2" aria-hidden="true"></i>Facebook</a>
+           <div class="align-text-bottom">
+                <a href="#res" id="downArrow" ><i class="fas fa-chevron-down fa-7x" id="test" style="color: #007BFF; " ></i></a>
+           </div>
         </div>
-    </section>
-    
-    <!--TODO: ubacit strelicu da ga odma prebaci na rezervaciju -->
 
-    <section>
+    </section>
+
+    <script>
+        $('#downArrow').click(function() {
+            event.preventDefault();
+            var sectionTo = $(this).attr('href');
+            $('html').animate({
+            scrollTop: $(sectionTo).offset().top - 60
+            }, 1000);
+        });
+        
+    </script>
+    
+    <section id="res">
         <div class="row no-gutters">
             <div class="col-sm-5 col-10 offset-2">
                 <input id="search-loged" name="search-loged" value="" type="text" class="form-control mt-2" placeholder="Search...">

@@ -1,6 +1,6 @@
 <!--TODO: porpavit responsive za hotels-->
 <!--TODO: smanjit prvi slideshow -->
-<!--TODO: Napravit slideshow za aktivnosti koje nudimo -->
+<!--TODO: myb Napravit slideshow za aktivnosti koje nudimo -->
 <!--TODO: dodat hotel -->
 <?php
 session_start();
