@@ -6,7 +6,6 @@ session_start();
 <!--TODO: vidjet da se uradi numTaken-->
 <!--TODO: vidjet da se uradi star rating-->
 <!--TODO: uradit feedback svakog auta-->
-<!--TODO: uradit date validaciju-->
 
 <head>
   <meta charset="UTF-8">
@@ -45,6 +44,9 @@ session_start();
     <script src="jquery.validate.js"></script>
 
     <link rel="stylesheet" href="loaders.min.css" />
+
+    <link href="toastr.css" rel="stylesheet"/>
+    <script src="toastr.js"></script>
 
 
     <script>
@@ -433,8 +435,8 @@ if ($count > 0) {
                         </button>
                     </div>
                     <div class="modal-body">
-                        <input type="text" class="form-control" placeholder="Date of arrival" name="arrival" id="arrival">
-                        <input type="text" class="form-control" placeholder="Date of departure" name="departure" id="departure">
+                        <input type="text" class="form-control" placeholder="Date of arrival" name="arrival" id="arrival" onchange = "date()">
+                        <input type="text" class="form-control" placeholder="Date of departure" name="departure" id="departure" onchange = "date()">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -554,6 +556,8 @@ $dbc->close();
                 $('.hidden').removeClass('hidden')
                 $('#jumbotron').addClass('jumbotron6')
                 $('.loader').hide()  
+                
+                $('#select').attr('disabled', true);
 
                 var currentDate = new Date()
                 var month = currentDate.getMonth()+1;
@@ -568,6 +572,22 @@ $dbc->close();
                 $( "#departure" ).datepicker({dateFormat: 'yy-mm-dd', minDate: date});
             })
         });
+    </script>
+
+    <script>
+        function date(){
+            var arrival = $('#arrival').val()
+            var departure = $('#departure').val()
+            if(arrival != "" && departure != ""){
+                if(arrival >= departure){
+                    toastr.error('Please select valid date!!!')
+                    $('#select').attr('disabled', true);
+                }else{
+                    $('#select').attr('disabled', false);
+                }
+            }
+            
+        }
     </script>
 
     <script src="loaders.css.js "></script>
