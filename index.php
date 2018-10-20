@@ -1,4 +1,3 @@
-<!--TODO: popravit responsive za hotels-->
 <!--TODO: smanjit prvi slideshow nac manje slike manje od height: 1200px -->
 <!--TODO: myb Napravit slideshow za aktivnosti koje nudimo -->
 <!--TODO: dodat hotel -->
@@ -56,6 +55,7 @@ session_start();
 
 
 <style>
+  
 .loader {
     position: fixed;
     top: 50%;
@@ -261,10 +261,10 @@ $dbc->close();
 
 <!--TODO: podaci iz baze-->
     <div class="row no-gutters hidden">
-        <div class="col-md-5 col-xs-12 col-sm-12 ml-md-5 mt-4">
-            <h2 class="text-info text-center">Bosnia & Herzegovina</h2>
+        <div class="col-md-5 col-11 col-sm-12 ml-md-5 mt-4">
+            <h2 class="text-info text-center offset-1 offset-md-0">Bosnia & Herzegovina</h2>
             <p class="h4 text-primary mb-3 text-center">Our best places</p>
-            <div id="carousel3" class="carousel slide" data-ride="carousel">
+            <div id="carousel3" class="carousel slide offset-1 offset-md-0 " data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carousel3" data-slide-to="0" class=""></li>
                     <li data-target="#carousel3" data-slide-to="1" class="active"></li>
@@ -316,7 +316,7 @@ $dbc->close();
             </div>
         </div>
         <!--TODO: podaci iz baze-->
-        <div class="col-md-5 col-12 col-sm-12 mt-4" id="carouselHotel" >
+        <div class="col-md-5 col-10 col-sm-12 mt-4" id="carouselHotel">
             <h2 class="text-info text-center">Bosnia & Herzegovina</h2>
             <p class="h4 text-primary mb-3 text-center">The best hotels in Sarajevo</p>
             <div id="carousel2" class="carousel slide" data-ride="carousel">
@@ -349,7 +349,7 @@ $dbc->close();
                     </div>
                     <div class="carousel-item active" style="border-radius:5%;">
                         <!-- <a href="hotel.php"> -->
-                            <img src="images/malak.jpg" alt="slide3" style="border-radius:5%;" class="d-block img-fluid index2">
+                            <img src="images/malak.jpg" alt="slide3" style="border-radius:5%;" class="d-block img-fluid index2 ">
                         <!-- </a> -->
                         <div class="carousel-caption">
                             <!-- <a href="hotel.php" style="text-decoration:none !important;"> -->
@@ -359,7 +359,7 @@ $dbc->close();
                     </div>
                     <div class="carousel-item" style="border-radius:5%;">
                         <!-- <a href="hotel.php"> -->
-                            <img src="images/mariot.jpg" alt="slide4" style="border-radius:5%;" class="d-block img-fluid index2">
+                            <img src="images/mariot.jpg" alt="slide4" style="border-radius:5%;" class="d-block img-fluid index2 ">
                         <!-- </a> -->
                         <div class="carousel-caption">
                             <!-- <a href="hotel.php" style="text-decoration:none !important;"> -->
