@@ -1,4 +1,3 @@
-<!--TODO: na delete pitat user-a jel siguran-->
 <?php
 session_start();
 ?>
@@ -223,7 +222,9 @@ label.error {
             <!--TODO: uradit change date-->
              <ul class="navbar-nav ml-auto selectTour" style="float:right; margin-top:-100px;">
                 <li class="list-group-item" style="border:none;">
-                    <input type="submit" name="select" id="select" class="btn btn-warning " value="Delete " style="width:100px; " />
+                    <a href="#" data-toggle="modal" data-target="#confirmTour">
+                        <input type="button" name="select" id="select" class="btn btn-warning " value="Delete " style="width:100px; " />
+                    </a>
                 </li>
             </ul>
 
@@ -245,10 +246,30 @@ label.error {
                         echo '
 
                 <li class="list-group-item " style="border:none">
-                    <input type="submit" name="select" id="select" class="btn btn-warning " value="Delete " style="width:100px; " />
+                <a href="#" data-toggle="modal" data-target="#confirmTour">
+                    <input type="button" name="select" id="select" class="btn btn-warning " value="Delete " style="width:100px; " />
+                </a>
                 </li>
             </ul>-->
             </div>
+
+            <div class="modal fade" id="confirmTour" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-danger" id="exampleModalCenterTitle">Are you sure?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">NO</button>
+                        <button type="submit" class="btn btn-danger">YES</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="card-footer text-muted ">
                 <small class="text-muted ">
                     <i class="far fa-clock mr-2 "></i> ' . $row["days"] . '</small>
@@ -328,11 +349,32 @@ if (isset($_SESSION["email"])) {
             echo '
 
                 <li class="list-group-item " style="border:none">
-                    <input type="submit" name="select" id="select" class="btn btn-warning " value="Delete " style="width:100px; " />
+                    <a href="#" data-toggle="modal" data-target="#confirmApartment">
+                        <input type="button" name="select" id="select" class="btn btn-warning " value="Delete " style="width:100px; " />
+                    </a>
                 </li>
+                
             </ul>
             <!--TODO: uradit change date-->
             </div>
+
+            <div class="modal fade" id="confirmApartment" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-danger" id="exampleModalCenterTitle">Are you sure?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">NO</button>
+                        <button type="submit" class="btn btn-danger">YES</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="card-footer text-muted ">
             <span style="float:left !important"><i class="fas fa-dollar-sign mr-2"></i>' . $row["price"] . ' per day</span>
             <input type="number" value="' . $row["price"] . '" id="apartmentPrice" hidden>
@@ -413,7 +455,9 @@ if (isset($_SESSION["email"])) {
             </ul>
             <ul class="navbar-nav ml-auto selectTour" style="float:right; margin-top:-100px;">
                 <li class="list-group-item" style="border:none;">
-                    <input type="submit" name="select" id="select" class="btn btn-warning " value="Delete " style="width:100px; " />
+                    <a href="#" data-toggle="modal" data-target="#confirmCar">
+                        <input type="button" name="select" id="select" class="btn btn-warning " value="Delete " style="width:100px; " />
+                    </a>
                 </li>
             </ul>
 <!--TODO: uradit change date-->
@@ -436,6 +480,24 @@ if (isset($_SESSION["email"])) {
                 </li>
             </ul>-->
             </div>
+
+            <div class="modal fade" id="confirmCar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-danger" id="exampleModalCenterTitle">Are you sure?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">NO</button>
+                        <button type="submit" class="btn btn-danger">YES</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
             </div></form>
             ';
         }
@@ -518,8 +580,27 @@ if (isset($_SESSION["email"])) {
                         <label class="ml-3 mt-4">Options: </label>
                         
                         
-                        <div class="col-1 mt-4">
-                            <input type="submit" id="delete" class="btn btn-danger" value="Delete">
+                        <div class="col-1 mt-3">
+                            <a href="#" data-toggle="modal" data-target="#confirmRequest">
+                                <input type="button" id="delete" class="btn btn-lg btn-danger" value="Delete">
+                            </a>
+                        </div>
+
+                        <div class="modal fade" id="confirmRequest" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-danger" id="exampleModalCenterTitle">Are you sure?</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-warning" data-dismiss="modal">NO</button>
+                                    <button type="submit" class="btn btn-danger">YES</button>
+                                </div>
+                                </div>
+                            </div>
                         </div>
                         
                     </div>

@@ -1,3 +1,4 @@
+/*TODO: da ga ne vraca na login i provjeriti za verify*/
 $('#alertLog').hide()
 $('#logButton').click(function() {
     $("#alertLog").removeClass('alert-success').removeClass('alert-danger');
@@ -14,7 +15,7 @@ $('#logButton').click(function() {
                 $("#alertLog").slideDown(500).delay(1000).slideUp(500);
                 $('#emailLog').val("");
                 $('#passLog').val("");
-                if (window.location.href == "login.php") {
+                if (window.location == "login.php") {
                     setTimeout(function() {
                         window.history.back();
                     }, 1500);
