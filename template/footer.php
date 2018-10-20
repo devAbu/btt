@@ -1,3 +1,23 @@
+ <head>
+    <style>
+        @media only screen and (max-width: 990px) {
+            #googleMap,
+            #googleMap * {
+                width: 450px !important;
+                resize: both;
+            }
+        }
+
+        @media only screen and (max-width: 500px) {
+            #googleMap,
+            #googleMap * {
+                width: 300px !important;
+                resize: both;
+            }
+        }
+    </style>
+ </head>
+ 
  <footer class="bg-secondary">
         <div class="row no-gutters">
             <div class="col-md-6 col-sm-12 col-xs-12 mt-5">
@@ -54,10 +74,8 @@
                     </span>
                 </button>
                 <div class="modal-body">
-                    <div class="col-12">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2878.2453302725744!2d18.349382815303517!3d43.830010879115655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4758c990fdf0ccc5%3A0xdab20818f84ffaf7!2sGrada+Bakua%2C+Sarajevo+71000!5e0!3m2!1sen!2sba!4v1520858418062"
-                            width="700" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-                    </div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2878.2453302725744!2d18.349382815303517!3d43.830010879115655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4758c990fdf0ccc5%3A0xdab20818f84ffaf7!2sGrada+Bakua%2C+Sarajevo+71000!5e0!3m2!1sen!2sba!4v1520858418062"
+                        width="700" height="450" frameborder="0" style="border:0" allowfullscreen id="googleMap"></iframe>
                 </div>
             </div>
         </div>

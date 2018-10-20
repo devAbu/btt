@@ -1,6 +1,7 @@
 ﻿<!--TODO: bolju stranicu uradit (kada user nije logovan)-->
 <!--TODO: malo bolji feed, myb ocjenu ubacit -->
-<!--TODO: skontat obacit feedback za vozaca-->
+<!--TODO: skontat ubacit feedback za vozaca-->
+<!--TODO: provjeriti responsive na vecem ekranu -->
 <?php
 session_start();
 ?>

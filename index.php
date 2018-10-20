@@ -1,5 +1,5 @@
-<!--TODO: porpavit responsive za hotels-->
-<!--TODO: smanjit prvi slideshow -->
+<!--TODO: popravit responsive za hotels-->
+<!--TODO: smanjit prvi slideshow nac manje slike manje od height: 1200px -->
 <!--TODO: myb Napravit slideshow za aktivnosti koje nudimo -->
 <!--TODO: dodat hotel -->
 <?php
