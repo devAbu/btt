@@ -1,6 +1,8 @@
 <!--TODO: smanjit prvi slideshow nac manje slike manje od height: 1200px -->
-<!--TODO: myb Napravit slideshow za aktivnosti koje nudimo -->
 <!--TODO: dodat hotel -->
+<!--TODO: popravit  hotel carousel...responsive -->
+<!--TODO: dodat novi logo -->
+<!--TODO: dodat u jumbotron button da ga prebaci na tourPlan  -->
 <?php
 session_start();
 ?>

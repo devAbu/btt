@@ -438,8 +438,16 @@ if ($count > 0) {
                         </button>
                     </div>
                     <div class="modal-body">
-                        <input type="text" class="form-control" placeholder="Date of arrival" name="arrival" id="arrival" onchange = "date()">
-                        <input type="text" class="form-control" placeholder="Date of departure" name="departure" id="departure" onchange = "date()">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="text" class="form-control" placeholder="Date of arrival" name="arrival" id="arrival" onchange="date()">
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" placeholder="Date of departure" name="departure" id="departure" onchange="date()">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

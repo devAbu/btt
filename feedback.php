@@ -2,6 +2,7 @@
 <!--TODO: malo bolji feed, myb ocjenu ubacit -->
 <!--TODO: skontat ubacit feedback za vozaca-->
 <!--TODO: provjeriti responsive na vecem ekranu -->
+<!--TODO: popravit responsive na login -->
 <?php
 session_start();
 ?>
