@@ -55,42 +55,8 @@ session_start();
         })
     </script>
 <style>
-    #test {
-	    color: white!important;
-    }
-    .loader {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    z-index: 999;
-    transform: scale(4);
-}
-.hidden{
-    display:none;
-}
-.pass {
-    position: relative;
-}
-
-.passIcon {
-    position: absolute;
-    top: 10%;
-    padding: 9px 8px;
-    left: 90%
-}
-.passIcon2 {
-    position: absolute;
-    top: 10%;
-    padding: 9px 8px;
-    left: 90%
-}
-
-label.error {
-    margin-left: 5%;
-    margin-top: 3px;
-    color: red;
-    font-size: 17px;
-}
+    
+    
 </style>
 
 </head>
@@ -116,7 +82,7 @@ label.error {
             <a href="https://www.facebook.com" target="_blank" class="btn btn-lg btn-primary mb-1">
                 <i class="fab fa-facebook mr-2" aria-hidden="true"></i>Facebook</a>
             <div class="align-text-bottom">
-                <a href="#res" id="downArrow"><i class="fa fa-caret-down fa-7x" id="test" style="color: #007BFF;" ></i></a>
+                <a href="#res" id="downArrow"><i class="fa fa-caret-down fa-7x" id="test" ></i></a>
             </div>
         </div>
         

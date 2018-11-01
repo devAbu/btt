@@ -1,8 +1,6 @@
 ﻿<!--TODO: bolju stranicu uradit (kada user nije logovan)-->
 <!--TODO: malo bolji feed, myb ocjenu ubacit -->
 <!--TODO: skontat ubacit feedback za vozaca-->
-<!--TODO: provjeriti responsive na vecem ekranu -->
-<!--TODO: popravit responsive na login -->
 <?php
 session_start();
 ?>
@@ -53,42 +51,7 @@ session_start();
             $('#footerInclude').load("./template/footer.php");
         })
     </script>
-<style>
 
-    .loader {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    z-index: 999;
-    transform: scale(4);
-}
-.hidden{
-    display:none;
-}
-.pass {
-    position: relative;
-}
-
-.passIcon {
-    position: absolute;
-    top: 10%;
-    padding: 9px 8px;
-    left: 90%
-}
-.passIcon2 {
-    position: absolute;
-    top: 10%;
-    padding: 9px 8px;
-    left: 90%
-}
-
-label.error {
-    margin-left: 5%;
-    margin-top: 3px;
-    color: red;
-    font-size: 17px;
-}
-</style>
 
 </head>
 
@@ -128,7 +91,7 @@ label.error {
             <div class="alert mt-3" id="alertFeedback"></div>
         </form>';
     } else {
-        echo "<div><div class='offset-sm-5 offset-1 col-10 col-sm-7 text-center mt-5 mb-5'><a href='#' data-toggle='modal' data-target='#LoginModal'><span class='text-warning' style='font-size: 20px;'>LOGIN</span></a> to be able to leave feedback!!!</div></div>";
+        echo "<div><div class='offset-sm-3 offset-0 col-12 col-sm-7 text-center mt-5 mb-5'><a href='#' data-toggle='modal' data-target='#LoginModal'><span class='text-warning' style='font-size: 20px;'>LOGIN</span></a> to be able to leave feedback!!!</div></div>";
     }
     ?>
     </section>

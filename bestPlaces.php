@@ -48,41 +48,7 @@ session_start();
             $('#footerInclude').load("./template/footer.php");
         })
     </script>
-<style>
-    .loader {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    z-index: 999;
-    transform: scale(4);
-}
-.hidden{
-    display:none;
-}
-.pass {
-    position: relative;
-}
 
-.passIcon {
-    position: absolute;
-    top: 10%;
-    padding: 9px 8px;
-    left: 90%
-}
-.passIcon2 {
-    position: absolute;
-    top: 10%;
-    padding: 9px 8px;
-    left: 90%
-}
-
-label.error {
-    margin-left: 5%;
-    margin-top: 3px;
-    color: red;
-    font-size: 17px;
-}
-</style>
 
 </head>
 
@@ -117,14 +83,14 @@ $result = $dbc->query($sql);
 $count = $result->num_rows;
 
 if ($count > 0) {
-    echo '<div class="row  bg" style="margin:0px">';
+    echo '<div class="row  bg hidden" style="margin:0px" >';
     while ($row = $result->fetch_assoc()) {
-        echo '<div class=" col-sm-12 col-11 col-md-5 col-lg-5" style="margin-left: 70px;" id="bestPlacesMain">
+        echo '<div class=" col-sm-12 col-11 col-md-5 col-lg-5 hidden" style="margin-left: 70px;" id="bestPlacesMain" >
         <a href="#" data-toggle="modal" data-target="#' . $row["ID"] . '">
             <img src=" data:image/jpeg;base64,' . base64_encode($row["img"]) . '" alt="' . $row['title'] . '" class="img-fluid best mt-3" /></a>
             <h2 class="text-warning text-uppercase text-center" style="margin-bottom:0px;">' . $row["title"] . '</h2>
         </div>
-        <div class="modal fade" id="' . $row['ID'] . '" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal fade hidden" id="' . $row['ID'] . '" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-body">

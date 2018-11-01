@@ -54,44 +54,6 @@ session_start();
         })
     </script>
 
-
-
-<style>
-  
-.loader {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    z-index: 999;
-    transform: scale(4);
-}
-.hidden{
-    display:none;
-}
-.pass {
-    position: relative;
-}
-
-.passIcon {
-    position: absolute;
-    top: 10%;
-    padding: 9px 8px;
-    left: 90%
-}
-.passIcon2 {
-    position: absolute;
-    top: 10%;
-    padding: 9px 8px;
-    left: 90%
-}
-
-label.error {
-    margin-left: 5%;
-    margin-top: 3px;
-    color: red;
-    font-size: 17px;
-}</style>
-
 </head>
 
 <body>
@@ -115,6 +77,11 @@ label.error {
                 <i class="fab fa-instagram mr-2" aria-hidden="true"></i>Instagram</a>
             <a href="https://www.facebook.com" target="_blank" class="btn btn-lg btn-primary mb-1">
                 <i class="fab fa-facebook mr-2" aria-hidden="true"></i>Facebook</a>
+            <div>
+                <a href="tourPlans.php"  class="text-warning">
+                    <i class="fas fa-suitcase fa-2x mr-3 mt-md-4 mt-2"></i><span id="indexTour">Choose a tour</span>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -262,8 +229,8 @@ $dbc->close();
 </section>
 
 <!--TODO: podaci iz baze-->
-    <div class="row no-gutters hidden">
-        <div class="col-md-5 col-11 col-sm-12 ml-md-5 mt-4">
+    <div class="row no-gutters">
+        <div class="col-md-5 col-11 col-sm-12 ml-md-5 mt-4 hidden">
             <h2 class="text-info text-center offset-1 offset-md-0">Bosnia & Herzegovina</h2>
             <p class="h4 text-primary mb-3 text-center">Our best places</p>
             <div id="carousel3" class="carousel slide offset-1 offset-md-0 " data-ride="carousel">
@@ -318,7 +285,7 @@ $dbc->close();
             </div>
         </div>
         <!--TODO: podaci iz baze-->
-        <div class="col-md-5 col-10 col-sm-12 mt-4" id="carouselHotel">
+        <div class="col-md-5 col-10 col-sm-12 mt-4 hidden" id="carouselHotel">
             <h2 class="text-info text-center">Bosnia & Herzegovina</h2>
             <p class="h4 text-primary mb-3 text-center">The best hotels in Sarajevo</p>
             <div id="carousel2" class="carousel slide" data-ride="carousel">
