@@ -1,4 +1,3 @@
-/*TODO: da ga ne vraca na login i provjeriti za verify*/
 $('#alertLog').hide()
 $('#logButton').click(function() {
     $("#alertLog").removeClass('alert-success').removeClass('alert-danger');
@@ -15,14 +14,27 @@ $('#logButton').click(function() {
                 $("#alertLog").slideDown(500).delay(1000).slideUp(500);
                 $('#emailLog').val("");
                 $('#passLog').val("");
-                if (window.location == "login.php") {
+
+
+                if (window.location.href == "http://localhost/github/btt/login.php" || window.location.href == "http://localhost/github/btt/login") {
+                    var old = document.referrer
+                    console.log(old)
+
+                    var arr = old.match(/verify.php?(.*)/);
+                    /* if (arr != null) { // Did it match?
+                        alert(arr[1]);
+                    } */
                     setTimeout(function() {
-                        window.history.back();
+                        if (arr != null) {
+                            window.location.replace("index.php")
+                        } else {
+                            window.history.back()
+                        }
                     }, 1500);
                 } else {
                     var delay = 1500;
                     setTimeout(function() {
-                        window.location.replace(window.location.href)
+                        console.log(window.location.replace(window.location.href))
                     }, delay);
                 }
             } else if (data.indexOf('activated') > -1) {

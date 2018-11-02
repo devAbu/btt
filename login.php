@@ -41,7 +41,7 @@
     </div>
 
     <nav class="navbar bg-warning navbar-light  navbar-expand-sm fixed-top" style="opacity:0.7; font-size:18px;">
-        <a href="index.php" class="navbar-brand"><img src="images/icon.png" alt="logo" class="img-fluid mr-3" width="45" height="45" /><span class="h4">BTT</span></a>
+        <a href="index.php" class="navbar-brand"><img src="images/btt logo png.png" alt="logo" class="img-fluid mr-3" width="45" height="45" /><span class="h4">BTT</span></a>
         <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expended="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -65,7 +65,7 @@
             <form id="loginForm" name="loginForm">
                 <div class="card" style=" margin-top:-15px;background:none !important; border:none;">
                     <div class="card-body text-center">
-                        <img class="card-img-top mb-3" src="images/icon.png" style="width:90px !important; margin-top:150px !important;" height="80" alt="Card image cap">
+                        <img class="card-img-top mb-3" src="images/btt logo png.png" style="width:150px !important; margin-top:150px !important;" height="150" alt="Card image cap">
                         <h3 class="card-title text-uppercase text-warning">Login</h3>
                     </div>
                     <ul class="list-group list-group-flush" style="margin-top:-20px;">

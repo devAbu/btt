@@ -71,7 +71,7 @@ session_start();
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalTitleSign">
-                        <img src="images/icon.png" class="img-fluid mr-5" width="60" height="60" alt="BTT">
+                        <img src="images/btt logo png.png" class="img-fluid mr-5" width="85" height="85" alt="BTT">
                         <label class="h2 text-primary">Create an account</label>
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -176,7 +176,7 @@ session_start();
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalTitleLog">
-                        <img src="images/icon.png" class="img-fluid mr-5" width="60" height="60" alt="BTT">
+                        <img src="images/btt logo png.png" class="img-fluid mr-5" width="85" height="85" alt="BTT">
                         <label class="h2 text-primary ml-5">Login</label>
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
