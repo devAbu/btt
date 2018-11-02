@@ -21,7 +21,7 @@
  <footer class="bg-secondary">
         <div class="row no-gutters">
             <div class="col-md-6 col-sm-12 col-xs-12 mt-5">
-                <img src="images/icon.png" alt="logo" class="img-fluid ml-2" width="100" height="100" />
+                <img src="images/btt logo png.png" alt="logo" class="img-fluid ml-2 logo" width="170" height="170" />
                 <label class="text-uppercase text-center text-warning h1" style="opacity:0.7;">Bosnian Tourist Travel</label>
                 <p class="ml-3 text-dark mt-4" style="max-width:400px;">Home to medieval villages, rivers and lakes, plus the craggy Dinaric Alps, and many more, explore our Country.</p>
                 <p class="ml-3 text-dark mt-3">You can see BTT offers by visitting this

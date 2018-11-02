@@ -515,3 +515,7 @@ label.error {
     content: "\f155";
     color: #e0e0e0;
 }
+
+.logo {
+    filter: brightness(2.0);
+}

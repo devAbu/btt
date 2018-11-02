@@ -10,7 +10,7 @@ session_start();
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="css/style.css" type="text/css" rel="stylesheet">
   <title>BTT</title>
-  <link rel="icon" type="image/ico" href="images/icon.ico" />
+  <link rel="icon" type="image/ico" href="images/btt_logo_icon.ico" />
   <meta name="author" content="abu">
   <meta name="keywords" content="btt, bosnian, tourist, travel, agency, arabic, bosna">
   <meta name="description" content="BTT - Bosnian Tourist Travel offers the best tour plans and the best hotels in B&H. ">
