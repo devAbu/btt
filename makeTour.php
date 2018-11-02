@@ -1,8 +1,7 @@
 <!--TODO: uradit date umjesto period-->
 <!--TODO: prave cijene ubacit -->
-<!--TODO: interpreter-a i budget izbacit iz baze-->
 <!--TODO: cijena se racuna * dani -->
-<!--TODO: CIjena ide na kraju -->
+<!--TODO: Cijena ide na kraju -->
 <!--TODO: broj starih/mladjih osoba -->
 
 
@@ -188,7 +187,8 @@ session_start();
                             </div>
                         </div>
                         <div class="col-10 col-sm-8 col-md-10">
-                            <input type="text" class="form-control mt-2" id="other" onchange="price()" name="other" placeholder="Other..." />
+                            <input type="text" class="form-control mt-2" id="other" onchange="price()" name="other" placeholder="Other..." onkeydown="preventNumberInput(event)"
+               onkeyup="preventNumberInput(event)"/>
                         </div>
                     
                 </div>
@@ -268,9 +268,6 @@ session_start();
                 </div>
             </div>
             <div class="alertReq" id="alertReq"></div>
-        <div id="dialog" title="Warning">
-            <p>Your budget is smaller than the total price!!!</p>
-        </div>
         ';
     } else {
         echo "<div class='offset-sm-1 text-center mt-5 mb-5'><a href='#' data-toggle='modal' data-target='#LoginModal'><span class='text-warning' style='font-size: 20px;'>LOGIN</span></a> to be able to make tour request!!!</div>";
@@ -293,6 +290,14 @@ session_start();
 
         });
     });
+
+    function preventNumberInput(e){
+    var keyCode = (e.keyCode ? e.keyCode : e.which);
+    if (keyCode > 47 && keyCode < 58 || keyCode > 95 && keyCode < 107 ){
+        e.preventDefault();
+    }
+}
+    
   </script>
     <script>
         $('#alertReq').fadeOut();
@@ -374,7 +379,7 @@ session_start();
             console.log(check)
 
             console.log(checked);
-            var budget = $('#budget').val();
+            
             var people = $('#people').val();
 
 
@@ -406,18 +411,6 @@ session_start();
                 console.log(period);
             }
 
-           /*  var yes = $('#yes').is(':checked');
-            var no = $('#no').is(':checked'); */
-
-            var checkyes = "";
-
-           /*  if(yes == true){
-                checkyes += "yes"
-                console.log(checkyes);
-            } else if(no == true) {
-                checkyes += "no"
-                console.log(checkyes);
-            } */
 
             var driverYes = $('#driverYes').is(':checked');
             var driverNo = $('#driverNo').is(':checked');
@@ -454,20 +447,12 @@ session_start();
                 $("#alertReq").addClass('alert-danger');
                 $("#alertReq").html("Please choose 1 (one) season!!!");
                 $("#alertReq").fadeIn(500).delay(1000).fadeOut(500);
-            }/*  else if( yes == false && no == false) {
+            } else if( driverYes == false && driverNo == false) {
                 $("#alertReq").addClass('alert-danger');
-                $("#alertReq").html("Please select if you need interpreter or not!!!");
+                $("#alertReq").html("Please select if you need driver or not!!!");
                 $("#alertReq").fadeIn(500).delay(1000).fadeOut(500);
-            }  */else if( driverYes == false && driverNo == false) {
-                $("#alertReq").addClass('alert-danger');
-                $("#alertReq").html("Please select if you need interpreter or not!!!");
-                $("#alertReq").fadeIn(500).delay(1000).fadeOut(500);
-            } else if (budget < price) {
-                $( "#dialog" ).show();
-                $( "#dialog" ).dialog();
             } else {
                 $.ajax({
-                    //"&checkyes="+checkyes+   "&budget="+budget+ 
                     url: "dbSend/makeRequest?task=request&check="+check+"&people="+people+"&length="+length+"&period="+period+"&price="+price+"&session="+session+"&checkDriver="+checkDriver,
                     success: function (data){
                         if(data.indexOf('sent') > -1){
@@ -562,7 +547,6 @@ session_start();
               price += 400
             }
 
-            /* var budget = document.getElementById('budget').value; */
 
             var people = document.getElementById('people').value;
             if(people != 0) {
@@ -599,12 +583,6 @@ session_start();
                 price += 100;
             }
 
-           /*  var yes = document.getElementById('yes').checked;
-            var no = document.getElementById('no').checked; */
-
-           /*  if (yes == true) {
-                price += 100;
-            } */
             document.getElementById("price").value = price;
 
             var driverYes = document.getElementById('driverYes').checked;
@@ -615,7 +593,6 @@ session_start();
             }
             document.getElementById("price").value = price;
 
-            /* var budget = document.getElementById('budget').value; */
         }
     </script>
 
