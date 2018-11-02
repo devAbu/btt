@@ -1,6 +1,5 @@
 <!--TODO: smanjit prvi slideshow nac manje slike manje od height: 1200px -->
 <!--TODO: dodat hotele -->
-<!--TODO: popravit  hotel carousel...responsive -->
 <?php
 session_start();
 ?>
