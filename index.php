@@ -1,5 +1,5 @@
 <!--TODO: smanjit prvi slideshow nac manje slike manje od height: 1200px -->
-<!--TODO: dodat hotel -->
+<!--TODO: dodat hotele -->
 <!--TODO: popravit  hotel carousel...responsive -->
 <?php
 session_start();
@@ -283,7 +283,7 @@ $dbc->close();
             </div>
         </div>
         <!--TODO: podaci iz baze-->
-        <div class="col-md-5 col-10 col-sm-12 mt-4 hidden" id="carouselHotel">
+        <div class="col-md-5 col-10 col-sm-12 mt-4 hidden offset-1" id="carouselHotel">
             <h2 class="text-info text-center">Bosnia & Herzegovina</h2>
             <p class="h4 text-primary mb-3 text-center">The best hotels in Sarajevo</p>
             <div id="carousel2" class="carousel slide" data-ride="carousel">
