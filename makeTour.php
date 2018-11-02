@@ -2,9 +2,7 @@
 <!--TODO: prave cijene ubacit -->
 <!--TODO: interpreter-a i budget izbacit iz baze-->
 <!--TODO: cijena se racuna * dani -->
-<!--TODO: footer malo spustit -->
 <!--TODO: CIjena ide na kraju -->
-<!--TODO: kad request-a pitat ga da li zeli hotel, apartman il auto...ako hoce da odredjenu ga stranicu bacit -->
 <!--TODO: broj starih/mladjih osoba -->
 
 
@@ -34,7 +32,8 @@ session_start();
       crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
       crossorigin="anonymous"></script>
- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<!--  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -101,6 +100,44 @@ session_start();
         
     </script>
 
+    <div class="modal fade" id="otherOffers" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-primary" id="exampleModalCenterTitle">Do you want reserve other offers?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-12 mt-2 mt-md-0" style="padding-right:0px !important;">
+                            <a href="apartment.php">
+                                <button class="btn btn-lg btn-primary" style="width:100%"><i class="far fa-building mr-2"></i>Apartment</button>
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-12 mt-2 mt-md-0" style="padding-right:0px !important;">
+                            <a href="hotel.php">
+                                <button class="btn btn-lg btn-primary" style="width:100%; "><i class="fas fa-bed mr-2"></i>Hotel</button>
+                            </a>
+                        </div>
+                        
+                        <div class="col-md-4 col-12 mt-2 mt-md-0" style="padding-right:0px !important;">
+                            <a href="rent.php">
+                                <button class="btn btn-lg btn-primary" style="width:100%"> <i class="fas fa-car mr-2"></i>Car</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
     
 
     <section id="res">
@@ -124,10 +161,7 @@ session_start();
                             </div>
                         </div>
                         <div class="form-check form-check-inline col-12">
-                            <label for="jajce" class="col-2 col-form-label">Jajce</label>
-                            <div class="col-1 col-1 ml-4 ml-sm-2 ml-md-3 ml-lg-3">
-                                <input class="w3-check" id="jajce" name="jajce" onclick="price()" type="checkbox">
-                            </div>
+                            
                             <label for="konjic" class="col-2 col-form-label">Konjic</label>
                             <div class="col-1 col-1 ml-4 ml-sm-2 ml-md-3 ml-lg-3">
                                 <input class="w3-check" id="konjic" name="konjic" onclick="price()" type="checkbox">
@@ -137,12 +171,13 @@ session_start();
                             <div class="col-1 col-1 ml-4 ml-sm-2 ml-md-3 ml-lg-3">
                                 <input class="w3-check" id="trebevic" name="trebevic" onclick="price()" type="checkbox">
                             </div>
-                        </div>
-                        <div class="form-check form-check-inline col-12">
                             <label for="igman" class="col-2 col-form-label">Igman</label>
                             <div class="col-1 col-1 ml-4 ml-sm-2 ml-md-3 ml-lg-3">
                                 <input class="w3-check" id="igman" name="igman" onclick="price()" type="checkbox">
                             </div>
+                        </div>
+                        <div class="form-check form-check-inline col-12">
+                            
                             <label for="jahorina" class="col-2 col-form-label">Jahorina</label>
                             <div class="col-1 col-1 ml-4 ml-sm-2 ml-md-3 ml-lg-3">
                                 <input class="w3-check" id="jahorina" onclick="price()" name="jahorina" type="checkbox">
@@ -243,7 +278,7 @@ session_start();
     ?>
     </section>
 
-    <div id="footerInclude"></div>
+    <div id="footerInclude" class="mt-3"></div>
     
     <script>
         $( function() {
@@ -371,18 +406,18 @@ session_start();
                 console.log(period);
             }
 
-            var yes = $('#yes').is(':checked');
-            var no = $('#no').is(':checked');
+           /*  var yes = $('#yes').is(':checked');
+            var no = $('#no').is(':checked'); */
 
             var checkyes = "";
 
-            if(yes == true){
+           /*  if(yes == true){
                 checkyes += "yes"
                 console.log(checkyes);
             } else if(no == true) {
                 checkyes += "no"
                 console.log(checkyes);
-            }
+            } */
 
             var driverYes = $('#driverYes').is(':checked');
             var driverNo = $('#driverNo').is(':checked');
@@ -419,11 +454,11 @@ session_start();
                 $("#alertReq").addClass('alert-danger');
                 $("#alertReq").html("Please choose 1 (one) season!!!");
                 $("#alertReq").fadeIn(500).delay(1000).fadeOut(500);
-            } else if( yes == false && no == false) {
+            }/*  else if( yes == false && no == false) {
                 $("#alertReq").addClass('alert-danger');
                 $("#alertReq").html("Please select if you need interpreter or not!!!");
                 $("#alertReq").fadeIn(500).delay(1000).fadeOut(500);
-            } else if( driverYes == false && driverNo == false) {
+            }  */else if( driverYes == false && driverNo == false) {
                 $("#alertReq").addClass('alert-danger');
                 $("#alertReq").html("Please select if you need interpreter or not!!!");
                 $("#alertReq").fadeIn(500).delay(1000).fadeOut(500);
@@ -432,16 +467,21 @@ session_start();
                 $( "#dialog" ).dialog();
             } else {
                 $.ajax({
-                    url: "dbSend/makeRequest?task=request&check="+check+"&people="+people+"&length="+length+"&period="+period+"&checkyes="+checkyes+"&price="+price+"&budget="+budget+"&session="+session+"&checkDriver="+checkDriver,
+                    //"&checkyes="+checkyes+   "&budget="+budget+ 
+                    url: "dbSend/makeRequest?task=request&check="+check+"&people="+people+"&length="+length+"&period="+period+"&price="+price+"&session="+session+"&checkDriver="+checkDriver,
                     success: function (data){
                         if(data.indexOf('sent') > -1){
                             $("#alertReq").addClass('alert-success');
 							$("#alertReq").html('Request sent!!!');
                             $("#alertReq").slideDown(500).delay(1000).slideUp(500);
-                            window.location = "http://localhost/github/btt/phpSendEmailForRequestTour?session=" + session + "&price=" + price
+                           /*  window.location = "http://localhost/github/btt/phpSendEmailForRequestTour?session=" + session + "&price=" + price */
+                           setTimeout(function(){ 
+                               $('#otherOffers').modal('show');
+                            }, 1500);
+                            
                             $('#other').val("");
                             $('#length').val("");
-                            $('#budget').val("");
+                            /* $('#budget').val(""); */
                             $('#people').val("");
                             $('#price').val(0);
                             $('#sarajevo').prop('checked', false);
@@ -453,12 +493,13 @@ session_start();
                             $('#trebevic').prop('checked', false);
                             $('#igman').prop('checked', false);
                             $('#jahorina').prop('checked', false);
-                            $('#yes').prop('checked', false);
-                            $('#no').prop('checked', false);
+                            $('#driverYes').prop('checked', false);
+                            $('#driverNo').prop('checked', false);
                             $('#zima').prop('checked', false);
                             $('#proljece').prop('checked', false);
                             $('#jesen').prop('checked', false);
                             $('#ljeto').prop('checked', false);
+                            
                         } else {
                             $("#alertReq").addClass('alert-danger');
 							$("#alertReq").html('Error occured');
@@ -521,7 +562,7 @@ session_start();
               price += 400
             }
 
-            var budget = document.getElementById('budget').value;
+            /* var budget = document.getElementById('budget').value; */
 
             var people = document.getElementById('people').value;
             if(people != 0) {
@@ -558,12 +599,12 @@ session_start();
                 price += 100;
             }
 
-            var yes = document.getElementById('yes').checked;
-            var no = document.getElementById('no').checked;
+           /*  var yes = document.getElementById('yes').checked;
+            var no = document.getElementById('no').checked; */
 
-            if (yes == true) {
+           /*  if (yes == true) {
                 price += 100;
-            }
+            } */
             document.getElementById("price").value = price;
 
             var driverYes = document.getElementById('driverYes').checked;
@@ -574,7 +615,7 @@ session_start();
             }
             document.getElementById("price").value = price;
 
-            var budget = document.getElementById('budget').value;
+            /* var budget = document.getElementById('budget').value; */
         }
     </script>
 
@@ -582,11 +623,13 @@ session_start();
         $("body > *").not("body > .loader").addClass('hidden');
         $('body').css('background-color', '#d1d1d1')
         $( window ).on( "load", function() {
+            jQuery.noConflict();
             $( document ).ready(function() {
                 $('body').css('background-color', '')
                 $('.hidden').removeClass('hidden')
                 $('#jumbotron').addClass('jumbotron8')
                 $('.loader').hide()  
+                
             })
         });
     </script>

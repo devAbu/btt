@@ -7,7 +7,6 @@ session_start();
 <!--TODO: vidjet da se uradi star rating-->
 <!--TODO: uradit feedback svake ture-->
 <!-- TODO: uradit opsirniji description svake ture -->
-<!--TODO: porpavit prvu sliku -->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -398,7 +397,7 @@ if ($count > 0) {
             <div class="card-body ">
                 <h5 class="card-title text-left ml-5 h1 text-primary "> ' . $row["title"] . '</h5>
 
-                    <img src=" ' . $row["img"] . '" class="tourPlans img-fluid" alt="skijanje " width="400 " height="250
+                    <img src=" ' . $row["img"] . '" class="tourPlans" alt="skijanje " width="400 " height="250
             " style="float:left; " />
 
 
@@ -489,7 +488,7 @@ if ($count > 0) {
             <div class="card-body ">
                 <h5 class="card-title text-left ml-5 h1 text-primary "> ' . $row["title"] . '</h5>
 
-                    <img src="' . $row["img"] . '" class="tourPlans img-fluid" alt="skijanje " width="400 " height="250
+                    <img src="' . $row["img"] . '" class="tourPlans" alt="skijanje " width="400 " height="250
             " style="float:left; " />
 
 

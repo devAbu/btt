@@ -2,7 +2,6 @@
 <!--TODO: dodat hotel -->
 <!--TODO: popravit  hotel carousel...responsive -->
 <!--TODO: dodat novi logo -->
-<!--TODO: dodat u jumbotron button da ga prebaci na tourPlan  -->
 <?php
 session_start();
 ?>
