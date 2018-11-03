@@ -1,4 +1,4 @@
-<!--TODO: uradit search-->
+<!--TODO: uradit search autocomplete-->
 <!--TODO: scripte sve dodat -->
 <?php
 session_start();
@@ -57,9 +57,13 @@ session_start();
 
         <div id="navbarInclude"></div>
 
+<div class="loader">
+        <div class="loader-inner ball-scale-multiple">
+        </div>
+    </div>
 
-    <section id="jumbotron" class="jumbotron4 jumbotron-fluid text-white d-flex justify-content-center align-items-center">
-        <div class="container text-center">
+    <section id="jumbotron" class=" jumbotron-fluid text-white d-flex justify-content-center align-items-center">
+        <div class="container text-center hidden">
             <h1 class="display-1 text-primary text-uppercase">BTT</h1>
             <p class="display-4 d-none d-sm-block">Bosnian Tourist Travel</p>
             <p class="lead text-uppercase" style="font-size:30px; color:gold;">Choose the best hotel for your need!</p>
@@ -73,10 +77,10 @@ session_start();
 
     <section>
         <div class="row no-gutters">
-            <div class="col-5 offset-2">
-                <form action="hotel.php" method="POST" name="form" id="form">
-                    <input id="search-loged" name="search-loged" type="text" class="form-control mt-2" placeholder="Search...">
-                </form>
+            <div class="col-md-5 offset-md-2 col-11 offset-1">
+                 <!-- <form action="apartment.php" method="POST" name="form" id="form"> -->
+                    <input id="search-loged" name="search-loged" value="" type="text" class="form-control mt-2" placeholder="Search...">
+                <!-- </form> -->
             </div>
             <!--<div class="col-2">
                 <button id="filters" class="btn btn-success my-2  ml-4" style="width:200px;" data-toggle="collapse" data-target="#collapseExample"
@@ -166,12 +170,12 @@ session_start();
     <?php
     require 'connection/connect.php';
 
-    if (!empty($_POST)) {
+   /*  if (!empty($_POST)) {
         $where = $_REQUEST['search-loged'];
-    }
+    } */
 //echo $where;
 
-    if (isset($where)) {
+    /* if (isset($where)) {
         $sql = "SELECT * FROM hotel where title like '%" . trim($where) . "%'";
         $result = $dbc->query($sql);
 
@@ -181,7 +185,7 @@ session_start();
             if (isset($_SESSION["email"])) {
             /*  echo '
             <div class="card-group mt-5">
-            <div class="row"><form action = "userhotel.php" method = "POST">'; */
+            <div class="row"><form action = "userhotel.php" method = "POST">'; *
                 while ($row = $result->fetch_assoc()) {
 
                     $session = $_SESSION["email"];
@@ -217,10 +221,11 @@ session_start();
                 </li>-->';
                     echo '
 
-                <li class="list-group-item " style="border:none">
-                    <input type="submit" name="select" id="select" class="btn btn-warning " value="Select " style="width:100px; " />
-                </li>
+                
             </ul>
+
+            
+
             </div>
             <div class="card-footer text-muted ">
                 <small class="text-muted ">
@@ -285,21 +290,21 @@ session_start();
             echo '0 results';
         }
 
-    } else {
+    }  else {*/
 
-        $sql = "SELECT * FROM hotel";
-        $result = $dbc->query($sql);
+    $sql = "SELECT * FROM hotel";
+    $result = $dbc->query($sql);
 
-        $count = $result->num_rows;
+    $count = $result->num_rows;
 
-        if ($count > 0) {
-            if (isset($_SESSION["email"])) {
+    if ($count > 0) {
+        if (isset($_SESSION["email"])) {
             /*  echo '
             <div class="card-group mt-5">
             <div class="row"><form action = "userhotel.php" method = "POST">'; */
-                while ($row = $result->fetch_assoc()) {
-                    $session = $_SESSION["email"];
-                    echo '<form action = "userAll/userHotel.php" method = "POST"><div class="card text-center mt-4 ">
+            while ($row = $result->fetch_assoc()) {
+                $session = $_SESSION["email"];
+                echo '<div class="myDIV"><form action = "userAll/userHotel.php" method = "POST"><div class="card text-center mt-4 ">
 
             <input type="text" value=" ' . $session . '  "  name="session" id="session" hidden>
             <input type="text" value=" ' . $row["ID"] . ' "  name="idnum" id="idnum" hidden>
@@ -330,26 +335,58 @@ session_start();
                         <i class="far fa-star "></i>
                     </p>
                 </li>-->';
-                    echo '
+                echo '
 
                 <li class="list-group-item " style="border:none">
-                    <input type="submit" name="select" id="select" class="btn btn-warning " value="Select " style="width:100px; " />
+                    <input class="btn btn-warning " value="Select" style="width:100px; " data-toggle="modal" data-target="#dateSelection"  />
                 </li>
             </ul>
+
+
+            <div class="modal fade" id="dateSelection" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Visit date</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="text" class="form-control" placeholder="Date of arrival" name="arrival" id="arrival" onchange="date()">
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <input type="text" class="form-control" placeholder="Date of departure" name="departure" id="departure" onchange="date()">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" name="select" id="selectHotel" class="btn btn-primary">Continue</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
             </div>
             <div class="card-footer text-muted ">
                 <small class="text-muted ">
                     <i class="fa  fa-map-marker mr-2"></i> ' . $row["place"] . '</small>
             </div>
+            </div>
             </div></form>
             ';
 
-                }
+            }
 
-            } else {
-                while ($row = $result->fetch_assoc()) {
+        } else {
+            while ($row = $result->fetch_assoc()) {
 
-                    echo '<form action = "userAll/userHotel.php" method = "POST"><div class="card text-center mt-4 ">
+                echo '<div class="myDIV"><form action = "userAll/userHotel.php" method = "POST"><div class="card text-center mt-4 ">
 
           <input type="text" value=" ' . $row["ID"] . ' "  name="idnum" id="idnum" hidden>
           <input type="text" value=" ' . $count . ' "  name="count" id="count" hidden>
@@ -378,7 +415,7 @@ session_start();
                       <i class="far fa-star "></i>
                   </p>
               </li>-->';
-                    echo '
+                echo '
 
               <li class="list-group-item " style="border:none">
               <a href="login.php">
@@ -391,22 +428,81 @@ session_start();
               <small class="text-muted ">
                   <i class="fa  fa-map-marker mr-2"></i> ' . $row["place"] . '</small>
           </div>
+          </div>
           </div></form>
           ';
 
-                }
             }
-        } else {
-            echo '0 results';
         }
+    } else {
+        echo '0 results';
     }
+
     $dbc->close();
 
     ?>
     </section>
 
+    <script>
+             
+
+  $("#search-loged").on("keyup", function() {
+      console.log($(this).val().toLowerCase())
+    var value = $(this).val().toLowerCase();
+    $(".myDIV form ").not( $('#selectModal, #login') ).filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+
+</script>
+
 
    <div id="footerInclude"></div>
+
+   <script>
+        $("body > *").not("body > .loader").addClass('hidden');
+        $('body').css('background-color', '#d1d1d1')
+        $( window ).on( "load", function() {
+            $( document ).ready(function() {
+                $('body').css('background-color', '')
+                $('.hidden').removeClass('hidden')
+                $('#jumbotron').addClass('jumbotron4')
+                $('.loader').hide()  
+                $('#select').attr('disabled', true);
+
+                var currentDate = new Date()
+                var month = currentDate.getMonth()+1;
+                var day = currentDate.getDate();
+
+                var date = currentDate . getFullYear()+'-'+
+                        ((''+month) . length < 2 ? '0' : '') + month+'-'+
+                        ((''+day) . length < 2 ? '0' : '') + day;
+                        console.log(date) 
+
+                $( "#arrival" ).datepicker({dateFormat: 'yy-mm-dd', minDate: date});
+                $( "#departure" ).datepicker({dateFormat: 'yy-mm-dd', minDate: date});
+            })
+        });
+    </script>
+
+    <script>
+        function date(){
+            var arrival = $('#arrival').val()
+            var departure = $('#departure').val()
+            if(arrival != "" && departure != ""){
+                if(arrival >= departure){
+                    toastr.error('Please select valid date!!!')
+                    $('#select').attr('disabled', true);
+                }else{
+                    $('#select').attr('disabled', false);
+                }
+            }
+            
+        }
+    </script>
+
+
+<script src="loaders.css.js "></script>
 
 </body>
 

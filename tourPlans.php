@@ -426,7 +426,7 @@ if ($count > 0) {
             </ul>
             <ul class="navbar-nav ml-auto selectTour" style="float:right; margin-top:-100px;">
                 <li class="list-group-item" style="border:none;">
-                    <input class="btn btn-warning " value="Select " style="width:100px; " data-toggle="modal" data-target="#dateSelection" />
+                    <input class="btn btn-warning " value="Select" style="width:100px; " data-toggle="modal" data-target="#dateSelection" id="selectModal"/>
                 </li>
             </ul>
 
@@ -453,7 +453,7 @@ if ($count > 0) {
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" name="select" id="select" class="btn btn-primary">Select tour</button>
+                        <button type="submit" name="select" id="select" class="btn btn-primary">Continue</button>
                     </div>
                     </div>
                 </div>
@@ -572,7 +572,7 @@ $dbc->close();
   $("#search-loged").on("keyup", function() {
       console.log($(this).val().toLowerCase())
     var value = $(this).val().toLowerCase();
-    $(".myDIV form ").not( $('#select') ).not( $('#login') ).filter(function() {
+    $(".myDIV form ").not( $('#selectModal') ).not( $('#login') ).filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
   });

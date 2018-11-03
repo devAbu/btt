@@ -414,7 +414,7 @@ if ($count > 0) {
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" name="select" id="select" class="btn btn-primary">Select car</button>
+                        <button type="submit" name="select" id="select" class="btn btn-primary">Continue</button>
                     </div>
                     </div>
                 </div>
