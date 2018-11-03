@@ -24,15 +24,14 @@ session_start();
                     <a href="tourPlans.php" class="nav-link link">
                         <i class="fas fa-suitcase mr-2"></i>Tour plans</a>
                 </li>
-               <!-- TODO: dodat kad se sklope ugovori   -->
-                   <li class="nav-item dropdown">
+                <li class="nav-item dropdown">
                     <a class="nav-link link dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                         aria-expanded="false">
                         <i class="far fa-calendar-alt mr-2"></i>Reservation</a>
                     <div class="dropdown-menu">
-                        <!-- <a class="dropdown-item" href="hotel.php">
+                        <a class="dropdown-item" href="hotel.php">
                             <i class="fas fa-bed mr-2"></i>Hotel</a>
-                        <div class="dropdown-divider"></div> -->
+                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="apartment.php">
                             <i class="far fa-building mr-2"></i>Apartment</a>
                     </div>

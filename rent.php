@@ -464,7 +464,7 @@ if ($count > 0) {
 		  <ul class="navbar-nav ml-auto selectTour" style="float:right; margin-top:-100px;">
                 <li class="list-group-item" style="border:none;">
                 <a href="login.php">
-                    <input type="button" name="select" id="select" class="btn btn-warning " value="Login " style="width:100px; " />
+                    <input type="button" name="select" id="login" class="btn btn-warning " value="Login " style="width:100px; " />
                     </a>
                 </li>
             </ul>
@@ -512,7 +512,7 @@ $dbc->close();
   $("#search-loged").on("keyup", function() {
       console.log($(this).val().toLowerCase())
     var value = $(this).val().toLowerCase();
-    $(".myDIV form ").not( $('#select') ).filter(function() {
+    $(".myDIV form ").not( $('#select') ).not( $('#login') ).filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
   });

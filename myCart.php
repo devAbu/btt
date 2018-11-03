@@ -1,3 +1,4 @@
+<!--TODO: dodat hotele + racunanje cijena  -->
 <?php
 session_start();
 ?>

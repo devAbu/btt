@@ -76,17 +76,17 @@ session_start();
                 <i class="fab fa-facebook mr-2" aria-hidden="true"></i>Facebook</a>
             <div>
                 <a href="tourPlans.php"  class="text-warning">
-                    <i class="fas fa-suitcase fa-2x mr-3 mt-md-4 mt-2"></i><span id="indexTour">Choose a tour</span>
+                    <i class="fas fa-suitcase fa-3x mr-3 mt-md-4 mt-2"></i><span id="indexTour">Choose a tour</span>
                 </a>
             </div>
         </div>
     </section>
-
+    
     <section class="hidden">
     <!--TODO: iz baze slike-->
         <h2 class="display-4 text-center text-info">BTT</h2>
         <p class="text-center h4 text-primary mb-5">The beauty of Bosnia & Herzegovina</p>
-        <div id="carousel" class="carousel slide" data-ride="carousel">
+        <div id="carousel" class="carousel slide" data-ride="carousel" >
             <ol class="carousel-indicators">
                 <li data-target="#carousel" data-slide-to="0" class="active"></li>
                 <li data-target="#carousel" data-slide-to="1" class=""></li>
