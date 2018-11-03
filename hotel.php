@@ -1,5 +1,4 @@
-<!--TODO: uradit search autocomplete-->
-<!--TODO: scripte sve dodat -->
+<!--TODO: uvijk uzima prvi offer-->
 <?php
 session_start();
 ?>
@@ -42,6 +41,9 @@ session_start();
     <script src="jquery.validate.js"></script>
 
     <link rel="stylesheet" href="loaders.min.css" />
+
+    <link href="toastr.css" rel="stylesheet"/>
+    <script src="toastr.js"></script>
 
 
     <script>
@@ -366,7 +368,7 @@ session_start();
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" name="select" id="selectHotel" class="btn btn-primary">Continue</button>
+                        <button type="submit" name="select" id="select" class="btn btn-primary">Continue</button>
                     </div>
                     </div>
                 </div>
@@ -449,7 +451,7 @@ session_start();
   $("#search-loged").on("keyup", function() {
       console.log($(this).val().toLowerCase())
     var value = $(this).val().toLowerCase();
-    $(".myDIV form ").not( $('#selectModal, #login') ).filter(function() {
+    $(".myDIV form ").not( $('#select, #login') ).filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
   });

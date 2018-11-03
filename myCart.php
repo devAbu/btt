@@ -320,6 +320,94 @@ if (isset($_SESSION["email"])) {
 }
 ?>
 
+<h2 class="display-4 text-center text-info">Hotel</h2>
+
+<?php
+
+if (isset($_SESSION["email"])) {
+    $session = $_SESSION["email"];
+    //echo 'session = ' . $session;
+    //echo 'length = ' . strlen($session);
+    $sql = "Select userhotel.hotelID,userhotel.name, hotel.ID, hotel.title, hotel.description, hotel.place, hotel.img from userhotel inner join hotel on hotel.ID = userhotel.hotelID having userhotel.name like '%" . trim($session) . "%' ";
+    $result = $dbc->query($sql);
+
+    $count = $result->num_rows;
+    if ($count > 0) {
+        while ($row = $result->fetch_assoc()) {
+            echo '<form action = "delete/deleteHotel.php" method = "POST"><div class="card text-center mt-4 ">
+
+            <input type="text" value=" ' . $session . '  "  name="session" id="session" hidden>
+            <input type="text" value=" ' . $row["ID"] . ' "  name="idnum" id="idnum" hidden>
+            <input type="text" value=" ' . $count . ' "  name="count" id="count" hidden>
+            <div class="card-body ">
+                <h5 class="card-title text-left ml-5 h1 text-primary "> ' . $row["title"] . '</h5>
+                <a href="# " style="text-decoration:none; ">
+                    <img src="' . $row["img"] . '" class="tourPlans " alt="skijanje " width="400 " height="250
+            " style="float:left; " />
+            </a>
+
+            <a href="# " style="text-decoration:none; ">
+                <label class="card-text " style="max-width:800px; ">' . $row["description"] . '</label>
+            </a>
+
+
+            <ul class="list-group list-group-flush mr-5 mt-3" style=" border:none;float:right; margin-top:-100px; ">
+                <!-- <li class="list-group-item text-warning mt-4 " style="border:none; ">
+                    <p class="card-text "></p>
+                    <input type="button " class="btn btn-warning " value="More Detalis " />
+                </li
+                <li class="list-group-item text-warning " style=" border:none;">
+                    <p class="card-text ">
+                        <i class="far fa-star "></i>
+                        <i class="far fa-star "></i>
+                        <i class="far fa-star "></i>
+                        <i class="far fa-star "></i>
+                        <i class="far fa-star "></i>
+                    </p>
+                </li>>-->';
+            echo '
+
+                <li class="list-group-item " style="border:none">
+                    <a href="#" data-toggle="modal" data-target="#confirmHotel">
+                        <input type="button" name="select" id="select" class="btn btn-warning " value="Delete " style="width:100px; " />
+                    </a>
+                </li>
+            </ul>
+            </div>
+
+
+            <div class="modal fade" id="confirmHotel" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-danger" id="exampleModalCenterTitle">Are you sure?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">NO</button>
+                        <button type="submit" class="btn btn-danger">YES</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-footer text-muted ">
+                <small class="text-muted ">
+                    <i class="fa  fa-map-marker mr-2"></i> ' . $row["place"] . '</small>
+            </div>
+            </div></form>
+            ';
+        }
+    } else {
+        echo '<div class=text-center>
+            <h2>No hotel selected!!! <a href="hotel.php" style="color: gold;">Click here</a> to see and reserve a hotel</h2>
+        </div>';
+    }
+}
+?>
+
  <h2 class="display-4 text-center text-info">Car</h2>
  <?php
 

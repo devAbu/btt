@@ -1,4 +1,5 @@
-﻿<?php
+﻿<!--TODO: uvijk uzima prvi offer-->
+<?php
 session_start();
 ?>
 <!DOCTYPE html>
