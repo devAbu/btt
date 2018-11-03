@@ -1,5 +1,4 @@
 <!--TODO: smanjit prvi slideshow nac manje slike manje od height: 1200px -->
-<!--TODO: dodat hotele -->
 <?php
 session_start();
 ?>
