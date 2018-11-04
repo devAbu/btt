@@ -1,3 +1,4 @@
+<!--provjeriti ime offer-a koji se salje na mail-->
 <?php
 require '../connection/connect.php';
 
@@ -9,10 +10,13 @@ require '../vendor/autoload.php';
 
 $mail = new PHPMailer(true);
 
+$id = $_REQUEST["idnum"];
 $email = $_REQUEST['session'];
 $carID = $_REQUEST['idnum'];
 $arrival = $_REQUEST['arrival'];
 $departure = $_REQUEST['departure'];
+
+echo $id;
 
 $query = "INSERT INTO usercar (`name`, `carID`, `arrival`, `departure`) VALUES ('$email', '$carID', '$arrival', '$departure')";
 

@@ -9,10 +9,13 @@ require '../vendor/autoload.php';
 
 $mail = new PHPMailer(true);
 
+$id = $_REQUEST["idnum"];
 $email = $_REQUEST['session'];
 $tourID = $_REQUEST['idnum'];
 $arrival = $_REQUEST['arrival'];
 $departure = $_REQUEST['departure'];
+
+echo $id;
 
 $query = "INSERT INTO usertour (`name`, `tourID`, `arrival`, `departure`) VALUES ('$email', '$tourID', '$arrival', '$departure')";
 

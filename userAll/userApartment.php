@@ -1,3 +1,4 @@
+<!--TODO: prpovjeriti ime na slanje email-->
 <?php
 require '../connection/connect.php';
 
@@ -10,10 +11,13 @@ require '../vendor/autoload.php';
 
 $mail = new PHPMailer(true);
 
+$id = $_REQUEST["idnum"];
 $email = $_REQUEST['session'];
 $apartmentID = $_REQUEST['idnum'];
 $arrival = $_REQUEST['arrival'];
 $departure = $_REQUEST['departure'];
+
+echo $id;
 
 $query = "INSERT INTO userapartment (`name`, `apartmentID`, `arrival`, `departure`) VALUES ('$email', '$apartmentID', '$arrival', '$departure')";
 
