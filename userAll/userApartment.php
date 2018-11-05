@@ -1,4 +1,4 @@
-<!--TODO: prpovjeriti ime na slanje email-->
+<!--TODO: prvjerit na vise usera-->
 <?php
 require '../connection/connect.php';
 
@@ -11,13 +11,11 @@ require '../vendor/autoload.php';
 
 $mail = new PHPMailer(true);
 
-$id = $_REQUEST["idnum"];
 $email = $_REQUEST['session'];
 $apartmentID = $_REQUEST['idnum'];
 $arrival = $_REQUEST['arrival'];
 $departure = $_REQUEST['departure'];
 
-echo $id;
 
 $query = "INSERT INTO userapartment (`name`, `apartmentID`, `arrival`, `departure`) VALUES ('$email', '$apartmentID', '$arrival', '$departure')";
 
@@ -51,11 +49,11 @@ if ($response) {
                 $mail->Body = '
 
     <center>
-        
+        ' . $row["ID"] . '
         <div style="font-size: 1.5vw;margin-top:10px;">
             We want to kindly thank you for reservation <span style="color: silver">' . strtoupper($row["title"]) . '</span> via <a href="localhost/github/btt" style="color:gold; text-decoration:none;">BTT.BA</a>
         </div>
-       
+       ' . $row["apartmentID"] . '
             
     </center> 
     <div style="color: red; font-size: 1.5vw; margin-top: 10px;">

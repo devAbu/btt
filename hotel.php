@@ -340,12 +340,12 @@ session_start();
                 echo '
 
                 <li class="list-group-item " style="border:none">
-                    <input class="btn btn-warning " value="Select" style="width:100px; " data-toggle="modal" data-target="#dateSelection"  />
+                    <input class="btn btn-warning " value="Select" style="width:100px; " data-toggle="modal" data-target="#dateSelection' . $row["ID"] . '"  />
                 </li>
             </ul>
 
 
-            <div class="modal fade" id="dateSelection" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal fade" id="dateSelection' . $row["ID"] . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
@@ -358,17 +358,17 @@ session_start();
                         <div class="container">
                             <div class="row">
                                 <div class="col-12">
-                                    <input type="text" class="form-control" placeholder="Date of arrival" name="arrival" id="arrival" onchange="date()">
+                                    <input type="text" class="form-control arrival" placeholder="Date of arrival" name="arrival" id="arrival' . $row["ID"] . '" onchange="date(this.id)">
                                 </div>
                                 <div class="col-12 mt-3">
-                                    <input type="text" class="form-control" placeholder="Date of departure" name="departure" id="departure" onchange="date()">
+                                    <input type="text" class="form-control departure" placeholder="Date of departure" name="departure" id="departure' . $row["ID"] . '" onchange="date(this.id)">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" name="select" id="select" class="btn btn-primary">Continue</button>
+                        <button type="submit" name="select" id="select' . $row["ID"] . '" class="btn btn-primary">Continue</button>
                     </div>
                     </div>
                 </div>
@@ -481,22 +481,28 @@ session_start();
                         ((''+day) . length < 2 ? '0' : '') + day;
                         console.log(date) 
 
-                $( "#arrival" ).datepicker({dateFormat: 'yy-mm-dd', minDate: date});
-                $( "#departure" ).datepicker({dateFormat: 'yy-mm-dd', minDate: date});
+                $( ".arrival" ).datepicker({dateFormat: 'yy-mm-dd', minDate: date});
+                $( ".departure" ).datepicker({dateFormat: 'yy-mm-dd', minDate: date});
             })
         });
     </script>
 
     <script>
-        function date(){
-            var arrival = $('#arrival').val()
-            var departure = $('#departure').val()
+        function date(idClick){
+
+            console.log(idClick)
+
+            var res = idClick.replace(/\D/g, "")
+
+
+            var arrival = $('#arrival'+res).val()
+            var departure = $('#departure'+res).val()
             if(arrival != "" && departure != ""){
                 if(arrival >= departure){
                     toastr.error('Please select valid date!!!')
-                    $('#select').attr('disabled', true);
+                    $('#select'+res).attr('disabled', true);
                 }else{
-                    $('#select').attr('disabled', false);
+                    $('#select'+res).attr('disabled', false);
                 }
             }
             
