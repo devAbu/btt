@@ -438,6 +438,7 @@ session_start();
 							$("#alertReq").html('Request sent!!!');
                             $("#alertReq").slideDown(500).delay(1000).slideUp(500);
                            /*  window.location = "http://localhost/github/btt/phpSendEmailForRequestTour?session=" + session + "&price=" + price */
+                           jQuery.noConflict();
                            setTimeout(function(){ 
                                $('#otherOffers').modal('show');
                             }, 1500);
