@@ -1,8 +1,4 @@
-<!--TODO: uradit date umjesto period-->
-<!--TODO: prave cijene ubacit -->
-<!--TODO: cijena se racuna * dani -->
-<!--TODO: Cijena ide na kraju -->
-<!--TODO: broj starih/mladjih osoba -->
+<!--TODO: prave cijene ubacit --COMBE-- -->
 
 
 <?php
@@ -50,6 +46,8 @@ session_start();
 
     <link rel="stylesheet" href="loaders.min.css" />
 
+<link href="toastr.css" rel="stylesheet"/>
+    <script src="toastr.js"></script>
 
     <script>
         $(function (){
@@ -144,7 +142,7 @@ session_start();
     if (isset($_SESSION["email"])) {
         echo '<div class="row col-12" >
                 <div class="offset-1 col-10 col-md-5 col-lg-4 col-sm-9 offset-sm-3 offset-md-1" >
-                    <h4 class="text-success">City:</h4>
+                    <h4 class="text-success mt-4">City:</h4>
                         <div class="form-check form-check-inline col-12 ">
                             <label for="sarajevo" class="col-2 col-form-label">Sarajevo</label>
                             <div class="col-1 ml-4 ml-sm-2 ml-md-3 ml-lg-3">
@@ -204,76 +202,76 @@ session_start();
                         </div>-->
                         <div class="col-sm-12 col-10 mt-4">
                             <h4 class="text-success">No. of people:</h4>
-
-                            <input type="number" id="people" onchange="price()" name="people" value="0" min="0" step="1" max="15" class="form-control ml-3"/>
+                            <h6 class="text-dark">Adults: </label>
+                            <input type="number" id="people" onchange="price()" name="people" value="0" min="0" step="1" max="15" class="form-control ml-3 mt-2"/> 
+                            <h6 class="text-dark">Child: </label>
+                            <input type="number" id="child" onchange="price()" name="child" value="0" min="0" step="1" max="15" class="form-control ml-3 mt-2"/>
                         </div>
                     </div>
                 </div>
-                <div class="col-10 offset-1 col-md-5 offset-md-1 col-lg-3 offset-lg-0 ml-lg-5 col-sm-5 offset-sm-3" style="margin-top:4%" id="priceField">
+                <div class="col-10 offset-1 col-md-5 offset-md-1 col-lg-3 offset-lg-0 ml-lg-5 col-sm-5 offset-sm-3" id="priceField">
                     <div class="row">
                         <div class="col-12">
-                            <h4 class="text-success">Price:</h4>
-                            <div class="input-group ml-3" id="priceInput">
-                                <span class="input-group-addon">$</span>
-                                <input type="number" value="0" id="price" name="price" readonly data-number-to-fixed="2" style="height:50px;" class="form-control currency"
-                                />
-                            </div>
+                        
+                            <h4 class="text-success mt-4">Driver:</h4>
+
+                            <input type="radio"  id="driverYes" onclick="price()" name="driver" class="ml-3" />Yes
+                            <input type="radio" id="driverNo" onclick="price()" name="driver" class="ml-3" />No
+
+                            
                         </div>
                     </div>
                 </div>
+
+               
+
                 <div class="col-10 offset-1 offset-lg-1 col-md-5 col-sm-5 col-lg-3 mt-4 mb-3 offset-sm-3 offset-md-0">
                     <h4 class="text-success">Tour Length (days):</h4>
 
-                    <input type="number" id="length"  name="length" value="0" min="0" max="30" step="1" class="form-control ml-3"
+                    <input type="number" id="length"  name="length" value="0" min="0" max="30" step="1" class="form-control ml-3" onchange="price()"
                     />
                 </div>
-                <div class=" col-8 offset-1 mt-4 col-md-5 offset-md-1 col-sm-5 offset-sm-1 col-lg-3 offset-lg-1 offset-sm-3">
+                <div class=" col-10 offset-1 mt-4 col-md-5 offset-md-1 col-sm-5 offset-sm-1 col-lg-3 offset-lg-1 offset-sm-3">
                     <h4 class="text-success">Period:</h4>
-                    <div class="row ml-3">
-                        <div class="form-check form-check-inline col-12">
-                            <label for="zima" class="col-1 mr-3 col-form-label">Zima</label>
-                            <div class="col-1 col-1 ml-4 ml-sm-2 ml-md-3 ml-lg-3">
-                                <input class="w3-check  mr-1 " id="zima" onclick="price()" name="zima" type="checkbox">
-                            </div>
-                            <label for="ljeto" class="col-1 mr-3 col-form-label">Ljeto</label>
-                            <div class="col-1 col-1 ml-4 ml-sm-2 ml-md-3 ml-lg-3">
-                                <input class="w3-check mr-1" id="ljeto" onclick="price()" name="ljeto" type="checkbox">
-                            </div>
+                    <div class="row ml-2">
+                        <div class="col-12">
+                            <input type="text" class="form-control arrival" placeholder="Date of arrival" name="arrival" id="arrival"  onchange="price(); date()">
                         </div>
-                        <div class="form-check form-check-inline col-12">
-                            <label for="proljece" class="col-1 mr-3 col-form-label">Proljece</label>
-                            <div class="col-1 col-1 ml-4 ml-sm-2 ml-md-3 ml-lg-3">
-                                <input class="w3-check mr-1" id="proljece" onclick="price()" name="proljece" type="checkbox">
-                            </div>
-                            <label for="jesen" class="col-1 mr-3 col-form-label">Jesen</label>
-                            <div class="col-1 col-1 ml-4 ml-sm-2 ml-md-3 ml-lg-3">
-                                <input class="w3-check mr-1" id="jesen" onclick="price()" name="jesen" type="checkbox">
-                            </div>
+                        <div class="col-12 mt-3">
+                            <input type="text" class="form-control departure" placeholder="Date of departure" name="departure" id="departure" onchange="price(); date()">
                         </div>
-                       </div>
+                        <input type="text" id="active" hidden>
+                    </div>
                 </div>
-                <div class="col-8 offset-1  offset-md-0 col-md-5 offset-sm-3 col-lg-3 offset-lg-1 mt-4">
+                <div class="col-10 col-sm-5 offset-1  offset-md-0 col-md-5  offset-sm-3 col-lg-3 mt-4">
                     <!--<h4 class="text-success">Interpreter:</h4>
 
                     <input type="radio"  id="yes" onclick="price()" name="interpreter" class="ml-3" />Yes
                     <input type="radio" id="no" onclick="price()" name="interpreter" class="ml-3" />No
                     -->
-                     <h4 class="text-success mt-3">Driver:</h4>
-
-                    <input type="radio"  id="driverYes" onclick="price()" name="driver" class="ml-3" />Yes
-                    <input type="radio" id="driverNo" onclick="price()" name="driver" class="ml-3" />No
+                     <h4 class="text-success ml-0 ml-lg-2">Price:</h4>
+                            <div class="input-group ml-lg-4 ml-sm-3 ml-0" id="priceInput">
+                                <span class="input-group-addon">$</span>
+                                <input type="number" value="0" id="price" name="price" readonly data-number-to-fixed="2" style="height:50px;" class="form-control currency"
+                                />
+                            </div>
+                     
                 </div>
                 <div class="col-8 mt-4 offset-md-4 offset-sm-3 offset-0" >
                     <button class="btn btn-lg btn-success" style="width: 315px;" id="send" name="send"> Send request</button>
                 </div>
+                
             </div>
-            <div class="alertReq" id="alertReq"></div>
+             <div class="alertReq mt-2" id="alertReq" style="height:45px" ></div>
+           
         ';
     } else {
         echo "<div class='offset-sm-1 text-center mt-5 mb-5'><a href='#' data-toggle='modal' data-target='#LoginModal'><span class='text-warning' style='font-size: 20px;'>LOGIN</span></a> to be able to make tour request!!!</div>";
     }
     ?>
     </section>
+
+    
 
     <div id="footerInclude" class="mt-3"></div>
     
@@ -315,6 +313,9 @@ session_start();
             var jahorina = $('#jahorina').is(':checked');
             var other = $('#other').val();
             var session = $('#session').val();
+            var active = $('#active').val();
+            var arrival = $('#arrival').val();
+            var departure = $('#departure').val();
 
             var check = "";
 
@@ -382,34 +383,12 @@ session_start();
             
             var people = $('#people').val();
 
+            var child = $('#child').val();
+
 
             var price = $('#price').val();
 
             var length = $('#length').val();
-
-            var zima = $('#zima').is(':checked');
-            var ljeto = $('#ljeto').is(':checked');
-            var proljece = $('#proljece').is(':checked');
-            var jesen = $('#jesen').is(':checked');
-
-            var period = "";
-
-            if(zima == true) {
-                period += "zima,"
-                console.log(period);
-            }
-            if(ljeto == true) {
-                period += "ljeto,"
-                console.log(period);
-            }
-            if(proljece == true) {
-                period += "proljece,"
-                console.log(period);
-            }
-            if(jesen == true) {
-                period += "jesen,"
-                console.log(period);
-            }
 
 
             var driverYes = $('#driverYes').is(':checked');
@@ -426,7 +405,6 @@ session_start();
             }
 
 
-
             if(sarajevo == false && mostar == false && jajce == false && konjic == false && bjelasnica == false && trebevic == false && igman == false && jahorina == false && other == ""){
                 $("#alertReq").addClass('alert-danger');
                 $("#alertReq").html("Please select at least 1 (one) place you want to visit!!!");
@@ -435,7 +413,7 @@ session_start();
                 $("#alertReq").addClass('alert-danger');
                 $("#alertReq").html("You can choose at the most 5 (five) cities!!!");
                 $("#alertReq").fadeIn(500).delay(1000).fadeOut(500);
-            }else if (people == 0 || people == "") {
+            }else if (people == 0 && child == 0 || people == "" && child == 0) {
                 $("#alertReq").addClass('alert-danger');
                 $("#alertReq").html("Please enter how many people will be!!!");
                 $("#alertReq").fadeIn(500).delay(1000).fadeOut(500);
@@ -443,9 +421,9 @@ session_start();
                 $("#alertReq").addClass('alert-danger');
                 $("#alertReq").html("Please enter the tour's length!!!");
                 $("#alertReq").fadeIn(500).delay(1000).fadeOut(500);
-            } else if (zima == false && proljece == false && jesen == false && ljeto == false) {
+            } else if (active == "" || active == "0") {
                 $("#alertReq").addClass('alert-danger');
-                $("#alertReq").html("Please choose 1 (one) season!!!");
+                $("#alertReq").html("Please select a date!!!");
                 $("#alertReq").fadeIn(500).delay(1000).fadeOut(500);
             } else if( driverYes == false && driverNo == false) {
                 $("#alertReq").addClass('alert-danger');
@@ -453,7 +431,7 @@ session_start();
                 $("#alertReq").fadeIn(500).delay(1000).fadeOut(500);
             } else {
                 $.ajax({
-                    url: "dbSend/makeRequest?task=request&check="+check+"&people="+people+"&length="+length+"&period="+period+"&price="+price+"&session="+session+"&checkDriver="+checkDriver,
+                    url: "dbSend/makeRequest?task=request&check="+check+"&people="+people+"&child="+child+"&length="+length+"&arrival="+arrival+"&departure="+departure+"&price="+price+"&session="+session+"&checkDriver="+checkDriver,
                     success: function (data){
                         if(data.indexOf('sent') > -1){
                             $("#alertReq").addClass('alert-success');
@@ -480,10 +458,10 @@ session_start();
                             $('#jahorina').prop('checked', false);
                             $('#driverYes').prop('checked', false);
                             $('#driverNo').prop('checked', false);
-                            $('#zima').prop('checked', false);
+                            /* $('#zima').prop('checked', false);
                             $('#proljece').prop('checked', false);
                             $('#jesen').prop('checked', false);
-                            $('#ljeto').prop('checked', false);
+                            $('#ljeto').prop('checked', false); */
                             
                         } else {
                             $("#alertReq").addClass('alert-danger');
@@ -515,6 +493,7 @@ session_start();
 
             if (sarajevo == true) {
                 price += 100;
+                console.log(price)
             }
             if (mostar == true) {
                 price += 250;
@@ -558,20 +537,9 @@ session_start();
                   price += 350;
                 }
             }
-            var length = document.getElementById('length').value;
-            if(length != 0) {
-                if (length < 3) {
-                    price += 35;
-                } else if (length < 5) {
-                    price += 50;
-                } else if (length < 8) {
-                    price += 75;
-                } else {
-                    price += 100;
-                }
-            }
+            
 
-            var zima = document.getElementById('zima').checked;
+            /* var zima = document.getElementById('zima').checked;
             var ljeto = document.getElementById('ljeto').checked;
             var proljece = document.getElementById('proljece').checked;
             var jesen = document.getElementById('jesen').checked;
@@ -581,7 +549,7 @@ session_start();
             }
              if (ljeto == true) {
                 price += 100;
-            }
+            } */
 
             document.getElementById("price").value = price;
 
@@ -590,8 +558,26 @@ session_start();
 
             if (driverYes == true) {
                 price += 100;
+                console.log(price)
+            }
+            
+
+            var length = document.getElementById('length').value;
+            if(length != 0) {
+                price = price * length
+                console.log(price)
+                /* if (length < 3) {
+                    price += 35;
+                } else if (length < 5) {
+                    price += 50;
+                } else if (length < 8) {
+                    price += 75;
+                } else {
+                    price += 100;
+                } */
             }
             document.getElementById("price").value = price;
+
 
         }
     </script>
@@ -600,15 +586,50 @@ session_start();
         $("body > *").not("body > .loader").addClass('hidden');
         $('body').css('background-color', '#d1d1d1')
         $( window ).on( "load", function() {
-            jQuery.noConflict();
+            
             $( document ).ready(function() {
                 $('body').css('background-color', '')
                 $('.hidden').removeClass('hidden')
                 $('#jumbotron').addClass('jumbotron8')
                 $('.loader').hide()  
+
+                var currentDate = new Date()
+                var month = currentDate.getMonth()+1;
+                var day = currentDate.getDate();
+
+                var date = currentDate . getFullYear()+'-'+
+                        ((''+month) . length < 2 ? '0' : '') + month+'-'+
+                        ((''+day) . length < 2 ? '0' : '') + day;
+                        console.log(date) 
+
+                $( ".arrival" ).datepicker({dateFormat: 'yy-mm-dd', minDate: date});
+                $( ".departure" ).datepicker({dateFormat: 'yy-mm-dd', minDate: date});
                 
             })
         });
+    </script>
+
+    <script>
+        function date(){
+            console.log()
+
+
+            var arrival = $('#arrival').val()
+            var departure = $('#departure').val()
+            console.log(arrival)
+            console.log(departure)
+            if(arrival != "" && departure != ""){
+                if(arrival >= departure){
+                    toastr.error('Please select valid date!!!')
+                    $('#send').attr('disabled', true);
+                    $("#active").attr("value", "0")
+                }else{
+                    $("#active").attr("value", "1")
+                    $('#send').attr('disabled', false);
+                }
+            }
+            
+        }
     </script>
 
     <script src="loaders.css.js "></script>
