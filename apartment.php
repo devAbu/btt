@@ -2,6 +2,11 @@
 <?php
 session_start();
 ?>
+<?php
+if (isset($_REQUEST['Message'])) {
+    echo '<input type="text" value="' . $_REQUEST["Message"] . '" id="reserved" hidden/>';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <!--TODO: vidjet da se uradi numTaken-->
@@ -385,6 +390,12 @@ session_start();
 
                 $( ".arrival" ).datepicker({dateFormat: 'yy-mm-dd', minDate: date});
                 $( ".departure" ).datepicker({dateFormat: 'yy-mm-dd', minDate: date});
+
+                var reserved = $('#reserved').val()
+                if(reserved != null){
+                  console.log(reserved)
+                  toastr.error('Apartment is not available!!! <br /> Reserver from ' + reserved);
+                }
             })
         });
     </script>
