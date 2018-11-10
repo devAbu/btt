@@ -1,5 +1,4 @@
-﻿<!--TODO: uvijk uzima prvi offer-->
-<?php
+﻿<?php
 session_start();
 ?>
 <?php
@@ -394,7 +393,7 @@ if (isset($_REQUEST['Message'])) {
                 var reserved = $('#reserved').val()
                 if(reserved != null){
                   console.log(reserved)
-                  toastr.error('Apartment is not available!!! <br /> Reserver from ' + reserved);
+                  toastr.error('Apartment is not available!!! <br /> Reserved from ' + reserved);
                 }
             })
         });

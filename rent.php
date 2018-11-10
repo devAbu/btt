@@ -1,6 +1,10 @@
-﻿<!--TODO: uvijk uzima prvi offer-->
-<?php
+﻿<?php
 session_start();
+?>
+<?php
+if (isset($_REQUEST['Message'])) {
+    echo '<input type="text" value="' . $_REQUEST["Message"] . '" id="reserved" hidden/>';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -545,6 +549,12 @@ $dbc->close();
 
                 $( ".arrival" ).datepicker({dateFormat: 'yy-mm-dd', minDate: date});
                 $( ".departure" ).datepicker({dateFormat: 'yy-mm-dd', minDate: date});
+
+                var reserved = $('#reserved').val()
+                if(reserved != null){
+                  console.log(reserved)
+                  toastr.error('Car is not available!!! <br /> Reserved from ' + reserved);
+                }
             })
         });
     </script>

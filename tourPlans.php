@@ -1,5 +1,4 @@
-﻿<!--TODO: uvijk uzima prvi offer-->
-<?php
+﻿<?php
 session_start();
 ?>
 <!DOCTYPE html>
@@ -445,17 +444,17 @@ if ($count > 0) {
                         <div class="container">
                             <div class="row">
                                 <div class="col-12">
-                                    <input type="text" class="form-control arrival" placeholder="Date of arrival" name="arrival" id="arrival'.$row["ID"].'"  onchange="date(this.id)">
+                                    <input type="text" class="form-control arrival" placeholder="Date of arrival" name="arrival" id="arrival' . $row["ID"] . '"  onchange="date(this.id)">
                                 </div>
                                 <div class="col-12 mt-3">
-                                    <input type="text" class="form-control departure" placeholder="Date of departure" name="departure" id="departure'.$row["ID"].'" onchange="date(this.id)">
+                                    <input type="text" class="form-control departure" placeholder="Date of departure" name="departure" id="departure' . $row["ID"] . '" onchange="date(this.id)">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" name="select" id="select'.$row["ID"].'" class="btn btn-primary">Continue</button>
+                        <button type="submit" name="select" id="select' . $row["ID"] . '" class="btn btn-primary">Continue</button>
                     </div>
                     </div>
                 </div>

@@ -1,5 +1,6 @@
 <!--TODO: smanjit prvi slideshow nac manje slike manje od height: 1200px -->
 <!--TODO: ubacit admin panel  -->
+<!-- novi logo stavit na stranici -->
 <?php
 session_start();
 ?>
