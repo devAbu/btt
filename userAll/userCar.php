@@ -1,4 +1,3 @@
-<!--TODO: prvjerit na vise usera-->
 <?php
 require '../connection/connect.php';
 
