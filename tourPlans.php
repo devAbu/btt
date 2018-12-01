@@ -429,7 +429,16 @@ if ($count > 0) {
                 <li class="list-group-item" style="border:none;">
                     <input class="btn btn-warning " value="Select" style="width:100px; " data-toggle="modal" data-target="#dateSelection' . $row["ID"] . '" id="selectModal' . $row["ID"] . '"/>
                 </li>
+                <li class="list-group-item" style="border:none;">
+                    <input class="btn btn-warning " value="Leave feedback" style="width:200px; " data-toggle="collapse" data-target="#tourFeedbackCollapse' . $row["ID"] . '" id="tourFeedback' . $row["ID"] . '"/>
+                </li>
             </ul>
+            
+            <div class="collapse mt-4 feedCollapse" id="tourFeedbackCollapse'.$row["ID"].'">
+                <textarea cols="40" id="offerFeedback'.$row["ID"].'" rows="7" class="form-control" style="resize: none;" placeholder="Your opinion about this tour..." onchange="feed(this.id)"></textarea>
+            
+                <input type="button" class="btn btn-success mt-3" value="Send" id="tourFeedbackSend'.$row["ID"].'" >         
+            </div>
 
             <div class="modal fade" id="dateSelection' . $row["ID"] . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -630,6 +639,64 @@ $dbc->close();
             }
             
         }
+    </script>
+
+    <script>
+        function feed(id){
+            console.log(id)
+
+            var idRes = id.replace(/\D/g, "")
+            var feedback = $('#offerFeedback'+idRes).val()
+
+            console.log(idRes)
+            console.log(feedback)
+            console.log($('#tourFeedbackSend'+idRes).val())
+            var but = $('#tourFeedbackSend'+idRes).attr("id");
+            var idBut = id.replace(/\D/g, "")
+            console.log(idBut)
+            
+            $("#tourFeedbackSend"+idBut).click(function(){
+                console.log(idBut)
+                console.log(feedback)
+                console.log($("#session").val())
+
+                var session = $("#session").val()
+
+                
+
+                if(feedback == ""){
+                    toastr.error("Please enter your opinion")
+                }else{
+                    $.ajax({
+                        url: "dbSend/tourFeedback.php?task=sendFeed&idRes="+idBut+"&feedback="+feedback+"&session="+session,
+                        success: function(data){
+                            if(data.indexOf('sent')> -1){
+                                toastr.success("Feedback sent. Thank you!!!")
+                                //feedback.val("")
+                                $('#offerFeedback'+idRes).val("")
+                                $('.feedCollapse').removeClass("show")
+                            } else {
+                                toastr.error("Please try again!!!")
+                            }
+                        },
+                        error: function(data, err) {
+                            toastr.error("Some problem occurred. Please try later.")
+                        }
+                    })
+                }
+
+                
+            })
+            
+        }
+        
+           
+        
+            
+
+             
+        
+
     </script>
 
     <script src="loaders.css.js"></script>
