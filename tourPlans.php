@@ -433,10 +433,10 @@ if ($count > 0) {
                 </li>
             </ul>
             
-            <div class="collapse mt-4 feedCollapse" id="tourFeedbackCollapse'.$row["ID"].'">
-                <textarea cols="40" id="offerFeedback'.$row["ID"].'" rows="7" class="form-control" style="resize: none;" placeholder="Your opinion about this tour..." onchange="feed(this.id)"></textarea>
+            <div class="collapse mt-4 feedCollapse" id="tourFeedbackCollapse' . $row["ID"] . '">
+                <textarea cols="40" id="offerFeedback' . $row["ID"] . '" rows="7" class="form-control" style="resize: none;" placeholder="Your opinion about this tour..." onchange="feed(this.id)"></textarea>
             
-                <input type="button" class="btn btn-success mt-3" value="Send" id="tourFeedbackSend'.$row["ID"].'" >         
+                <input type="button" class="btn btn-success mt-3" value="Send" id="tourFeedbackSend' . $row["ID"] . '" >         
             </div>
 
             <div class="modal fade" id="dateSelection' . $row["ID"] . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -670,10 +670,12 @@ $dbc->close();
                         url: "dbSend/tourFeedback.php?task=sendFeed&idRes="+idBut+"&feedback="+feedback+"&session="+session,
                         success: function(data){
                             if(data.indexOf('sent')> -1){
+                                jQuery.noConflict();
                                 toastr.success("Feedback sent. Thank you!!!")
                                 //feedback.val("")
                                 $('#offerFeedback'+idRes).val("")
-                                $('.feedCollapse').removeClass("show")
+                                //$('.feedCollapse').removeClass("show")
+                                $('.feedCollapse').collapse("hide")
                             } else {
                                 toastr.error("Please try again!!!")
                             }
@@ -688,14 +690,6 @@ $dbc->close();
             })
             
         }
-        
-           
-        
-            
-
-             
-        
-
     </script>
 
     <script src="loaders.css.js"></script>
