@@ -28,11 +28,13 @@ if (isset($_REQUEST['Message'])) {
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script> -->
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
       crossorigin="anonymous"></script>
- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!--  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -395,7 +397,17 @@ if ($count > 0) {
                 <li class="list-group-item" style="border:none;">
                     <input class="btn btn-warning " value="Select " style="width:100px; " data-toggle="modal" data-target="#dateSelection' . $row["ID"] . '" />
                 </li>
+                <li class="list-group-item" style="border:none;">
+                    <input class="btn btn-warning " value="Leave feedback " style="width:200px; " data-toggle="collapse" data-target="#carFeedbackCollapse' . $row["ID"] . '" id="carFeedback'.$row["ID"].'" />
+                </li>
             </ul>
+
+            <div class="collapse mt-4 feedCollapse" id="carFeedbackCollapse'.$row["ID"].'">
+                <textarea cols="40" id="offerFeedback'.$row["ID"].'" rows="7" class="form-control" style="resize: none;" placeholder="Your opinion about this tour..." onchange="feed(this.id)"></textarea>
+            
+                <input type="button" class="btn btn-success mt-3" value="Send" id="carFeedbackSend'.$row["ID"].'" >         
+            </div>
+
             <div class="modal fade" id="dateSelection' . $row["ID"] . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
@@ -576,6 +588,60 @@ $dbc->close();
             }
             
         }
+    </script>
+
+     </script>
+
+    <script>
+        function feed(id){
+            console.log(id)
+
+            var idRes = id.replace(/\D/g, "")
+            var feedback = $('#offerFeedback'+idRes).val()
+
+            console.log(idRes)
+            console.log(feedback)
+            console.log($('#carFeedbackSend'+idRes).val())
+            var but = $('#carFeedbackSend'+idRes).attr("id");
+            var idBut = id.replace(/\D/g, "")
+            console.log(idBut)
+            
+            $("#carFeedbackSend"+idBut).click(function(){
+                console.log(idBut)
+                console.log(feedback)
+                console.log($("#session").val())
+
+                var session = $("#session").val()
+
+                
+
+                if(feedback == ""){
+                    toastr.error("Please enter your opinion")
+                }else{
+                    $.ajax({
+                        url: "dbSend/carFeedback.php?task=sendFeed&idRes="+idBut+"&feedback="+feedback+"&session="+session,
+                        success: function(data){
+                            if(data.indexOf('sent')> -1){
+                                jQuery.noConflict();
+                                toastr.success("Feedback sent. Thank you!!!")
+                                //feedback.val("")
+                                $('#offerFeedback'+idRes).val("")
+                                $('.feedCollapse').collapse("hide")
+                            } else {
+                                toastr.error("Please try again!!!")
+                            }
+                        },
+                        error: function(data, err) {
+                            toastr.error("Some problem occurred. Please try later.")
+                        }
+                    })
+                }
+
+                
+            })
+            
+        }
+
     </script>
 
     <script src="loaders.css.js "></script>
