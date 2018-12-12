@@ -537,6 +537,84 @@ if (isset($_SESSION["email"])) {
                 </div>
             
             <button id="pay" class="btn btn-lg btn-primary my-4 col-6" style="height:100px !important; width: 100%; "><span style="font-size:20px">Pay now</span></button>
+            
+           <!-- <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="MKGFYBG4TM5CA">
+<input type="hidden" name="amount" value="" class="price">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>-->
+
+<div id="paypal-button-container"></div>
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+
+<script>
+
+// Render the PayPal button
+paypal.Button.render({
+// Set your environment
+env: 'sandbox', // sandbox | production
+
+// Specify the style of the button
+style: {
+  layout: 'vertical',  // horizontal | vertical
+  size:   'medium',    // medium | large | responsive
+  shape:  'rect',      // pill | rect
+  color:  'gold'       // gold | blue | silver | white | black
+},
+
+// Specify allowed and disallowed funding sources
+//
+// Options:
+// - paypal.FUNDING.CARD
+// - paypal.FUNDING.CREDIT
+// - paypal.FUNDING.ELV
+funding: {
+  allowed: [
+    paypal.FUNDING.CARD,
+    paypal.FUNDING.CREDIT
+  ],
+  disallowed: []
+},
+
+// Enable Pay Now checkout flow (optional)
+commit: true,
+
+// PayPal Client IDs - replace with your own
+// Create a PayPal app: https://developer.paypal.com/developer/applications/create
+client: {
+  sandbox: 'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R',
+  production: '<insert production client id>'
+},
+
+payment: function (data, actions) {
+    totalPrice = $('.price').val()
+    totalPrice = parseFloat(totalPrice)
+    
+  return actions.payment.create({
+    payment: {
+      transactions: [
+        {
+          amount: {
+            total: totalPrice + '.0' ,
+            currency: 'USD'
+          }
+        }
+      ]
+    }
+  });
+},
+
+onAuthorize: function (data, actions) {
+  return actions.payment.execute()
+    .then(function () {
+      window.alert('Payment Complete!');
+    });
+}
+}, '#paypal-button-container');
+</script>
+
         </div>
      
         <h2 class="display-4 text-center text-info">Requested tour plan(s)</h2>
@@ -570,22 +648,12 @@ if (isset($_SESSION["email"])) {
                         <label>Length: </label>
                             <input type="number" class="form-control" id="length" value="' . $row["length"] . '" readonly>
                         </div>
-                        <div class="col-md-4 col-12 mb-2">
-                        <label>budget: </label>
-                            <input type="number" class="form-control" id="budget"  value="' . $row["budget"] . '" readonly>
-                        </div>
+                        
                         <div class="col-md-6 col-12 mb-2">
                         <label>people: </label>
                             <input type="number"  class="form-control" id="people" value="' . $row["people"] . '" readonly>
                         </div>
-                        <div class="col-md-4 col-12 mb-2">
-                        <label>period: </label>
-                            <input type="text" class="form-control" id="period" value="' . $row["period"] . '" readonly>
-                        </div>
-                        <div class="col-12 col-md-6 mb-2">
-                        <label>interpreter: </label>
-                            <input type="text" class="form-control" id="interpreter" value="' . $row["interpreter"] . '" readonly>
-                        </div>
+                        
                         <div class="col-md-4 col-12 mb-2">
                         <label>interpreter: </label>
                             <input type="text" class="form-control" id="driver" value="' . $row["driver"] . '" readonly>
