@@ -537,20 +537,20 @@ if (isset($_SESSION["email"])) {
                 </div>
             
             <button id="pay" class="btn btn-lg btn-primary my-4 col-6" style="height:100px !important; width: 100%; "><span style="font-size:20px">Pay now</span></button>
-            
-           <!-- <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+           <!-- 
+           <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 <input type="hidden" name="cmd" value="_s-xclick">
 <input type="hidden" name="hosted_button_id" value="MKGFYBG4TM5CA">
-<input type="hidden" name="amount" value="" class="price">
 <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>-->
+</form>
+
 
 <div id="paypal-button-container"></div>
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
 <script>
-
+//totalPrice + '.0'
 // Render the PayPal button
 paypal.Button.render({
 // Set your environment
@@ -584,7 +584,7 @@ commit: true,
 // PayPal Client IDs - replace with your own
 // Create a PayPal app: https://developer.paypal.com/developer/applications/create
 client: {
-  sandbox: 'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R',
+  sandbox: 'AZU7Am5Pr40aLak3_2w1_pxG5X1youyc0W7i7jXQM8W0UphMpplLsMQMbJep4RNUn01toFIavfO0BuJx',
   production: '<insert production client id>'
 },
 
@@ -597,7 +597,7 @@ payment: function (data, actions) {
       transactions: [
         {
           amount: {
-            total: totalPrice + '.0' ,
+            total: '1.0' ,
             currency: 'USD'
           }
         }
@@ -613,7 +613,7 @@ onAuthorize: function (data, actions) {
     });
 }
 }, '#paypal-button-container');
-</script>
+</script>-->
 
         </div>
      

@@ -1,10 +1,11 @@
 $('#alert').slideUp();
-$('#signButton').click(function () {
+$('#signButton').click(function() {
     $("#alert").removeClass('alert-success').removeClass('alert-danger');
     var firstSign = $('#firstSign').val();
     var lastSign = $('#lastSign').val();
     var emailSign = $('#emailSign').val();
     var passSign = $('#passSign').val();
+    var numSign = $('#numSign').val()
 
     function validateEmail($emailSign) {
         var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
@@ -27,14 +28,18 @@ $('#signButton').click(function () {
         $("#alert").addClass('alert-danger');
         $("#alert").html('Please enter validated email address.');
         $("#alert").slideDown(500).delay(1000).slideUp(500);
+    } else if (numSign == "") {
+        $("#alert").addClass('alert-danger');
+        $("#alert").html("Please enter your phone number!!!");
+        $("#alert").fadeIn(500).delay(1000).fadeOut(500);
     } else if (passSign == "") {
         $("#alert").addClass('alert-danger');
         $("#alert").html("Password is required!!!");
         $("#alert").fadeIn(500).delay(1000).fadeOut(500);
     } else {
         $.ajax({
-            url: "dbSend/indexSent.php?task=register&firstSign=" + firstSign + "&lastSign=" + lastSign + "&emailSign=" + emailSign + "&passSign=" + passSign,
-            success: function (data) {
+            url: "dbSend/indexSent.php?task=register&firstSign=" + firstSign + "&lastSign=" + lastSign + "&emailSign=" + emailSign + "&passSign=" + passSign + "&numSign=" + numSign,
+            success: function(data) {
                 if (data.indexOf('sent') > -1) {
                     $("#alert").addClass('alert-success');
                     $("#alert").html('Your account created successfully. Please verify your email');
@@ -43,18 +48,19 @@ $('#signButton').click(function () {
                     $('#lastSign').val("");
                     $('#emailSign').val("");
                     $('#passSign').val("");
+                    $('#numSign').val("")
                     window.location = "http://localhost/github/btt/phpSendEmail?emailSign=" + emailSign + "&firstSign=" + firstSign + "&lastSign=" + lastSign
-                    /* var delay = 1000;
-                    setTimeout(function () {
-                        window.location = "http://localhost/github/btt/phpSendEmail?emailSign=" + emailSign + "&firstSign=" + firstSign + "&lastSign=" + lastSign
-                    }, delay); */
+                        /* var delay = 1000;
+                        setTimeout(function () {
+                            window.location = "http://localhost/github/btt/phpSendEmail?emailSign=" + emailSign + "&firstSign=" + firstSign + "&lastSign=" + lastSign
+                        }, delay); */
                 } else {
                     $("#alert").addClass('alert-danger');
                     $("#alert").html('The email is already exists.');
                     $("#alert").slideDown(500).delay(1000).slideUp(500);
                 }
             },
-            error: function (data, err) {
+            error: function(data, err) {
                 $("#alert").addClass('alert-danger');
                 $("#alert").html('Some problem occured. We are sorry.');
                 $("#alert").slideDown(500).delay(1000).slideUp(500);
@@ -62,7 +68,7 @@ $('#signButton').click(function () {
         })
     }
 });
-$('#eye').click(function () {
+$('#eye').click(function() {
     /* var elementType = $('#passSign').prev().prop('pass'); */
     var elementType = $('#passSign').attr('type');
     console.log(elementType);

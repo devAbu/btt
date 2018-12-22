@@ -60,7 +60,7 @@
                 </ul>
             </div>
             <div class="col-12 text-center text-dark mt-3">
-                <p style="font-size:20px;">Copyright &copy; 2018 Abdurahman Almonajed</p>
+                <p style="font-size:20px;">Copyright &copy; 2018 BTT</p>
             </div>
         </div>
     </footer>

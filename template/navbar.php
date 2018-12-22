@@ -97,6 +97,11 @@ session_start();
                         <br />
                     </div>
                     <div class="col-xs-12">
+                        <input type="number" placeholder="00971555555555" id="numSign" name="numSign" class="form-control"
+                            required data-msg-required="Please enter your phone number!!!" data-msg-maxlength="Max number is 15!!!" pattern="\d*" onKeyPress="if(this.value.length==15) return false;">
+                        <br />
+                    </div>
+                    <div class="col-xs-12">
                         <div class="pass">
                             <input type="password" placeholder="Password..." class="form-control" name="passSign" id="passSign" required data-msg="Please enter your password!!!">
                             <i class="far fa-eye passIcon" id="passIcon"></i>

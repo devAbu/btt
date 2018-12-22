@@ -315,7 +315,7 @@ session_start();
             <div class="card-body ">
                 <h5 class="card-title text-left ml-5 h1 text-primary "> ' . $row["title"] . '</h5>
 
-                    <img src="' . $row["img"] . '" class="tourPlans " alt="skijanje " width="400 " height="250
+                    <img src="' . $row["img"] . '" class="tourPlans img-fluid" alt="skijanje " width="400 " height="250
             " style="float:left; " />
 
 
@@ -405,7 +405,7 @@ session_start();
           <input type="text" value=" ' . $count . ' "  name="count" id="count" hidden>
           <div class="card-body ">
               <h5 class="card-title text-left ml-5 h1 text-primary "> ' . $row["title"] . '</h5>
-                  <img src="' . $row["img"] . '" class="tourPlans " alt="skijanje " width="400 " height="250
+                  <img src="' . $row["img"] . '" class="tourPlans img-fluid" alt="skijanje " width="400 " height="250
           " style="float:left; " />
 
 
