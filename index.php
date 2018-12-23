@@ -35,8 +35,8 @@ session_start();
 
       <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
       <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
-      <script src="//code.jquery.com/jquery-1.12.4.js"></script>
-      <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <!--<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
 
        <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
