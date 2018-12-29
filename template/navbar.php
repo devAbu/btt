@@ -16,10 +16,10 @@ session_start();
                     <a href="index.php" class="nav-link link">
                         <i class="fas fa-home mr-2"></i>Home</a>
                 </li>
-                <li class="nav-item">
+                <!--<li class="nav-item">
                     <a href="aboutUs.php" class="nav-link link">
                         <i class="fas fa-users mr-2"></i>About Us</a>
-                </li>
+                </li>-->
                 <li class="nav-item">
                     <a href="tourPlans.php" class="nav-link link">
                         <i class="fas fa-suitcase mr-2"></i>Tour plans</a>
