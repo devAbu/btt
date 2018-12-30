@@ -497,8 +497,8 @@ label.error {
 
 #payButton:hover:before {
     font-family: "Font Awesome\ 5 Free";
-    font-weight: 900;
-    content: "\f155";
+    font-weight: 400;
+    content: "\f058";
     color: #e0e0e0;
 }
 
@@ -516,9 +516,9 @@ label.error {
 
 #pay:hover:before {
     font-family: "Font Awesome\ 5 Free";
-    font-weight: 900;
+    font-weight: 400;
     font-size: 50px;
-    content: "\f155";
+    content: "\f058";
     color: #e0e0e0;
 }
 

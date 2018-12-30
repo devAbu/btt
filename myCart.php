@@ -43,6 +43,9 @@ session_start();
 
     <link rel="stylesheet" href="loaders.min.css" />
 
+    <link href="toastr.css" rel="stylesheet"/>
+    <script src="toastr.js"></script>
+
 
     <script>
         $(function (){
@@ -104,7 +107,7 @@ session_start();
                             $row["type"] . '
             </div>
             <input type="text" value=" ' . $session . '  "  name="session" id="session" hidden>
-            <input type="text" value=" ' . $row["ID"] . ' "  name="idnum" id="idnum" hidden>
+            <input type="text" value=" ' . $row["ID"] . ' "  name="tourID" id="tourID" hidden>
             <input type="text" value=" ' . $count . ' "  name="count" id="count" hidden>
             <div class="card-body ">
                 <h5 class="card-title text-left ml-5 h1 text-primary "> ' . $row["title"] . '</h5>
@@ -234,7 +237,7 @@ if (isset($_SESSION["email"])) {
             echo '<form action = "delete/deleteApartment.php" method = "POST"><div class="card text-center mt-4 ">
 
             <input type="text" value=" ' . $session . '  "  name="session" id="session" hidden>
-            <input type="text" value=" ' . $row["ID"] . ' "  name="idnum" id="idnum" hidden>
+            <input type="text" value=" ' . $row["ID"] . ' "  name="apartmentID" id="apartmentID" hidden>
             <input type="text" value=" ' . $count . ' "  name="count" id="count" hidden>
             <div class="card-body ">
                 <h5 class="card-title text-left ml-5 h1 text-primary "> ' . $row["title"] . '</h5>
@@ -338,7 +341,7 @@ if (isset($_SESSION["email"])) {
             echo '<form action = "delete/deleteHotel.php" method = "POST"><div class="card text-center mt-4 ">
 
             <input type="text" value=" ' . $session . '  "  name="session" id="session" hidden>
-            <input type="text" value=" ' . $row["ID"] . ' "  name="idnum" id="idnum" hidden>
+            <input type="text" value=" ' . $row["ID"] . ' "  name="hotelID" id="hotelID" hidden>
             <input type="text" value=" ' . $count . ' "  name="count" id="count" hidden>
             <div class="card-body ">
                 <h5 class="card-title text-left ml-5 h1 text-primary "> ' . $row["title"] . '</h5>
@@ -427,7 +430,7 @@ if (isset($_SESSION["email"])) {
                 $row["title"] . '
             </div>
             <input type="text" value=" ' . $session . '  "  name="session" id="session" hidden>
-            <input type="text" value=" ' . $row["ID"] . ' "  name="idnum" id="idnum" hidden>
+            <input type="text" value=" ' . $row["ID"] . ' "  name="carID" id="carID" hidden>
             <div class="card-body ">
                 <h5 class="card-title text-left ml-5 h1 text-primary "> ' . $row["type"] . '</h5>
                
@@ -532,7 +535,7 @@ if (isset($_SESSION["email"])) {
                 <div class="offset-md-4 col-md-6 col-lg-4 col-10 offset-1">
                     <div class="input-group ml-3" id="priceInput">
                         <span class="input-group-addon">$</span>
-                        <input type="number" value="0"  name="price" readonly data-number-to-fixed="2" style="height:50px;" class="form-control currency price" />
+                        <input type="number" value="0" id="totalPrice"  name="price" readonly data-number-to-fixed="2" style="height:50px;" class="form-control currency price" />
                     </div>
                 </div>
             
@@ -890,6 +893,42 @@ onAuthorize: function (data, actions) {
         })
     </script>
  -->
+
+<script>
+
+    $('#payButton, #pay').click(function() {
+    
+        var carID = $('#carID').val()
+        var session = $('#session').val()
+        var tourID = $('#tourID').val()
+        var apartmentID = $('#apartmentID').val()
+        var hotelID = $('#hotelID').val()
+        var price = $('#totalPrice').val()
+
+        console.log(hotelID)
+
+        /* $.get('confirmOffer/confirm.php?carID="' + carID + '"&tourID="' + tourID + '"&session="' + session + '"&apartmentID= "' + apartmentID + '"&hotelID = "' +hotelID+'" ') */
+        
+         $.ajax({
+            url: "confirmOffer/confirm.php?carID=" + carID + "&tourID=" + tourID + "&session=" + session + "&apartmentID= " + apartmentID + "&hotelID= " +hotelID+ "&price="+price,
+            success: function(data) {
+                jQuery.noConflict();
+                if(data.indexOf('sent')> -1){
+                    toastr.success("Reservation confirmed successfully")
+                    
+                }else{
+                    toastr.error("Problem occurred, please try again!")
+                }
+            }, 
+            error: function(data, err){
+                toastr.error("There is some problem, please try later!")
+            }
+         })
+
+    
+});
+</script>
+
 
  <script>
         $("body > *").not("body > .loader").addClass('hidden');

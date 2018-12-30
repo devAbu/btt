@@ -2,7 +2,7 @@
 
 require '../connection/connect.php';
 
-$idnum = $_REQUEST['idnum'];
+$idnum = $_REQUEST['apartmentID'];
 $session = $_REQUEST['session'];
 
 echo "idnum = " . $idnum;
