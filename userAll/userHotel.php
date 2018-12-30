@@ -1,13 +1,13 @@
 <?php
 require '../connection/connect.php';
 
-use PHPMailer\PHPMailer\PHPMailer;
+/* use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 //Load Composer's autoloader
 require '../vendor/autoload.php';
 
-$mail = new PHPMailer(true);
+$mail = new PHPMailer(true); */
 
 $email = $_REQUEST['session'];
 $hotelID = $_REQUEST['idnum'];
@@ -20,7 +20,8 @@ $query = "INSERT INTO userhotel (`name`, `hotelID`, `arrival`, `departure`) VALU
 
 $response = @mysqli_query($dbc, $query);
 if ($response) {
-    $sql = "Select userhotel.hotelID,userhotel.name, hotel.ID, hotel.title, hotel.description, hotel.place, hotel.img from userhotel inner join hotel on hotel.ID = userhotel.hotelID having userhotel.name like '%" . trim($email) . "%'";
+    header('location: ../myCart.php');
+    /* $sql = "Select userhotel.hotelID,userhotel.name, hotel.ID, hotel.title, hotel.description, hotel.place, hotel.img from userhotel inner join hotel on hotel.ID = userhotel.hotelID having userhotel.name like '%" . trim($email) . "%'";
 
     $result = $dbc->query($sql);
 
@@ -73,7 +74,7 @@ if ($response) {
                 echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
             }
         }
-    }
+    } */
 
 
 

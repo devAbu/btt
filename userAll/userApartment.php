@@ -2,13 +2,13 @@
 require '../connection/connect.php';
 
 
-use PHPMailer\PHPMailer\PHPMailer;
+/* use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 //Load Composer's autoloader
 require '../vendor/autoload.php';
 
-$mail = new PHPMailer(true);
+$mail = new PHPMailer(true); */
 
 $email = $_REQUEST['session'];
 $apartmentID = $_REQUEST['idnum'];
@@ -31,8 +31,8 @@ if ($result->num_rows > 0) {
 
     $response = @mysqli_query($dbc, $query);
     if ($response) {
-
-        $sql = "Select userapartment.apartmentID,userapartment.name, apartment.ID, apartment.title, apartment.description, apartment.place, apartment.img from userapartment inner join apartment on apartment.ID = userapartment.apartmentID having userapartment.name like '%" . trim($email) . "%' ";
+        header('location: ../myCart.php');
+        /* $sql = "Select userapartment.apartmentID,userapartment.name, apartment.ID, apartment.title, apartment.description, apartment.place, apartment.img from userapartment inner join apartment on apartment.ID = userapartment.apartmentID having userapartment.name like '%" . trim($email) . "%' ";
         $result = $dbc->query($sql);
 
         $count = $result->num_rows;
@@ -84,7 +84,7 @@ if ($result->num_rows > 0) {
                     echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
                 }
             }
-        }
+        } */
     } else {
         echo mysqli_error($dbc);
     }

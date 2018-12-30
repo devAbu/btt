@@ -75,10 +75,24 @@ session_start();
                 <i class="fab fa-instagram mr-2" aria-hidden="true"></i>Instagram</a>
             <a href="https://www.facebook.com" target="_blank" class="btn btn-lg btn-primary mb-1">
                 <i class="fab fa-facebook mr-2" aria-hidden="true"></i>Facebook</a>
+                <div class="align-text-bottom">
+                    <a href="#res" id="downArrow" ><i class="fa fa-caret-down fa-7x" id="test" style="color: #007BFF; " ></i></a>
+                </div>
         </div>
     </section>
 
-    <section>
+    <script>
+        $('#downArrow').click(function() {
+            event.preventDefault();
+            var sectionTo = $(this).attr('href');
+            $('html').animate({
+            scrollTop: $(sectionTo).offset().top - 60
+            }, 1000);
+        });
+        
+    </script>
+
+    <section id="res">
         <div class="row no-gutters">
             <div class="col-md-5 offset-md-2 col-11 offset-1">
                  <!-- <form action="apartment.php" method="POST" name="form" id="form"> -->
@@ -345,14 +359,14 @@ session_start();
                 </li>
 
                 <li class="list-group-item " style="border:none">
-                    <input class="btn btn-warning " value="Leave feedback" style="width:200px; " data-toggle="collapse" data-target="#hotelFeedbackCollapse' . $row["ID"] . '"  id="hotelFeedback'.$row["ID"].'" />
+                    <input class="btn btn-warning " value="Leave feedback" style="width:200px; " data-toggle="collapse" data-target="#hotelFeedbackCollapse' . $row["ID"] . '"  id="hotelFeedback' . $row["ID"] . '" />
                 </li>
             </ul>
 
-            <div class="collapse mt-4 feedCollapse" id="hotelFeedbackCollapse'.$row["ID"].'">
-                <textarea cols="40" id="offerFeedback'.$row["ID"].'" rows="7" class="form-control" style="resize: none;" placeholder="Your opinion about this tour..." onchange="feed(this.id)"></textarea>
+            <div class="collapse mt-4 feedCollapse" id="hotelFeedbackCollapse' . $row["ID"] . '">
+                <textarea cols="40" id="offerFeedback' . $row["ID"] . '" rows="7" class="form-control" style="resize: none;" placeholder="Your opinion about this tour..." onchange="feed(this.id)"></textarea>
             
-                <input type="button" class="btn btn-success mt-3" value="Send" id="hotelFeedbackSend'.$row["ID"].'" >         
+                <input type="button" class="btn btn-success mt-3" value="Send" id="hotelFeedbackSend' . $row["ID"] . '" >         
             </div>
 
 
@@ -533,6 +547,12 @@ session_start();
             var but = $('#hotelFeedbackSend'+idRes).attr("id");
             var idBut = id.replace(/\D/g, "")
             console.log(idBut)
+
+            $('#hotelFeedbackSend'+idRes).attr('disabled', true)
+
+            if(feedback != ""){
+                $('#hotelFeedbackSend'+idRes).attr('disabled', false)
+            }
             
             $("#hotelFeedbackSend"+idBut).click(function(){
                 console.log(idBut)

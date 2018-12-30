@@ -1,13 +1,13 @@
 <?php
 require '../connection/connect.php';
 
-use PHPMailer\PHPMailer\PHPMailer;
+/* use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 //Load Composer's autoloader
 require '../vendor/autoload.php';
 
-$mail = new PHPMailer(true);
+$mail = new PHPMailer(true); */
 
 $email = $_REQUEST['session'];
 $carID = $_REQUEST['idnum'];
@@ -30,7 +30,9 @@ if ($result->num_rows > 0) {
 
     $response = @mysqli_query($dbc, $query);
     if ($response) {
+        header('location: ../myCart.php');
 
+/* 
         $sql = "Select usercar.carID,usercar.name, cars.ID, cars.title, cars.type, cars.description, cars.people, cars.year, cars.price, cars.img from usercar inner join cars on cars.ID = usercar.carID having usercar.name like '%" . trim($email) . "%' ";
         $result = $dbc->query($sql);
 
@@ -86,7 +88,7 @@ if ($result->num_rows > 0) {
             }
         }
         echo ('sent');
-        header('location: ../myCart.php');
+        header('location: ../myCart.php'); */
     } else {
         echo mysqli_error($dbc);
     }

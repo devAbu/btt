@@ -398,14 +398,14 @@ if ($count > 0) {
                     <input class="btn btn-warning " value="Select " style="width:100px; " data-toggle="modal" data-target="#dateSelection' . $row["ID"] . '" />
                 </li>
                 <li class="list-group-item" style="border:none;">
-                    <input class="btn btn-warning " value="Leave feedback " style="width:200px; " data-toggle="collapse" data-target="#carFeedbackCollapse' . $row["ID"] . '" id="carFeedback'.$row["ID"].'" />
+                    <input class="btn btn-warning " value="Leave feedback " style="width:200px; " data-toggle="collapse" data-target="#carFeedbackCollapse' . $row["ID"] . '" id="carFeedback' . $row["ID"] . '" />
                 </li>
             </ul>
 
-            <div class="collapse mt-4 feedCollapse" id="carFeedbackCollapse'.$row["ID"].'">
-                <textarea cols="40" id="offerFeedback'.$row["ID"].'" rows="7" class="form-control" style="resize: none;" placeholder="Your opinion about this tour..." onchange="feed(this.id)"></textarea>
+            <div class="collapse mt-4 feedCollapse" id="carFeedbackCollapse' . $row["ID"] . '">
+                <textarea cols="40" id="offerFeedback' . $row["ID"] . '" rows="7" class="form-control" style="resize: none;" placeholder="Your opinion about this tour..." onchange="feed(this.id)"></textarea>
             
-                <input type="button" class="btn btn-success mt-3" value="Send" id="carFeedbackSend'.$row["ID"].'" >         
+                <input type="button" class="btn btn-success mt-3" value="Send" id="carFeedbackSend' . $row["ID"] . '" >         
             </div>
 
             <div class="modal fade" id="dateSelection' . $row["ID"] . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -606,6 +606,12 @@ $dbc->close();
             var idBut = id.replace(/\D/g, "")
             console.log(idBut)
             
+            $('#carFeedbackSend'+idRes).attr('disabled', true)
+
+            if(feedback != ""){
+                $('#carFeedbackSend'+idRes).attr('disabled', false)
+            }
+
             $("#carFeedbackSend"+idBut).click(function(){
                 console.log(idBut)
                 console.log(feedback)

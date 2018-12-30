@@ -83,7 +83,7 @@ session_start();
                     </div>
                 </div>
             
-            <button id="payButton" class="btn btn-lg btn-primary my-3"><span>Pay now</span></button>
+            <button id="payButton" class="btn btn-lg btn-primary my-3"><span>Confirm</span></button>
         </div>
         <h2 class="display-4 text-center text-info">Tour Plans</h2>
             <?php
@@ -536,7 +536,7 @@ if (isset($_SESSION["email"])) {
                     </div>
                 </div>
             
-            <button id="pay" class="btn btn-lg btn-primary my-4 col-6" style="height:100px !important; width: 100%; "><span style="font-size:20px">Pay now</span></button>
+            <button id="pay" class="btn btn-lg btn-primary my-4 col-6" style="height:100px !important; width: 100%; "><span style="font-size:20px">Confirm</span></button>
            <!-- 
            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 <input type="hidden" name="cmd" value="_s-xclick">
@@ -649,13 +649,17 @@ onAuthorize: function (data, actions) {
                             <input type="number" class="form-control" id="length" value="' . $row["length"] . '" readonly>
                         </div>
                         
-                        <div class="col-md-6 col-12 mb-2">
-                        <label>people: </label>
+                        <div class="col-md-4 col-12 mb-2">
+                        <label>People: </label>
                             <input type="number"  class="form-control" id="people" value="' . $row["people"] . '" readonly>
+                        </div>
+                        <div class="col-md-6 col-12 mb-2">
+                        <label>Child: </label>
+                            <input type="number"  class="form-control" id="child" value="' . $row["child"] . '" readonly>
                         </div>
                         
                         <div class="col-md-4 col-12 mb-2">
-                        <label>interpreter: </label>
+                        <label>Driver: </label>
                             <input type="text" class="form-control" id="driver" value="' . $row["driver"] . '" readonly>
                         </div>
                         <div class="col-12 col-md-4 mb-2">

@@ -1,13 +1,13 @@
 <?php
 require '../connection/connect.php';
 
-use PHPMailer\PHPMailer\PHPMailer;
+/* use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 //Load Composer's autoloader
 require '../vendor/autoload.php';
 
-$mail = new PHPMailer(true);
+$mail = new PHPMailer(true); */
 
 $email = $_REQUEST['session'];
 $tourID = $_REQUEST['idnum'];
@@ -19,7 +19,8 @@ $query = "INSERT INTO usertour (`name`, `tourID`, `arrival`, `departure`) VALUES
 
 $response = @mysqli_query($dbc, $query);
 if ($response) {
-    $sql = "Select usertour.tourID,usertour.name, tourplan.ID, tourplan.type, tourplan.title, tourplan.description, tourplan.people, tourplan.available, tourplan.price, tourplan.days, tourplan.img from usertour inner join tourplan on tourplan.ID = usertour.tourID having usertour.name like '%" . trim($email) . "%' ";
+    header('location: ../myCart.php');
+    /* $sql = "Select usertour.tourID,usertour.name, tourplan.ID, tourplan.type, tourplan.title, tourplan.description, tourplan.people, tourplan.available, tourplan.price, tourplan.days, tourplan.img from usertour inner join tourplan on tourplan.ID = usertour.tourID having usertour.name like '%" . trim($email) . "%' ";
 
     $result = $dbc->query($sql);
 
@@ -69,12 +70,13 @@ if ($response) {
 
             } catch (Exception $e) {
                 echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
-            }
-        }
-    }
+            } */
+}
+/* }
 
 
 
 } else {
     echo mysqli_error($dbc);
 }
+ */
