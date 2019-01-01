@@ -588,16 +588,9 @@ $dbc->close();
                     if(checked.getAttribute('id') == 'driver'){
                         console.log('yes')
                         $('#driverPrice').val('yes')
-                        /* 
-                        console.log($('#driver').attr('checked'))
-                        $('#noDriver').attr('checked', false) */
                     }else if(checked.getAttribute('id') == 'noDriver'){
                         console.log('no')
                         $('#driverPrice').val('no')
-                        /* $('#driver').attr('checked', false)
-                        $('#noDriver').attr('checked', true)
-                        $('#driverPrice').val('no')
-                        console.log($('#noDriver').attr('checked')) */
                     }
                 })
             })
