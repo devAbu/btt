@@ -419,12 +419,15 @@ if (isset($_SESSION["email"])) {
     $session = $_SESSION["email"];
     //echo 'session = ' . $session;
     //echo 'length = ' . strlen($session);
-    $sql = "Select usercar.carID,usercar.name, usercar.arrival, usercar.departure, cars.ID, cars.title, cars.type, cars.description, cars.people, cars.year, cars.price, cars.img from usercar inner join cars on cars.ID = usercar.carID having usercar.name like '%" . trim($session) . "%' ";
+    $sql = "Select usercar.carID,usercar.name, usercar.arrival, usercar.departure,usercar.driver, cars.ID, cars.title, cars.type, cars.description, cars.people, cars.year, cars.price, cars.img from usercar inner join cars on cars.ID = usercar.carID having usercar.name like '%" . trim($session) . "%' ";
     $result = $dbc->query($sql);
 
     $count = $result->num_rows;
     if ($count > 0) {
         while ($row = $result->fetch_assoc()) {
+            if ($row["driver"] == 'yes') {
+                $row["price"] += 40;
+            }
             echo '<form action = "delete/deleteCar.php"><div class="card text-center mt-4 ">
             <div class="card-header text-success h3 text-uppercase ">' .
                 $row["title"] . '
