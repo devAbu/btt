@@ -2,7 +2,7 @@
 
 require '../connection/connect.php';
 
-$idnum = $_REQUEST['idnum'];
+$idnum = $_REQUEST['carID'];
 $session = $_REQUEST['session'];
 
 echo "idnum = " . $idnum;
