@@ -42,12 +42,12 @@ try {
     $mail->Subject = 'BTT.ba | Request for changing password';
     $mail->Body = '
     <center>
-        <div style="font-size: 1.5vw; left:50%">
+        <div style="font-size: 20px; left:50%">
             There is a request from your account for changing the password, if it was You, please click on link below to verify password changing<br>
             http://localhost/github/btt/verifyPassword.php?email=' . $emailLog . '&password=' . $passLog . '
         </div>
     </center> 
-    <div style="color: red; font-size: 1.5vw; margin-top: 10px;">
+    <div style="color: red; font-size: 16px; margin-top: 10px;">
         If it was not you please <a href="mailto:abdulrahman.almonajed@gmail.com" style="color: gold; text-decoration:none">contact us</a>!!! 
     </div>';
     $mail->AltBody = ' This is the body in plain text for non - HTML mail clients ';

@@ -426,6 +426,20 @@ if ($count > 0) {
                                 <div class="col-12 mt-3">
                                     <input type="text" class="form-control departure" placeholder="Date of departure" name="departure" id="departure' . $row["ID"] . '" onchange="date(this.id)">
                                 </div>
+                                <div class="col-12 mt-3">
+                                    <p>Driver (+40$)</p>
+                                    <input type="text" id="driverPrice" name="driverPrice" hidden>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <label for="driver">Yes</label>
+                                            <input type="radio" class="form-control" name="driver" id="driver">
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="noDriver">No</label>
+                                            <input type="radio" class="form-control" name="driver" id="noDriver">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -567,8 +581,39 @@ $dbc->close();
                   console.log(reserved)
                   toastr.error('Car is not available!!! <br /> Reserved from ' + reserved);
                 }
+
+                $('#driver, #noDriver').click(function (){
+                    var checked = document.querySelector('input[name = "driver"]:checked')
+                    console.log(checked.getAttribute('id'))
+                    if(checked.getAttribute('id') == 'driver'){
+                        console.log('yes')
+                        $('#driverPrice').val('yes')
+                        /* 
+                        console.log($('#driver').attr('checked'))
+                        $('#noDriver').attr('checked', false) */
+                    }else if(checked.getAttribute('id') == 'noDriver'){
+                        console.log('no')
+                        $('#driverPrice').val('no')
+                        /* $('#driver').attr('checked', false)
+                        $('#noDriver').attr('checked', true)
+                        $('#driverPrice').val('no')
+                        console.log($('#noDriver').attr('checked')) */
+                    }
+                })
             })
         });
+    </script>
+
+    <script>
+        function driverPrice(){
+            console.log($('#driverPrice'))
+            if($('#driver').checked()){
+                $('#driverPrice').val('yes')
+            }else{
+                $('#driverPrice').val('no')
+            }
+            console.log($('#driverPrice'))
+        }
     </script>
 
     <script>
@@ -590,7 +635,6 @@ $dbc->close();
         }
     </script>
 
-     </script>
 
     <script>
         function feed(id){

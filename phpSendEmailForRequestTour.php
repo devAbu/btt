@@ -39,11 +39,11 @@ try {
     $mail->Body = '
 
     <center>
-        <div style="font-size: 1.5vw;margin-top:10px;">
+        <div style="font-size: 20px;margin-top:10px;">
             Your tour request sent successfully, we will consider your request and reply as soon as possible.
         </div>
     </center> 
-    <div style="color: red; font-size: 1.5vw; margin-top: 10px;">
+    <div style="color: red; font-size: 16px; margin-top: 10px;">
         If it was not you please <a href="mailto:abdulrahman.almonajed@gmail.com" style="color: gold; text-decoration:none">contact us</a>!!! 
     </div>
      <br>';
