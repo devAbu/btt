@@ -905,9 +905,12 @@ onAuthorize: function (data, actions) {
         var hotelID = $('#hotelID').val()
         var price = $('#totalPrice').val()
 
-        console.log(hotelID)
+        if(typeof apartmentID === 'undefined'){
+            apartmentID = 0
+        }
 
-        /* $.get('confirmOffer/confirm.php?carID="' + carID + '"&tourID="' + tourID + '"&session="' + session + '"&apartmentID= "' + apartmentID + '"&hotelID = "' +hotelID+'" ') */
+        console.log(apartmentID)
+
         
          $.ajax({
             url: "confirmOffer/confirm.php?carID=" + carID + "&tourID=" + tourID + "&session=" + session + "&apartmentID= " + apartmentID + "&hotelID= " +hotelID+ "&price="+price,
