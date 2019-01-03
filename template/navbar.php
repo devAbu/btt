@@ -1,7 +1,7 @@
 <?php
 session_start();
 ?>
-<nav class="navbar bg-primary navbar-dark navbar-expand-md fixed-top" id="navbar" style="opacity:0.7; font-size:18px;">
+<nav class="navbar navbar-dark navbar-expand-md fixed-top" id="navbar" style="opacity:0.95; font-size:18px; background-color:#9aa6af">
         <a href="index.php" class="navbar-brand">
             <img src="images/btt logo png.png" alt="logo" class="img-fluid mr-sm-3 logo" width="45" height="45" />
             <span class="h4">BTT</span>
@@ -28,10 +28,9 @@ session_start();
                     <a class="nav-link link dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                         aria-expanded="false">
                         <i class="far fa-calendar-alt mr-2"></i>Reservation</a>
-                    <div class="dropdown-menu">
+                    <div class="dropdown-menu" style="background-color:#9aa6af; opacity: 0.85">
                         <a class="dropdown-item" href="hotel.php">
                             <i class="fas fa-bed mr-2"></i>Hotel</a>
-                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="apartment.php">
                             <i class="far fa-building mr-2"></i>Apartment</a>
                     </div>

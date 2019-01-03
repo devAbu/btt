@@ -355,11 +355,11 @@ session_start();
                 echo '
 
                 <li class="list-group-item " style="border:none">
-                    <input class="btn btn-warning " value="Select" style="width:100px; " data-toggle="modal" data-target="#dateSelection' . $row["ID"] . '"  />
+                    <input class="btn btn-primary " value="Select" style="width:125px;color:white " data-toggle="modal" data-target="#dateSelection' . $row["ID"] . '"  />
                 </li>
 
                 <li class="list-group-item " style="border:none">
-                    <input class="btn btn-warning " value="Leave feedback" style="width:200px; " data-toggle="collapse" data-target="#hotelFeedbackCollapse' . $row["ID"] . '"  id="hotelFeedback' . $row["ID"] . '" />
+                    <input class="btn btn-primary " value="Leave feedback" style="width:150px; " data-toggle="collapse" data-target="#hotelFeedbackCollapse' . $row["ID"] . '"  id="hotelFeedback' . $row["ID"] . '" />
                 </li>
             </ul>
 
@@ -446,9 +446,10 @@ session_start();
 
               <li class="list-group-item " style="border:none">
               <a href="login.php">
-                  <input type="button" name="select" id="select" class="btn btn-warning " value="Login " style="width:100px; " />
-              </li>
+                  <input type="button" name="select" id="login" class="btn btn-primary " value="Login " style="width:100px;color: white " />
               </a>
+            </li>
+              
           </ul>
           </div>
           <div class="card-footer text-muted ">

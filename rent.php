@@ -359,7 +359,7 @@ if ($count > 0) {
         while ($row = $result->fetch_assoc()) {
             $session = $_SESSION["email"];
             echo '<div class="myDIV"><form action = "userAll/userCar.php"><div class="card text-center mt-4 ">
-            <div class="card-header text-success h3 text-uppercase ">' .
+            <div class="card-header text-primary h3 text-uppercase ">' .
                 $row["title"] . '
             </div>
             <input type="text" value=" ' . $session . '  "  name="session" id="session" hidden>
@@ -395,10 +395,10 @@ if ($count > 0) {
             </ul>
 			<ul class="navbar-nav ml-auto selectTour" style="float:right; margin-top:-100px;">
                 <li class="list-group-item" style="border:none;">
-                    <input class="btn btn-warning " value="Select " style="width:100px; " data-toggle="modal" data-target="#dateSelection' . $row["ID"] . '" />
+                    <input class="btn btn-primary " value="Select " style="width:125px;color:white " data-toggle="modal" data-target="#dateSelection' . $row["ID"] . '" />
                 </li>
                 <li class="list-group-item" style="border:none;">
-                    <input class="btn btn-warning " value="Leave feedback " style="width:200px; " data-toggle="collapse" data-target="#carFeedbackCollapse' . $row["ID"] . '" id="carFeedback' . $row["ID"] . '" />
+                    <input class="btn btn-primary " value="Leave feedback " style="width:150px; color:white" data-toggle="collapse" data-target="#carFeedbackCollapse' . $row["ID"] . '" id="carFeedback' . $row["ID"] . '" />
                 </li>
             </ul>
 
@@ -459,7 +459,7 @@ if ($count > 0) {
     } else {
         while ($row = $result->fetch_assoc()) {
             echo '<div class="myDIV"><form action = "userAll/userCar.php"><div class="card text-center mt-4 ">
-          <div class="card-header text-success h3 text-uppercase ">' .
+          <div class="card-header text-primary h3 text-uppercase ">' .
                 $row["title"] . '
           </div>
           <input type="text" value=" ' . $row["ID"] . ' "  name="idnum" id="idnum" hidden>
@@ -495,7 +495,7 @@ if ($count > 0) {
 		  <ul class="navbar-nav ml-auto selectTour" style="float:right; margin-top:-100px;">
                 <li class="list-group-item" style="border:none;">
                 <a href="login.php">
-                    <input type="button" name="select" id="login" class="btn btn-warning " value="Login " style="width:100px; " />
+                    <input type="button" name="select" id="login" class="btn btn-primary " value="Login " style="width:100px; color:white" />
                     </a>
                 </li>
             </ul>

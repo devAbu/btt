@@ -179,7 +179,7 @@ session_start();
 
                 <li class="list-group-item " style="border:none">
                 <a href="#" data-toggle="modal" data-target="#confirmTour">
-                    <input type="button" name="select" id="select" class="btn btn-warning " value="Delete " style="width:100px; " />
+                    <input type="button" name="select" id="select" class="btn btn-danger " value="Delete" style="width:100px; " />
                 </a>
                 </li>
             </ul>-->
@@ -282,7 +282,7 @@ if (isset($_SESSION["email"])) {
 
                 <li class="list-group-item " style="border:none">
                     <a href="#" data-toggle="modal" data-target="#confirmApartment">
-                        <input type="button" name="select" id="select" class="btn btn-warning " value="Delete " style="width:100px; " />
+                        <input type="button" name="select" id="select" class="btn btn-danger " value="Delete " style="width:100px; " />
                     </a>
                 </li>
                 
@@ -350,9 +350,9 @@ if (isset($_SESSION["email"])) {
             " style="float:left; " />
             </a>
 
-            <a href="# " style="text-decoration:none; ">
+            <!--<a href="# " style="text-decoration:none; ">-->
                 <label class="card-text " style="max-width:800px; ">' . $row["description"] . '</label>
-            </a>
+            <!--</a>-->
 
 
             <ul class="list-group list-group-flush mr-5 mt-3" style=" border:none;float:right; margin-top:-100px; ">
@@ -373,7 +373,7 @@ if (isset($_SESSION["email"])) {
 
                 <li class="list-group-item " style="border:none">
                     <a href="#" data-toggle="modal" data-target="#confirmHotel">
-                        <input type="button" name="select" id="select" class="btn btn-warning " value="Delete " style="width:100px; " />
+                        <input type="button" name="select" id="select" class="btn btn-danger " value="Delete " style="width:100px; " />
                     </a>
                 </li>
             </ul>
@@ -499,7 +499,7 @@ if (isset($_SESSION["email"])) {
                     </p>
                 </li>
                 <li class="list-group-item " style="border:none">
-                    <input type="submit" name="select" id="select" class="btn btn-warning " value="Delete " style="width:100px; " />
+                    <input type="submit" name="select" id="select" class="btn btn-danger " value="Delete " style="width:100px; " />
                 </li>
             </ul>-->
             </div>
@@ -672,12 +672,12 @@ onAuthorize: function (data, actions) {
                         <label>price: </label>
                             <input type="number" class="form-control" id="price" value="' . $row["price"] . '" readonly>
                         </div>
-                        <label class="ml-3 mt-4">Options: </label>
                         
                         
-                        <div class="col-1 mt-3">
+                        
+                        <div class="col-1 mt-4">
                             <a href="#" data-toggle="modal" data-target="#confirmRequest">
-                                <input type="button" id="delete" class="btn btn-lg btn-danger" value="Delete">
+                                <input type="button" id="delete" class="btn btn-danger mt-2" value="Delete" >
                             </a>
                         </div>
 

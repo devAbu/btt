@@ -386,7 +386,7 @@ if ($count > 0) {
 
             echo '<div class="myDIV">
                 <form action = "userAll/userTour.php" method = "POST"><div class="card text-center mt-4 myDIV">
-            <div class="card-header text-success h3 text-uppercase ">' .
+            <div class="card-header text-primary h3 text-uppercase ">' .
                 $row["type"] . '
             </div>
 
@@ -428,10 +428,10 @@ if ($count > 0) {
             
             <ul class="navbar-nav ml-auto selectTour" style="float:right; margin-top:-100px;">
                 <li class="list-group-item" style="border:none;">
-                    <input class="btn btn-warning " value="Select" style="width:100px; " data-toggle="modal" data-target="#dateSelection' . $row["ID"] . '" id="selectModal' . $row["ID"] . '"/>
+                    <input class="btn btn-primary " value="Select" style="width:125px; color:white" data-toggle="modal" data-target="#dateSelection' . $row["ID"] . '" id="selectModal' . $row["ID"] . '"/>
                 </li>
                 <li class="list-group-item" style="border:none;">
-                    <input class="btn btn-warning " value="Leave feedback" style="width:200px; " data-toggle="collapse" data-target="#tourFeedbackCollapse' . $row["ID"] . '" id="tourFeedback' . $row["ID"] . '"/>
+                    <input class="btn btn-primary" value="Leave feedback" style="width:150px;color:white " data-toggle="collapse" data-target="#tourFeedbackCollapse' . $row["ID"] . '" id="tourFeedback' . $row["ID"] . '"/>
                 </li>
             </ul>
             
@@ -490,7 +490,7 @@ if ($count > 0) {
 
             echo '<div class="myDIV">
                 <form action = "userAll/userTour.php" method = "POST"><div class="card text-center mt-4 ">
-            <div class="card-header text-success h3 text-uppercase ">' .
+            <div class="card-header text-primary h3 text-uppercase ">' .
                 $row["type"] . '
             </div>
 
@@ -527,7 +527,7 @@ if ($count > 0) {
             <ul class="navbar-nav ml-auto selectTour" style="float:right; margin-top:-100px;">
                 <li class="list-group-item" style="border:none;">
                 <a href="login.php">
-                    <input type="button" name="select" id="login" class="btn btn-warning " value="Login " style="width:100px; " />
+                    <input type="button" name="select" id="login" class="btn btn-primary " value="Login " style="width:100px; color:white" />
                     </a>
                 </li>
             </ul>
@@ -550,7 +550,7 @@ if ($count > 0) {
                 <input type="number" value="' . $i . '" id="test" hidden>
                 <li class="list-group-item " style="border:none">
                     <a href="login.php">
-                        <input type="button" name="select" id="select" class="btn btn-warning " value="Login " style="width:100px; " />
+                        <input type="button" name="select" id="select" class="btn btn-primary " value="Login " style="width:100px; color:gold" />
                     </a>
                 </li>
             </ul>-->

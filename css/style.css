@@ -6,6 +6,18 @@
     min-height: 100vh;
 }
 
+nav div.collapse ul li a:hover {
+    color: #838c93 !important;
+}
+
+a.dropdown-item:hover {
+    background-color: #a7a7a7 !important;
+}
+
+a.dropdown-item {
+    color: white !important;
+}
+
 #bg {
     background-image: url('../images/bg.png');
     background-size: cover;
@@ -424,6 +436,12 @@ footer {
 @media only screen and (min-width: 960px) {
     #offerFeedback {
         max-width: 750px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .textFooter {
+        margin-left: 25%;
     }
 }
 

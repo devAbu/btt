@@ -67,16 +67,16 @@ session_start();
     <section id="jumbotron" class=" jumbotron-fluid text-white d-flex justify-content-center align-items-center">
         <div class="container text-center hidden">
             <h1 class="display-1 text-primary text-uppercase">BTT</h1>
-            <p class="display-4 d-none d-sm-block">Bosnian Tourist Travel</p>
-            <p class="lead">Visit Bosnia & Herzegovina with us!</p>
-            <p class="lead">The best offers and price!</p>
-            <p class="text-primary h5 mb-3">Visit us on:</p>
-            <a href="https://www.instagram.com/bosniant/" target="_blank" class="btn btn-lg btn-primary mb-1">
+            <p class="display-4 d-none d-sm-block mb-5">Bosnian Tourist Travel</p>
+            <p class="lead mt-5 mb-3">Visit Bosnia & Herzegovina with us!</p>
+            <p class="lead ml-4">The best offers and price!</p>
+            <p class="text-primary h5 mb-3 ml-4">Visit us on:</p>
+            <a href="https://www.instagram.com/bosniant/" class="btn btn-lg btn-primary mb-1 ml-5">
                 <i class="fab fa-instagram mr-2" aria-hidden="true"></i>Instagram</a>
-            <a href="https://www.facebook.com" target="_blank" class="btn btn-lg btn-primary mb-1">
+            <a href="https://www.facebook.com" class="btn btn-lg btn-primary mb-1 ml-3">
                 <i class="fab fa-facebook mr-2" aria-hidden="true"></i>Facebook</a>
             <div>
-                <a href="tourPlans.php"  class="text-warning">
+                <a href="tourPlans.php"  class="text-warning" style="text-decoration: none;">
                     <i class="fas fa-suitcase fa-3x mr-3 mt-md-4 mt-2"></i><span id="indexTour">Choose a tour</span>
                 </a>
             </div>
@@ -145,12 +145,11 @@ $result = $dbc->query($sql);
 
 $count = $result->num_rows;
 if ($count > 0) {
-    if (isset($_SESSION["email"])) {
-        echo '<div class="card-group mt-3">';
-        $i = 0;
-        while ($row = $result->fetch_assoc()) {
-            $i++;
-            echo '<div class="card ml-2" style="border-radius:2% !important;" id="prva' . $i . '" class="" >
+    echo '<div class="card-group mt-3">';
+    $i = 0;
+    while ($row = $result->fetch_assoc()) {
+        $i++;
+        echo '<div class="card ml-2" style="border-radius:2% !important;" id="prva' . $i . '" class="" >
                 <a href="tourPlans.php">
                     <img class="card-img-top img-fluid index " src="' . $row["img"] . '" style="border-radius:2% !important; height: 250px;" alt="' . $row["title"] . '">
                 </a>
@@ -167,9 +166,8 @@ if ($count > 0) {
                         <i class="far fa-clock mr-3"></i>' . $row["days"] . '</small>
                 </div>
             </div>';
-        }
-        echo '</div>';
     }
+    echo '</div>';
 } else {
     echo " 0 results";
 }
