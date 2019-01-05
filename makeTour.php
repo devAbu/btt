@@ -142,7 +142,7 @@ session_start();
     if (isset($_SESSION["email"])) {
         echo '<div class="row col-12" >
                 <div class="offset-1 col-10 col-md-5 col-lg-4 col-sm-9 offset-sm-3 offset-md-1" >
-                    <h4 class="text-success mt-4">City:</h4>
+                    <h4 class="text-primary mt-4">City:</h4>
                         <div class="form-check form-check-inline col-12 ">
                             <label for="sarajevo" class="col-2 col-form-label">Sarajevo</label>
                             <div class="col-1 ml-4 ml-sm-2 ml-md-3 ml-lg-3">
@@ -193,7 +193,7 @@ session_start();
                 <div class="col-12 offset-1 mr-md-5 mr-lg-0 col-md-5 col-lg-3 col-sm-5 ml-lg-2 offset-sm-3 offset-md-0 mt-sm-3 mt-md-0">
                     <div class="row">
                         <!-- <div class="col-sm-12 col-10">
-                            <h4 class="text-success">Budget:</h4>
+                            <h4 class="text-primary">Budget:</h4>
                             <div class="input-group ml-3">
                                 <span class="input-group-addon">$</span>
                                 <input type="number" id="budget" onchange="price()" name="budget" value="0" min="0" step="10"  max="8999" class="form-control currency"
@@ -201,11 +201,11 @@ session_start();
                             </div>
                         </div>-->
                         <div class="col-sm-12 col-10 mt-4">
-                            <h4 class="text-success">No. of people:</h4>
-                            <h6 class="text-dark">Adults: </label>
-                            <input type="number" id="people" onchange="price()" name="people" value="0" min="0" step="1" max="15" class="form-control ml-3 mt-2"/> 
-                            <h6 class="text-dark">Child: </label>
-                            <input type="number" id="child" onchange="price()" name="child" value="0" min="0" step="1" max="15" class="form-control ml-3 mt-2"/>
+                            <h4 class="text-primary">No. of people:</h4>
+                            <label class="text-dark ml-3" for="people"><strong>Adults: </strong></label>
+                            <input type="number" id="people" onchange="price()" name="people" value="0" min="0" step="1" max="15" class="form-control ml-3 mt-1"/> 
+                            <label class="text-dark ml-3 mt-2" for="child"><strong>Child: </strong></label>
+                            <input type="number" id="child" onchange="price()" name="child" value="0" min="0" step="1" max="15" class="form-control ml-3 mt-1"/>
                         </div>
                     </div>
                 </div>
@@ -213,7 +213,7 @@ session_start();
                     <div class="row">
                         <div class="col-12">
                         
-                            <h4 class="text-success mt-4">Driver:</h4>
+                            <h4 class="text-primary mt-4">Driver:</h4>
 
                             <input type="radio"  id="driverYes" onclick="price()" name="driver" class="ml-3" />Yes
                             <input type="radio" id="driverNo" onclick="price()" name="driver" class="ml-3" />No
@@ -226,13 +226,13 @@ session_start();
                
 
                 <div class="col-10 offset-1 offset-lg-1 col-md-5 col-sm-5 col-lg-3 mt-4 mb-3 offset-sm-3 offset-md-0">
-                    <h4 class="text-success">Tour Length (days):</h4>
+                    <h4 class="text-primary">Tour Length (days):</h4>
 
                     <input type="number" id="length"  name="length" value="0" min="0" max="30" step="1" class="form-control ml-3" onchange="price()"
                     />
                 </div>
                 <div class=" col-10 offset-1 mt-4 col-md-5 offset-md-1 col-sm-5 offset-sm-1 col-lg-3 offset-lg-1 offset-sm-3">
-                    <h4 class="text-success">Period:</h4>
+                    <h4 class="text-primary">Period:</h4>
                     <div class="row ml-2">
                         <div class="col-12">
                             <input type="text" class="form-control arrival" placeholder="Date of arrival" name="arrival" id="arrival"  onchange="price(); date()">
@@ -244,12 +244,12 @@ session_start();
                     </div>
                 </div>
                 <div class="col-10 col-sm-5 offset-1  offset-md-0 col-md-5  offset-sm-3 col-lg-3 mt-4">
-                    <!--<h4 class="text-success">Interpreter:</h4>
+                    <!--<h4 class="text-primary">Interpreter:</h4>
 
                     <input type="radio"  id="yes" onclick="price()" name="interpreter" class="ml-3" />Yes
                     <input type="radio" id="no" onclick="price()" name="interpreter" class="ml-3" />No
                     -->
-                     <h4 class="text-success ml-0 ml-lg-2">Price:</h4>
+                     <h4 class="text-primary ml-0 ml-lg-2">Price:</h4>
                             <div class="input-group ml-lg-4 ml-sm-3 ml-0" id="priceInput">
                                 <span class="input-group-addon">$</span>
                                 <input type="number" value="0" id="price" name="price" readonly data-number-to-fixed="2" style="height:50px;" class="form-control currency"
@@ -258,7 +258,7 @@ session_start();
                      
                 </div>
                 <div class="col-8 mt-4 offset-md-4 offset-sm-3 offset-0" >
-                    <button class="btn btn-lg btn-success" style="width: 315px;" id="send" name="send"> Send request</button>
+                    <button class="btn btn-lg btn-primary" style="width: 315px;" id="send" name="send"> Send request</button>
                 </div>
                 
             </div>
@@ -266,7 +266,131 @@ session_start();
            
         ';
     } else {
-        echo "<div class='offset-sm-1 text-center mt-5 mb-5'><a href='#' data-toggle='modal' data-target='#LoginModal'><span class='text-warning' style='font-size: 20px;'>LOGIN</span></a> to be able to make tour request!!!</div>";
+        echo '<div class="row col-12" >
+                <div class="offset-1 col-10 col-md-5 col-lg-4 col-sm-9 offset-sm-3 offset-md-1" >
+                    <h4 class="text-primary mt-4">City:</h4>
+                        <div class="form-check form-check-inline col-12 ">
+                            <label for="sarajevo" class="col-2 col-form-label">Sarajevo</label>
+                            <div class="col-1 ml-4 ml-sm-2 ml-md-3 ml-lg-3">
+                                <input class="w3-check" id="sarajevo" onclick="price()" name="sarajevo" type="checkbox" disabled>
+                            </div>
+                            <label for="mostar" class="col-2 col-form-label">Mostar</label>
+                            <div class="col-1 ml-4 ml-sm-2 ml-md-3 ml-lg-3">
+                                <input class="w3-check " id="mostar" name="mostar" onclick="price()" type="checkbox" disabled>
+                            </div>
+                            <label for="jajce" class="col-2 col-form-label">Jajce</label>
+                            <div class="col-1 col-1 ml-4 ml-sm-2 ml-md-3 ml-lg-3">
+                                <input class="w3-check" id="jajce" name="jajce" onclick="price()" type="checkbox" disabled>
+                            </div>
+                        </div>
+                        <div class="form-check form-check-inline col-12">
+                            
+                            <label for="konjic" class="col-2 col-form-label">Konjic</label>
+                            <div class="col-1 col-1 ml-4 ml-sm-2 ml-md-3 ml-lg-3">
+                                <input class="w3-check" id="konjic" name="konjic" onclick="price()" type="checkbox" disabled>
+                            </div>
+                            
+                            <label for="trebevic" class="col-2 col-form-label">Trebevic</label>
+                            <div class="col-1 col-1 ml-4 ml-sm-2 ml-md-3 ml-lg-3">
+                                <input class="w3-check" id="trebevic" name="trebevic" onclick="price()" type="checkbox" disabled>
+                            </div>
+                            <label for="igman" class="col-2 col-form-label">Igman</label>
+                            <div class="col-1 col-1 ml-4 ml-sm-2 ml-md-3 ml-lg-3">
+                                <input class="w3-check" id="igman" name="igman" onclick="price()" type="checkbox" disabled>
+                            </div>
+                        </div>
+                        <div class="form-check form-check-inline col-12">
+                            
+                            <label for="jahorina" class="col-2 col-form-label">Jahorina</label>
+                            <div class="col-1 col-1 ml-4 ml-sm-2 ml-md-3 ml-lg-3">
+                                <input class="w3-check" id="jahorina" onclick="price()" name="jahorina" type="checkbox" disabled>
+                            </div>
+                            <label for="bjelasnica" class=" col-2 col-form-label">Bjelasnica</label>
+                            <div class="col-1 col-1 ml-4 ml-sm-2 ml-md-3 ml-lg-3">
+                                <input class="w3-check " id="bjelasnica" name="bjelasnica" onclick="price()" type="checkbox" disabled>
+                            </div>
+                        </div>
+                        <div class="col-10 col-sm-8 col-md-10">
+                            <input type="text" class="form-control mt-2" id="other" onchange="price()" name="other" placeholder="Other..." onkeydown="preventNumberInput(event)"
+               onkeyup="preventNumberInput(event)" disabled/>
+                        </div>
+                    
+                </div>
+                <div class="col-12 offset-1 mr-md-5 mr-lg-0 col-md-5 col-lg-3 col-sm-5 ml-lg-2 offset-sm-3 offset-md-0 mt-sm-3 mt-md-0">
+                    <div class="row">
+                        <!-- <div class="col-sm-12 col-10">
+                            <h4 class="text-primary">Budget:</h4>
+                            <div class="input-group ml-3">
+                                <span class="input-group-addon">$</span>
+                                <input type="number" id="budget" onchange="price()" name="budget" value="0" min="0" step="10"  max="8999" class="form-control currency" disabled
+                                />
+                            </div>
+                        </div>-->
+                        <div class="col-sm-12 col-10 mt-4">
+                            <h4 class="text-primary">No. of people:</h4>
+                            <label class="text-dark ml-3" for="people"><strong>Adults: </strong></label>
+                            <input type="number" id="people" onchange="price()" name="people" value="0" min="0" step="1" max="15" class="form-control ml-3 mt-1" disabled/> 
+                            <label class="text-dark ml-3 mt-2" for="child"><strong>Child: </strong></label>
+                            <input type="number" id="child" onchange="price()" name="child" value="0" min="0" step="1" max="15" class="form-control ml-3 mt-1" disabled/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-10 offset-1 col-md-5 offset-md-1 col-lg-3 offset-lg-0 ml-lg-5 col-sm-5 offset-sm-3" id="priceField">
+                    <div class="row">
+                        <div class="col-12">
+                        
+                            <h4 class="text-primary mt-4">Driver:</h4>
+
+                            <input type="radio"  id="driverYes" onclick="price()" name="driver" class="ml-3" disabled/>Yes
+                            <input type="radio" id="driverNo" onclick="price()" name="driver" class="ml-3" disabled/>No
+
+                            
+                        </div>
+                    </div>
+                </div>
+
+               
+
+                <div class="col-10 offset-1 offset-lg-1 col-md-5 col-sm-5 col-lg-3 mt-4 mb-3 offset-sm-3 offset-md-0">
+                    <h4 class="text-primary">Tour Length (days):</h4>
+
+                    <input type="number" id="length"  name="length" value="0" min="0" max="30" step="1" class="form-control ml-3" onchange="price()" disabled />
+                </div>
+                <div class=" col-10 offset-1 mt-4 col-md-5 offset-md-1 col-sm-5 offset-sm-1 col-lg-3 offset-lg-1 offset-sm-3">
+                    <h4 class="text-primary">Period:</h4>
+                    <div class="row ml-2">
+                        <div class="col-12">
+                            <input type="text" class="form-control arrival" placeholder="Date of arrival" name="arrival" id="arrival"  onchange="price(); date()" disabled>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <input type="text" class="form-control departure" placeholder="Date of departure" name="departure" id="departure" onchange="price(); date()" disabled>
+                        </div>
+                        <input type="text" id="active" hidden>
+                    </div>
+                </div>
+                <div class="col-10 col-sm-5 offset-1  offset-md-0 col-md-5  offset-sm-3 col-lg-3 mt-4">
+                    <!--<h4 class="text-primary">Interpreter:</h4>
+
+                    <input type="radio"  id="yes" onclick="price()" name="interpreter" class="ml-3" />Yes
+                    <input type="radio" id="no" onclick="price()" name="interpreter" class="ml-3" />No
+                    -->
+                     <h4 class="text-primary ml-0 ml-lg-2">Price:</h4>
+                            <div class="input-group ml-lg-4 ml-sm-3 ml-0" id="priceInput">
+                                <span class="input-group-addon">$</span>
+                                <input type="number" value="0" id="price" name="price" readonly data-number-to-fixed="2" style="height:50px;" class="form-control currency"
+                                />
+                            </div>
+                     
+                </div>
+                <div class="col-8 mt-4 offset-md-4 offset-sm-3 offset-0" >
+                    <a href="login.php">
+                    <button class="btn btn-lg btn-primary" style="width: 315px;" id="loginReq" name="loginReq"> Login</button>
+                    </a>
+                </div>
+                
+            </div>
+        ';
+        /*echo "<div class='offset-sm-1 text-center mt-5 mb-5'><a href='#' data-toggle='modal' data-target='#LoginModal'><span class='text-warning' style='font-size: 20px;'>LOGIN</span></a> to be able to make tour request!!!</div>";*/
     }
     ?>
     </section>

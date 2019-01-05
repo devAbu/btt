@@ -1,7 +1,7 @@
 <?php
 session_start();
 ?>
-<nav class="navbar navbar-dark navbar-expand-md fixed-top" id="navbar" style="opacity:0.95; font-size:18px; background-color:#9aa6af">
+<nav class="navbar navbar-dark navbar-expand-md fixed-top" id="navbar" style="opacity:0.95; font-size:18px; background-color:#9aa6af;">
         <a href="index.php" class="navbar-brand">
             <img src="images/btt logo png.png" alt="logo" class="img-fluid mr-sm-3 logo" width="45" height="45" />
             <span class="h4">BTT</span>
@@ -74,7 +74,7 @@ session_start();
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">
-                            <i class="fas fa-times"></i>
+                            <i class="fas fa-times text-dark"></i>
                         </span>
                     </button>
                 </div>
@@ -107,10 +107,10 @@ session_start();
                         </div>
                     </div>
                     <div class="col-12 mb-3" style="margin-left:-10px !important;">
-                        <a href="login.php" class="text-success">Already has account?</a>
+                        <a href="login.php" class="text-primary">Already has account?</a>
                     </div>
                     <div class="col-xs-12  offset-4">
-                        <button type="button" class="btn btn-success" id="signButton" name="signButton">Sign up for free
+                        <button type="button" class="btn btn-primary" id="signButton" name="signButton">Sign up for free
                             <i class="fas fa-user-plus ml-2"></i>
                         </button>
                     </div>
@@ -118,7 +118,7 @@ session_start();
                 </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">
+                    <button type="button" class="btn btn-light text-primary" style="" data-dismiss="modal">
                         Close
                         <i class="fas fa-times ml-1"></i>
                     </button>
@@ -184,7 +184,7 @@ session_start();
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">
-                            <i class="fas fa-times"></i>
+                            <i class="fas fa-times text-dark"></i>
                         </span>
                     </button>
                 </div>
@@ -203,7 +203,7 @@ session_start();
                     </div>
                     <div class="row">
                         <div class="col-7 col-sm-7 col-md-7 col-lg-7">
-                            <a href="register.php" class="badge ml-3 text-warning" style="text-decoration:none;">
+                            <a href="register.php" class="badge ml-3 text-primary" style="text-decoration:none;">
                                 <span style="font-size:13px;">No account?</span>
                             </a>
                         </div>
@@ -215,7 +215,7 @@ session_start();
                         <br />
                     </div>
                     <div class="col-xs-12  offset-4 mt-3">
-                        <button type="button" id="logButton" name="logButton" class="btn btn-success">Login
+                        <button type="button" id="logButton" name="logButton" class="btn btn-primary">Login
                             <i class="fas fa-sign-in-alt ml-2"></i>
                         </button>
                     </div>
@@ -223,7 +223,7 @@ session_start();
                 </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">
+                    <button type="button" class="btn btn-light text-primary" data-dismiss="modal">
                         Close
                         <i class="fas fa-times ml-1"></i>
                     </button>

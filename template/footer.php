@@ -18,7 +18,7 @@
 
         @media only screen and (max-width: 767px) {
             .textFooter {
-                margin-left: 0%;
+                margin: 0px !important;
             }
         }
 
@@ -27,13 +27,17 @@
  
  <footer style="background-color:#9aa6af"> <!--class="bg-secondary"-->
         <div class="row no-gutters">
-            <div class="col-md-6 col-sm-12 col-xs-12 mt-5">
-                <img src="images/btt logo png.png" alt="logo" class="img-fluid ml-2 logo" width="170" height="170" />
+            <div class="col-md-6 col-sm-12 col-12 mt-5">
+                <img src="images/btt logo png.png" alt="logo" class="img-fluid ml-2 logo" width="170" height="170"/>
                 <label class="text-uppercase text-center text-warning h1" style="opacity:0.7;">Bosnian Tourist Travel</label>
+                <div class="col-10">
                 <p class="text-dark mt-4 textFooter" style="max-width:400px; ">Home to medieval villages, rivers and lakes, plus the craggy Dinaric Alps, and many more, explore our Country.</p>
-                <p class="text-dark mt-3 textFooter" >You can see BTT offers by visiting this
+                </div>
+                <div class="col-10 mt-3">
+                <p class="text-dark  textFooter">You can see BTT offers by visiting this
                     <a href="tourPlans.php" class="text-warning" style="text-decoration:none;">LINK.</a>
                 </p>
+                </div>
             </div>
             <div class="col-md-5 col-sm-12 col-xs-12 mt-5 offset-md-1">
                 <h1 class="text-warning mb-5 text-uppercase" style="margin-top:13px !important; opacity:0.7;">Contact info</h1>

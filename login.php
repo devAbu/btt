@@ -40,7 +40,7 @@
         </div>
     </div>
 
-    <nav class="navbar bg-warning navbar-light  navbar-expand-sm fixed-top" style="opacity:0.7; font-size:18px;">
+    <nav class="navbar navbar-dark  navbar-expand-sm fixed-top" style="opacity:0.85; background-color:#9aa6af; font-size:18px;">
         <a href="index.php" class="navbar-brand"><img src="images/btt logo png.png" alt="logo" class="img-fluid mr-3" width="45" height="45" /><span class="h4">BTT</span></a>
         <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expended="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -66,7 +66,7 @@
                 <div class="card" style=" margin-top:-15px;background:none !important; border:none;">
                     <div class="card-body text-center">
                         <img class="card-img-top mb-3" src="images/btt logo png.png" style="width:150px !important; margin-top:150px !important;" height="150" alt="Card image cap">
-                        <h3 class="card-title text-uppercase text-warning">Login</h3>
+                        <h3 class="card-title text-uppercase text-primary">Login</h3>
                     </div>
                     <ul class="list-group list-group-flush" style="margin-top:-20px;">
                         <div class="col-lg-4 col-md-6 offset-md-4">
@@ -88,14 +88,14 @@
                     </ul>
                     <div class="row no-gutters">
                         <div class="col-2 offset-md-4">
-                            <a href="register.php" class="badge ml-4 text-warning" style="text-decoration:none;"><span style="font-size:13px;">No account?</span></a>
+                            <a href="register.php" class="badge ml-5 text-warning" style="text-decoration:none;"><span style="font-size:13px;">No account?</span></a>
                         </div>
                         <div class="col-1 col-sm-2 col-md-4 offset-md-2 offset-lg-0 offset-sm-7 offset-6" id="forgotLogin">
                             <a href="forgotPass.php" class="badge text-warning" style="text-decoration:none;"><span style="font-size:13px;">Forgot password?</span></a>
                         </div>
                     </div>
                     <div class="card-body text-center">
-                        <button type="button" class="btn btn-warning text-white" id="logButton" name="logButton">Login<i class="fas fa-sign-in-alt ml-2"></i></button>
+                        <button type="button" class="btn btn-primary text-white" id="logButton" name="logButton">Login<i class="fas fa-sign-in-alt ml-2"></i></button>
                     </div>
                     <div class="col-2 offset-md-4">
                         <div class="alert mt-3 ml-3" id="alertLog" style="width:350px;"></div>
@@ -105,7 +105,7 @@
             </form>
             
         </div>
-        <div class="text-center text-warning" id="copyright">
+        <div class="text-center text-dark" id="copyright">
             <p style="font-size:20px; margin-bottom:0px;">Copyright &copy; 2018 Abdurahman Almonajed</p>
             
         </div>

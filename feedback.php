@@ -86,12 +86,24 @@ session_start();
                 <textarea cols="50" rows="10" class="form-control error" style="max-width:550px;margin-left:50px;resize: none" placeholder="Please write your opinion..." id="feedback" name="feedback" required data-msg="This field is required"></textarea>
             </div>
             <div class="col-lg-6 offset-md-5 offset-4 col-7">
-                <input type="button" id="feedbackButton" name="feedbackButton" class="btn btn-lg btn-outline-success mt-3 ml-md-5 mb-2" value="SEND" />
+                <input type="button" id="feedbackButton" name="feedbackButton" class="btn btn-lg btn-outline-primary mt-3 ml-md-5 mb-2" value="SEND" />
             </div>
             <div class="alert mt-3" id="alertFeedback"></div>
         </form>';
     } else {
-        echo "<div><div class='offset-sm-3 offset-0 col-12 col-sm-7 text-center mt-5 mb-5'><a href='#' data-toggle='modal' data-target='#LoginModal'><span class='text-warning' style='font-size: 20px;'>LOGIN</span></a> to be able to leave feedback!!!</div></div>";
+        echo '
+        <h2 class="display-4 text-center text-info mb-5 mt-4">Be free to contact us, we are here to please you.</h2>
+            <p class="text-center h2 text-primary mb-5">Tell us what you think!</p>
+            <div class="col-md-9 offset-md-3 ">
+                <textarea cols="50" rows="10" class="form-control error" style="max-width:550px;margin-left:50px;resize: none" placeholder="Please write your opinion..." id="feedback" name="feedback" required data-msg="This field is required"></textarea>
+            </div>
+            <div class="col-lg-6 offset-md-5 offset-4 col-7">
+                <a href="login.php">
+                <input type="button" id="feedbackLoginButton" name="feedbackLoginButton" class="btn btn-lg btn-outline-primary mt-3 ml-md-5 mb-2" value="Login" /></a>
+            </div>
+        ';
+        /*
+        echo "<div><div class='offset-sm-3 offset-0 col-12 col-sm-7 text-center mt-5 mb-5'><a href='#' data-toggle='modal' data-target='#LoginModal'><span class='text-warning' style='font-size: 20px;'>LOGIN</span></a> to be able to leave feedback!!!</div></div>";*/
     }
     ?>
     </section>

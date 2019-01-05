@@ -7,7 +7,7 @@
 }
 
 nav div.collapse ul li a:hover {
-    color: #838c93 !important;
+    color: #dadada !important;
 }
 
 a.dropdown-item:hover {
@@ -16,6 +16,18 @@ a.dropdown-item:hover {
 
 a.dropdown-item {
     color: white !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: rgba(255, 255, 255, 1) !important;
+}
+
+.btn-light {
+    border: 1px solid #efefef !important;
 }
 
 #bg {
@@ -487,7 +499,7 @@ label.error {
 }
 
 #test {
-    color: white!important;
+    color: white !important;
 }
 
 .em {
@@ -510,14 +522,14 @@ label.error {
 }
 
 #payButton:hover {
-    background-color: #28a745 !important;
+    background-color: #ffffff !important;
 }
 
 #payButton:hover:before {
     font-family: "Font Awesome\ 5 Free";
     font-weight: 400;
     content: "\f058";
-    color: #e0e0e0;
+    color: #428BCA;
 }
 
 #pay {
@@ -529,7 +541,7 @@ label.error {
 }
 
 #pay:hover {
-    background-color: #28a745 !important;
+    background-color: #ffffff !important;
 }
 
 #pay:hover:before {
@@ -537,7 +549,7 @@ label.error {
     font-weight: 400;
     font-size: 50px;
     content: "\f058";
-    color: #e0e0e0;
+    color: #428BCA;
 }
 
 .logo {
