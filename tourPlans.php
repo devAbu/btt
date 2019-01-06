@@ -6,47 +6,53 @@ session_start();
 <!--TODO: vidjet da se uradi numTaken-->
 <!--TODO: vidjet da se uradi star rating-->
 <!-- TODO: uradit opsirniji description svake ture -->
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="css/style.css" type="text/css" rel="stylesheet">
-  <title>BTT</title>
-  <link rel="icon" type="image/ico" href="images/btt_logo_icon.ico" />
-  <meta name="author" content="abu">
-  <meta name="keywords" content="btt, bosnian, tourist, travel, agency, arabic, bosna">
-  <meta name="description" content="BTT - Bosnian Tourist Travel offers the best tour plans and the best hotels in B&H. ">
- <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <title>BTT</title>
+    <link rel="icon" type="image/ico" href="images/btt_logo_icon.ico" />
+    <meta name="author" content="abu">
+    <meta name="keywords" content="btt, bosnian, tourist, travel, agency, arabic, bosna">
+    <meta name="description" content="BTT - Bosnian Tourist Travel offers the best tour plans and the best hotels in B&H. ">
+    <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
       crossorigin="anonymous"> -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-  <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
       crossorigin="anonymous"></script> -->
-      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"></script>
- <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
 
 
 
-      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-      <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
-      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
 
     <script src="jquery.validate.js"></script>
 
     <link rel="stylesheet" href="loaders.min.css" />
 
-    <link href="toastr.css" rel="stylesheet"/>
+    <link href="toastr.css" rel="stylesheet" />
     <script src="toastr.js"></script>
 
 
@@ -78,9 +84,9 @@ session_start();
                 <i class="fab fa-instagram mr-2" aria-hidden="true"></i>Instagram</a>
             <a href="https://www.facebook.com" target="_blank" class="btn btn-lg btn-primary mb-1">
                 <i class="fab fa-facebook mr-2" aria-hidden="true"></i>Facebook</a>
-           <div class="align-text-bottom">
-                <a href="#res" id="downArrow" ><i class="fa fa-caret-down fa-7x" id="test" style="color: #007BFF; " ></i></a>
-           </div>
+            <div class="align-text-bottom">
+                <a href="#res" id="downArrow"><i class="fa fa-caret-down fa-7x" id="test" style="color: #007BFF; "></i></a>
+            </div>
         </div>
 
     </section>
@@ -95,14 +101,14 @@ session_start();
         });
         
     </script>
-    
+
     <section id="res">
         <div class="row no-gutters">
             <div class="col-sm-5 col-10 offset-2">
                 <input id="search-loged" name="search-loged" value="" type="text" class="form-control mt-2" placeholder="Search...">
             </div>
-       
-      
+
+
             <!--<div class="col-2">
                 <button id="filters" class="btn btn-success my-2  ml-4" style="width:200px;" data-toggle="collapse" data-target="#collapseExample"
                     aria-expanded="false" aria-controls="collapseExample">
@@ -111,7 +117,8 @@ session_start();
                 </button>
             </div>-->
             <div class="col-2 offset-3 offset-sm-0">
-                <button id="makeTour" onclick="window.open('makeTour.php', '_self');" class="btn btn-warning my-2  ml-sm-4" style="width:200px;">
+                <button id="makeTour" onclick="window.open('makeTour.php', '_self');" class="btn btn-warning my-2  ml-sm-4"
+                    style="width:200px;">
                     <i class="fa fa-paper-plane mr-2"></i>
                     Make Own Tour
                 </button>
@@ -195,13 +202,13 @@ session_start();
     </section>
 
 
- <script src="titles/tourPlansTitle.js"></script>
+    <script src="titles/tourPlansTitle.js"></script>
 
     <section>
 
-<?php
+        <?php
 
-require 'connection/connect.php';
+        require 'connection/connect.php';
 
 /*$where = $_GET['search-loged'];
 if (!empty($_POST)) {
@@ -372,22 +379,22 @@ echo $where;*/
 
     }
 }  */
-$sql = "SELECT * FROM tourplan ";
-$result = $dbc->query($sql);
+        $sql = "SELECT * FROM tourplan ";
+        $result = $dbc->query($sql);
 
-$count = $result->num_rows;
+        $count = $result->num_rows;
 
-if ($count > 0) {
-    if (isset($_SESSION["email"])) {
-        $i = 0;
-        while ($row = $result->fetch_assoc()) {
+        if ($count > 0) {
+            if (isset($_SESSION["email"])) {
+                $i = 0;
+                while ($row = $result->fetch_assoc()) {
 
-            $session = $_SESSION["email"];
+                    $session = $_SESSION["email"];
 
-            echo '<div class="myDIV">
+                    echo '<div class="myDIV">
                 <form action = "userAll/userTour.php" method = "POST"><div class="card text-center mt-4 myDIV">
             <div class="card-header text-primary h3 text-uppercase ">' .
-                $row["type"] . '
+                        $row["type"] . '
             </div>
 
             <input type="text" value=" ' . $session . '  "  name="session" id="session" hidden>
@@ -436,7 +443,7 @@ if ($count > 0) {
             </ul>
             
             <div class="collapse mt-4 feedCollapse" id="tourFeedbackCollapse' . $row["ID"] . '">
-                <textarea cols="40" id="offerFeedback' . $row["ID"] . '" rows="7" class="form-control" style="resize: none;" placeholder="Your opinion about this tour..." onchange="feed(this.id)"></textarea>
+                <textarea cols="40" id="offerFeedback' . $row["ID"] . '" rows="7" class="form-control" style="resize: none;" placeholder="Your opinion about this tour..." onchange="feed(this.id)" onkeydown="feed(this.id)" onkeyup="feed(this.id)"></textarea>
             
                 <input type="button" class="btn btn-success mt-3" value="Send" id="tourFeedbackSend' . $row["ID"] . '" >      
             </div>
@@ -479,19 +486,19 @@ if ($count > 0) {
             </div></form>
             </div>
             ';
-            $i++;
+                    $i++;
 
-        }
+                }
 
-    } else {
-        $i = 0;
-        while ($row = $result->fetch_assoc()) {
+            } else {
+                $i = 0;
+                while ($row = $result->fetch_assoc()) {
 
 
-            echo '<div class="myDIV">
+                    echo '<div class="myDIV">
                 <form action = "userAll/userTour.php" method = "POST"><div class="card text-center mt-4 ">
             <div class="card-header text-primary h3 text-uppercase ">' .
-                $row["type"] . '
+                        $row["type"] . '
             </div>
 
             <input type="text" value=" ' . $row["ID"] . ' "  name="idnum" id="idnum" hidden>
@@ -546,7 +553,7 @@ if ($count > 0) {
                         <i class="far fa-star "></i>
                     </p>
                 </li>';
-            echo '
+                    echo '
                 <input type="number" value="' . $i . '" id="test" hidden>
                 <li class="list-group-item " style="border:none">
                     <a href="login.php">
@@ -562,32 +569,29 @@ if ($count > 0) {
             </div></form>
             </div>
             ';
-            $i++;
+                    $i++;
+
+                }
+            }
+
+        } else {
+            echo " 0 results";
 
         }
-    }
+        $dbc->close();
+        ?>
 
-} else {
-    echo " 0 results";
+    </section>
 
-}
-$dbc->close();
-?>
-
-</section>
-
-     <script>
-             
-
-  $("#search-loged").on("keyup", function() {
-      console.log($(this).val().toLowerCase())
-    var value = $(this).val().toLowerCase();
-    $(".myDIV form ").not( $('#selectModal') ).not( $('#login') ).filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-
-</script>
+    <script>
+        $("#search-loged").on("keyup", function() {
+            console.log($(this).val().toLowerCase())
+            var value = $(this).val().toLowerCase();
+            $(".myDIV form ").not($('#selectModal')).not($('#login')).filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    </script>
 
     <div id="footerInclude"></div>
 
@@ -595,92 +599,102 @@ $dbc->close();
     <script>
         $("body > *").not("body > .loader").addClass('hidden');
         $('body').css('background-color', '#d1d1d1')
-        $( window ).on( "load", function() {
-            $( document ).ready(function() {
+        $(window).on("load", function() {
+            $(document).ready(function() {
                 $('body').css('background-color', '')
                 $('.hidden').removeClass('hidden')
                 $('#jumbotron').addClass('jumbotron3')
-                $('.loader').hide() 
+                $('.loader').hide()
                 $('#select').attr('disabled', true);
 
                 var currentDate = new Date()
-                var month = currentDate.getMonth()+1;
+                var month = currentDate.getMonth() + 1;
                 var day = currentDate.getDate();
 
-                var date = currentDate . getFullYear()+'-'+
-                        ((''+month) . length < 2 ? '0' : '') + month+'-'+
-                        ((''+day) . length < 2 ? '0' : '') + day;
-                        console.log(date) 
+                var date = currentDate.getFullYear() + '-' +
+                    (('' + month).length < 2 ? '0' : '') + month + '-' +
+                    (('' + day).length < 2 ? '0' : '') + day;
+                console.log(date)
 
-                $( ".arrival" ).datepicker({dateFormat: 'yy-mm-dd', minDate: date});
-                $( ".departure" ).datepicker({dateFormat: 'yy-mm-dd', minDate: date});
+                var allFeedbackBtn = $('input[id ^= "tourFeedbackSend"')
+                allFeedbackBtn.attr('disabled', true)
+
+                $(".arrival").datepicker({
+                    dateFormat: 'yy-mm-dd',
+                    minDate: date
+                });
+                $(".departure").datepicker({
+                    dateFormat: 'yy-mm-dd',
+                    minDate: date
+                });
             })
         });
     </script>
 
     <script>
-        function date(idClick){
+        function date(idClick) {
             console.log(idClick)
 
             var res = idClick.replace(/\D/g, "")
 
 
-            var arrival = $('#arrival'+res).val()
-            var departure = $('#departure'+res).val()
+            var arrival = $('#arrival' + res).val()
+            var departure = $('#departure' + res).val()
             console.log(arrival)
             console.log(departure)
-            if(arrival != "" && departure != ""){
-                if(arrival >= departure){
+            if (arrival != "" && departure != "") {
+                if (arrival >= departure) {
                     toastr.error('Please select valid date!!!')
-                    $('#select'+res).attr('disabled', true);
-                }else{
-                    $('#select'+res).attr('disabled', false);
+                    $('#select' + res).attr('disabled', true);
+                } else {
+                    $('#select' + res).attr('disabled', false);
                 }
             }
-            
+
         }
     </script>
 
     <script>
-        function feed(id){
+        function feed(id) {
             console.log(id)
 
             var idRes = id.replace(/\D/g, "")
-            var feedback = $('#offerFeedback'+idRes).val()
+            var feedback = $('#offerFeedback' + idRes).val()
 
             console.log(idRes)
             console.log(feedback)
-            console.log($('#tourFeedbackSend'+idRes).val())
-            var but = $('#tourFeedbackSend'+idRes).attr("id");
+            console.log($('#tourFeedbackSend' + idRes).val())
+            var but = $('#tourFeedbackSend' + idRes).attr("id");
             var idBut = id.replace(/\D/g, "")
             console.log(idBut)
 
-            $('#tourFeedbackSend'+idRes).attr('disabled', true)
+            $('#tourFeedbackSend' + idRes).attr('disabled', true)
 
-            if(feedback != ""){
-                $('#tourFeedbackSend'+idRes).attr('disabled', false)
+            if (feedback != "") {
+                $('#tourFeedbackSend' + idRes).attr('disabled', false)
             }
-            
-            $("#tourFeedbackSend"+idBut).click(function(){
+
+            $("#tourFeedbackSend" + idBut).click(function() {
                 console.log(idBut)
                 console.log(feedback)
                 console.log($("#session").val())
 
                 var session = $("#session").val()
 
-                
 
-                if(feedback == ""){
+
+                if (feedback == "") {
                     toastr.error("Please enter your opinion")
-                }else{
+                } else {
                     $.ajax({
-                        url: "dbSend/tourFeedback.php?task=sendFeed&idRes="+idBut+"&feedback="+feedback+"&session="+session,
-                        success: function(data){
-                            if(data.indexOf('sent')> -1){
+                        url: "dbSend/tourFeedback.php?task=sendFeed&idRes=" + idBut + "&feedback=" +
+                            feedback + "&session=" + session,
+                        success: function(data) {
+                            if (data.indexOf('sent') > -1) {
                                 jQuery.noConflict();
                                 toastr.success("Feedback sent. Thank you!!!")
                                 //feedback.val("")
-                                $('#offerFeedback'+idRes).val("")
+                                $('#offerFeedback' + idRes).val("")
                                 //$('.feedCollapse').removeClass("show")
                                 $('.feedCollapse').collapse("hide")
                             } else {
@@ -693,9 +707,9 @@ $dbc->close();
                     })
                 }
 
-                
+
             })
-            
+
         }
     </script>
 

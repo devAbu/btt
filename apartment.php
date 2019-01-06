@@ -260,7 +260,7 @@ if (isset($_REQUEST['Message'])) {
             </ul>
 
             <div class="collapse mt-4 feedCollapse" id="apartmentFeedbackCollapse' . $row["ID"] . '">
-                <textarea cols="40" id="offerFeedback' . $row["ID"] . '" rows="7" class="form-control" style="resize: none;" placeholder="Your opinion about this tour..." onchange="feed(this.id)"></textarea>
+                <textarea cols="40" id="offerFeedback' . $row["ID"] . '" rows="7" class="form-control" style="resize: none;" placeholder="Your opinion about this tour..." onchange="feed(this.id)" onkeydown="feed(this.id)" onkeyup="feed(this.id)"></textarea>
             
                 <input type="button" class="btn btn-success mt-3" value="Send" id="apartmentFeedbackSend' . $row["ID"] . '" >         
             </div>
@@ -398,6 +398,9 @@ if (isset($_REQUEST['Message'])) {
                         ((''+month) . length < 2 ? '0' : '') + month+'-'+
                         ((''+day) . length < 2 ? '0' : '') + day;
                         console.log(date) 
+
+                var allFeedbackBtn = $('input[id ^= "apartmentFeedbackSend"')
+                allFeedbackBtn.attr('disabled', true)
 
                 $( ".arrival" ).datepicker({dateFormat: 'yy-mm-dd', minDate: date});
                 $( ".departure" ).datepicker({dateFormat: 'yy-mm-dd', minDate: date});
