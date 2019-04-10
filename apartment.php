@@ -251,7 +251,7 @@ if (isset($_REQUEST['Message'])) {
                 echo '
 
                 <li class="list-group-item " style="border:none">
-                    <input class="btn btn-primary " value="Select " style="width:125px;color:white " data-toggle="modal" data-target="#dateSelection' . $row["ID"] . '" />
+                    <button class="btn btn-primary " style="width:125px;color:white " data-toggle="modal" data-target="#dateSelection' . $row["ID"] . '" />SELECT</button>
                 </li>
 
                 <li class="list-group-item " style="border:none">
@@ -337,8 +337,8 @@ if (isset($_REQUEST['Message'])) {
                 echo '
 
               <li class="list-group-item " style="border:none">
-              <a href="login.php">
-                  <input type="button" name="select" id="login" class="btn btn-primary " value="Login " style="width:100px;color:white " />
+              <a href="#" data-toggle="modal" data-target="#LoginModal">
+                  <button name="select" id="login" class="btn btn-primary " style="width:100px;color:white " />LOGIN</button>
                   </a>
               </li>
           </ul>
