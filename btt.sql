@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Feb 15, 2019 at 02:15 PM
--- Server version: 5.6.41
--- PHP Version: 7.2.7
+-- Host: 127.0.0.1:3306
+-- Generation Time: Sep 15, 2019 at 07:09 PM
+-- Server version: 5.7.24
+-- PHP Version: 7.2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bttbh_btt`
+-- Database: `btt`
 --
 
 -- --------------------------------------------------------
@@ -28,14 +28,16 @@ SET time_zone = "+00:00";
 -- Table structure for table `apartment`
 --
 
-CREATE TABLE `apartment` (
-  `ID` int(100) NOT NULL,
+DROP TABLE IF EXISTS `apartment`;
+CREATE TABLE IF NOT EXISTS `apartment` (
+  `ID` int(100) NOT NULL AUTO_INCREMENT,
   `title` varchar(250) NOT NULL,
   `description` text NOT NULL,
   `place` varchar(250) NOT NULL,
   `img` longblob NOT NULL,
-  `price` int(100) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `price` int(100) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `apartment`
@@ -55,12 +57,14 @@ INSERT INTO `apartment` (`ID`, `title`, `description`, `place`, `img`, `price`) 
 -- Table structure for table `apartmentfeedback`
 --
 
-CREATE TABLE `apartmentfeedback` (
-  `ID` int(100) NOT NULL,
+DROP TABLE IF EXISTS `apartmentfeedback`;
+CREATE TABLE IF NOT EXISTS `apartmentfeedback` (
+  `ID` int(100) NOT NULL AUTO_INCREMENT,
   `name` varchar(250) NOT NULL,
   `apartmentID` int(100) NOT NULL,
-  `feedback` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `feedback` text NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `apartmentfeedback`
@@ -76,11 +80,13 @@ INSERT INTO `apartmentfeedback` (`ID`, `name`, `apartmentID`, `feedback`) VALUES
 -- Table structure for table `bestplaces`
 --
 
-CREATE TABLE `bestplaces` (
-  `ID` int(100) NOT NULL,
+DROP TABLE IF EXISTS `bestplaces`;
+CREATE TABLE IF NOT EXISTS `bestplaces` (
+  `ID` int(100) NOT NULL AUTO_INCREMENT,
   `title` varchar(250) NOT NULL,
-  `img` longblob NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `img` longblob NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `bestplaces`
@@ -117,20 +123,41 @@ INSERT INTO `bestplaces` (`ID`, `title`, `img`) VALUES
 -- Table structure for table `carfeedback`
 --
 
-CREATE TABLE `carfeedback` (
-  `ID` int(100) NOT NULL,
+DROP TABLE IF EXISTS `carfeedback`;
+CREATE TABLE IF NOT EXISTS `carfeedback` (
+  `ID` int(100) NOT NULL AUTO_INCREMENT,
   `name` varchar(250) NOT NULL,
   `carID` int(100) NOT NULL,
-  `feedback` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `feedback` text NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `carfeedback`
 --
 
 INSERT INTO `carfeedback` (`ID`, `name`, `carID`, `feedback`) VALUES
-(5, 'abud_almonajed@hotmail.com', 1, 'server'),
-(4, 'abud_almonajed@hotmail.com', 7, 'test server');
+(5, 'abud_almonajed@hotmail.com', 1, 'this car is so good'),
+(4, 'abud_almonajed@hotmail.com', 2, 'excellent cars'),
+(6, 'abdulrahman.almonajed@gmail.com', 2, 'this car is awesome'),
+(7, 'abdulrahman.almonajed@gmail.com', 2, 'Perfect car!!!'),
+(8, 'abdulrahman.almonajed@gmail.com', 2, 'I do not recommend anyone to take this car'),
+(9, 'abdulrahman.almonajed@gmail.com', 2, 'Perfect'),
+(10, 'abdulrahman.almonajed@gmail.com', 2, 'Good'),
+(11, 'abdulrahman.almonajed@gmail.com', 2, 'Very bad'),
+(12, 'abdulrahman.almonajed@gmail.com', 2, 'remove this car from the page'),
+(13, 'abdulrahman.almonajed@gmail.com', 2, 'Awesome car'),
+(2, 'abdulrahman.almonajed@gmail.com', 2, 'perfect car'),
+(14, 'abdulrahman.almonajed@gmail.com', 2, 'excellent car'),
+(15, 'abdulrahman.almonajed@gmail.com', 2, 'super car'),
+(16, 'abdulrahman.almonajed@gmail.com', 2, 'fun car'),
+(17, 'abdulrahman.almonajed@gmail.com', 2, 'fine car'),
+(18, 'abdulrahman.almonajed@gmail.com', 2, 'fine'),
+(19, 'abdulrahman.almonajed@gmail.com', 2, 'beautiful'),
+(20, 'abdulrahman.almonajed@gmail.com', 2, 'beautiful car'),
+(21, 'abdulrahman.almonajed@gmail.com', 2, 'car is beautiful'),
+(22, 'abdulrahman.almonajed@gmail.com', 2, 'car is fine'),
+(23, 'abdulrahman.almonajed@gmail.com', 2, 'car is bad');
 
 -- --------------------------------------------------------
 
@@ -138,8 +165,9 @@ INSERT INTO `carfeedback` (`ID`, `name`, `carID`, `feedback`) VALUES
 -- Table structure for table `cars`
 --
 
-CREATE TABLE `cars` (
-  `ID` int(100) NOT NULL,
+DROP TABLE IF EXISTS `cars`;
+CREATE TABLE IF NOT EXISTS `cars` (
+  `ID` int(100) NOT NULL AUTO_INCREMENT,
   `title` varchar(250) NOT NULL,
   `type` varchar(250) NOT NULL,
   `description` text NOT NULL,
@@ -147,8 +175,9 @@ CREATE TABLE `cars` (
   `year` varchar(250) NOT NULL,
   `price` int(100) NOT NULL,
   `img` text NOT NULL,
-  `driver` varchar(250) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `driver` varchar(250) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cars`
@@ -170,15 +199,17 @@ INSERT INTO `cars` (`ID`, `title`, `type`, `description`, `people`, `year`, `pri
 -- Table structure for table `confirmedoffers`
 --
 
-CREATE TABLE `confirmedoffers` (
-  `ID` int(100) NOT NULL,
+DROP TABLE IF EXISTS `confirmedoffers`;
+CREATE TABLE IF NOT EXISTS `confirmedoffers` (
+  `ID` int(100) NOT NULL AUTO_INCREMENT,
   `name` varchar(250) NOT NULL,
   `tourID` int(10) DEFAULT NULL,
   `apartmentID` int(10) DEFAULT NULL,
   `hotelID` int(10) DEFAULT NULL,
   `carID` int(10) DEFAULT NULL,
-  `price` int(100) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `price` int(100) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=101 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -186,15 +217,17 @@ CREATE TABLE `confirmedoffers` (
 -- Table structure for table `confirmeduseroffers`
 --
 
-CREATE TABLE `confirmeduseroffers` (
-  `ID` int(100) NOT NULL,
+DROP TABLE IF EXISTS `confirmeduseroffers`;
+CREATE TABLE IF NOT EXISTS `confirmeduseroffers` (
+  `ID` int(100) NOT NULL AUTO_INCREMENT,
   `name` varchar(250) NOT NULL,
   `tourID` int(100) NOT NULL,
   `apartmentID` int(100) NOT NULL,
   `hotelID` int(100) NOT NULL,
   `carID` int(100) NOT NULL,
-  `price` int(100) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `price` int(100) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `confirmeduseroffers`
@@ -211,8 +244,9 @@ INSERT INTO `confirmeduseroffers` (`ID`, `name`, `tourID`, `apartmentID`, `hotel
 -- Table structure for table `confrimedtour`
 --
 
-CREATE TABLE `confrimedtour` (
-  `ID` int(100) NOT NULL,
+DROP TABLE IF EXISTS `confrimedtour`;
+CREATE TABLE IF NOT EXISTS `confrimedtour` (
+  `ID` int(100) NOT NULL AUTO_INCREMENT,
   `type` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
   `description` text NOT NULL,
@@ -220,8 +254,9 @@ CREATE TABLE `confrimedtour` (
   `available` varchar(250) NOT NULL,
   `price` varchar(250) NOT NULL,
   `days` varchar(250) NOT NULL,
-  `img` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `img` text NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `confrimedtour`
@@ -236,11 +271,13 @@ INSERT INTO `confrimedtour` (`ID`, `type`, `title`, `description`, `people`, `av
 -- Table structure for table `feedback`
 --
 
-CREATE TABLE `feedback` (
-  `ID` int(50) NOT NULL,
+DROP TABLE IF EXISTS `feedback`;
+CREATE TABLE IF NOT EXISTS `feedback` (
+  `ID` int(50) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
-  `content` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `content` text NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `feedback`
@@ -249,7 +286,8 @@ CREATE TABLE `feedback` (
 INSERT INTO `feedback` (`ID`, `name`, `content`) VALUES
 (36, 'abud_almonajed@hotmail.com', 'gggg'),
 (37, 'abud_almonajed@hotmail.com', 'Juhu'),
-(38, 'abud_almonajed@hotmail.com', 'server juhuuu');
+(38, 'abud_almonajed@hotmail.com', 'server juhuuu'),
+(39, 'sanida@gmail.com', 'dasdasdasdas');
 
 -- --------------------------------------------------------
 
@@ -257,13 +295,15 @@ INSERT INTO `feedback` (`ID`, `name`, `content`) VALUES
 -- Table structure for table `hotel`
 --
 
-CREATE TABLE `hotel` (
-  `ID` int(100) NOT NULL,
+DROP TABLE IF EXISTS `hotel`;
+CREATE TABLE IF NOT EXISTS `hotel` (
+  `ID` int(100) NOT NULL AUTO_INCREMENT,
   `title` varchar(250) NOT NULL,
   `description` text NOT NULL,
   `place` varchar(250) NOT NULL,
-  `img` longblob NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `img` longblob NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `hotel`
@@ -291,12 +331,14 @@ INSERT INTO `hotel` (`ID`, `title`, `description`, `place`, `img`) VALUES
 -- Table structure for table `hotelfeedback`
 --
 
-CREATE TABLE `hotelfeedback` (
-  `ID` int(100) NOT NULL,
+DROP TABLE IF EXISTS `hotelfeedback`;
+CREATE TABLE IF NOT EXISTS `hotelfeedback` (
+  `ID` int(100) NOT NULL AUTO_INCREMENT,
   `name` varchar(250) NOT NULL,
   `hotelID` int(100) NOT NULL,
-  `feedback` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `feedback` text NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `hotelfeedback`
@@ -312,11 +354,13 @@ INSERT INTO `hotelfeedback` (`ID`, `name`, `hotelID`, `feedback`) VALUES
 -- Table structure for table `login`
 --
 
-CREATE TABLE `login` (
-  `ID` int(50) NOT NULL,
+DROP TABLE IF EXISTS `login`;
+CREATE TABLE IF NOT EXISTS `login` (
+  `ID` int(50) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `password` varchar(100) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=344 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `login`
@@ -576,7 +620,9 @@ INSERT INTO `login` (`ID`, `name`, `password`) VALUES
 (338, 'abud_almonajed@hotmail.com', '$2y$10$4ZEJ5ovs.6m6TKIhNoaIhOyG98dMoxxI8n3a4BOx5PQqnCfJ7PZW6'),
 (339, 'abud_almonajed@hotmail.com', '$2y$10$WEBI7jMG.YA8F9n2/X7sQ.V644.pws0S8AefW.vxa3cGuiqmmp0NO'),
 (340, 'abud_almonajed@hotmail.com', '$2y$10$.LmwJFnmxqaUMdNK0MmurubRX6ldIlPx6VmbXnfiQD99BFv5wwQE2'),
-(341, 'abud_almonajed@hotmail.com', '$2y$10$0R/7vyOn.iHdtPLym0tXreTgqEyHGhWCivGq.AuomUUsI5I1PjK82');
+(341, 'abud_almonajed@hotmail.com', '$2y$10$0R/7vyOn.iHdtPLym0tXreTgqEyHGhWCivGq.AuomUUsI5I1PjK82'),
+(342, 'abud_almonajed@hotmail.com', '$2y$10$yzPWNBcqH7rlQltWlU5/JecVKC/KbQdvx6ODSBdW8qeM9tS5HJEJu'),
+(343, 'abdulrahman.almonajed@gmail.com', '$2y$10$1M59RImBz/OATzYKHFvBA.WphPc0igwC61suwWYD/2vZkdgft/11m');
 
 -- --------------------------------------------------------
 
@@ -584,15 +630,18 @@ INSERT INTO `login` (`ID`, `name`, `password`) VALUES
 -- Table structure for table `registacija`
 --
 
-CREATE TABLE `registacija` (
-  `ID` int(50) NOT NULL,
+DROP TABLE IF EXISTS `registacija`;
+CREATE TABLE IF NOT EXISTS `registacija` (
+  `ID` int(50) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `surname` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `phoneNumber` varchar(20) NOT NULL,
-  `activated` tinyint(1) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `activated` tinyint(1) NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=MyISAM AUTO_INCREMENT=110 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `registacija`
@@ -600,7 +649,7 @@ CREATE TABLE `registacija` (
 
 INSERT INTO `registacija` (`ID`, `name`, `surname`, `email`, `password`, `phoneNumber`, `activated`) VALUES
 (64, 'Abdurahman', 'Almonajed', 'abud_almonajed@hotmail.com', '$2y$10$D56TgV7qSzFrh1nGXNRANOWjEMYuMwZMgv7GnkiLqG/09Df/xb0v.', '', 1),
-(82, 'abu', 'abu', 'abdulrahman.almonajed@gmail.com', '$2y$10$WxmQq8pKbZNHXF3DuhhZz.Lx8ew5h3K1Mg2q/BbcppoVZUyP2XJ.u', '', 1),
+(82, 'abu', 'abu', 'abdulrahman.almonajed@gmail.com', '$2y$10$8Et5xZVDXwgsqs8kxaIYoewoWxcD62uSLejD9Osoy1CKDnHrjth2e', '', 1),
 (105, 'Jusuf', 'Sharkawi', 'jusufsharkawi19@gmail.com', '$2y$10$QfnVwOx5dO2hEuMLZaCWgubZgDNYYJ0UpBdvzDaYeyzBmnZ2Yiyvq', '61338555', 1),
 (106, 'Hakim', 'khamis', 'akhamis694@gmail.com', '$2y$10$K/XARx4at/.BWd.AecLAFuku9aviDUxbR29dwMQkuZCIo0e9xIa/q', '62779666', 1),
 (107, 'Obada', 'Almonajed', 'obada_almonajed@hotmail.com', '$2y$10$VhCGHoLhgWejA.LH8rqMKea/7zxSE68blJUQtGyYv6ZZPWABQ5lS6', '387603415908', 1);
@@ -611,12 +660,14 @@ INSERT INTO `registacija` (`ID`, `name`, `surname`, `email`, `password`, `phoneN
 -- Table structure for table `tourfeedback`
 --
 
-CREATE TABLE `tourfeedback` (
-  `ID` int(100) NOT NULL,
+DROP TABLE IF EXISTS `tourfeedback`;
+CREATE TABLE IF NOT EXISTS `tourfeedback` (
+  `ID` int(100) NOT NULL AUTO_INCREMENT,
   `name` varchar(250) NOT NULL,
   `tourID` int(100) NOT NULL,
-  `feedback` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `feedback` text NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=91 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tourfeedback`
@@ -633,8 +684,9 @@ INSERT INTO `tourfeedback` (`ID`, `name`, `tourID`, `feedback`) VALUES
 -- Table structure for table `tourplan`
 --
 
-CREATE TABLE `tourplan` (
-  `ID` int(50) NOT NULL,
+DROP TABLE IF EXISTS `tourplan`;
+CREATE TABLE IF NOT EXISTS `tourplan` (
+  `ID` int(50) NOT NULL AUTO_INCREMENT,
   `type` varchar(100) NOT NULL,
   `title` varchar(100) NOT NULL,
   `description` text NOT NULL,
@@ -643,8 +695,9 @@ CREATE TABLE `tourplan` (
   `price` int(100) NOT NULL,
   `days` varchar(100) NOT NULL,
   `img` text NOT NULL,
-  `details` text CHARACTER SET utf8 NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `details` text CHARACTER SET utf8 NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tourplan`
@@ -668,8 +721,9 @@ INSERT INTO `tourplan` (`ID`, `type`, `title`, `description`, `people`, `availab
 -- Table structure for table `tourrequest`
 --
 
-CREATE TABLE `tourrequest` (
-  `id` int(100) NOT NULL,
+DROP TABLE IF EXISTS `tourrequest`;
+CREATE TABLE IF NOT EXISTS `tourrequest` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `city` varchar(500) NOT NULL,
   `people` int(10) NOT NULL,
@@ -677,8 +731,9 @@ CREATE TABLE `tourrequest` (
   `arrival` date NOT NULL,
   `departure` date NOT NULL,
   `price` int(150) NOT NULL,
-  `driver` varchar(100) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `driver` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=61 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tourrequest`
@@ -694,20 +749,15 @@ INSERT INTO `tourrequest` (`id`, `name`, `city`, `people`, `child`, `arrival`, `
 -- Table structure for table `userapartment`
 --
 
-CREATE TABLE `userapartment` (
-  `ID` int(100) NOT NULL,
+DROP TABLE IF EXISTS `userapartment`;
+CREATE TABLE IF NOT EXISTS `userapartment` (
+  `ID` int(100) NOT NULL AUTO_INCREMENT,
   `name` varchar(250) NOT NULL,
   `apartmentID` int(100) NOT NULL,
   `arrival` date NOT NULL,
-  `departure` date NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `userapartment`
---
-
-INSERT INTO `userapartment` (`ID`, `name`, `apartmentID`, `arrival`, `departure`) VALUES
-(59, ' obada_almonajed@hotmail.com  ', 1, '2019-01-30', '2019-01-31');
+  `departure` date NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=61 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -715,22 +765,16 @@ INSERT INTO `userapartment` (`ID`, `name`, `apartmentID`, `arrival`, `departure`
 -- Table structure for table `usercar`
 --
 
-CREATE TABLE `usercar` (
-  `ID` int(100) NOT NULL,
+DROP TABLE IF EXISTS `usercar`;
+CREATE TABLE IF NOT EXISTS `usercar` (
+  `ID` int(100) NOT NULL AUTO_INCREMENT,
   `name` varchar(250) NOT NULL,
   `carID` int(100) NOT NULL,
   `arrival` date NOT NULL,
   `departure` date NOT NULL,
-  `driver` varchar(250) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `usercar`
---
-
-INSERT INTO `usercar` (`ID`, `name`, `carID`, `arrival`, `departure`, `driver`) VALUES
-(69, ' jusufsharkawi19@gmail.com  ', 2, '2019-01-30', '2019-02-06', ''),
-(70, ' obada_almonajed@hotmail.com  ', 1, '2019-01-27', '2019-01-29', 'yes');
+  `driver` varchar(250) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=72 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -738,21 +782,15 @@ INSERT INTO `usercar` (`ID`, `name`, `carID`, `arrival`, `departure`, `driver`) 
 -- Table structure for table `userhotel`
 --
 
-CREATE TABLE `userhotel` (
-  `ID` int(100) NOT NULL,
+DROP TABLE IF EXISTS `userhotel`;
+CREATE TABLE IF NOT EXISTS `userhotel` (
+  `ID` int(100) NOT NULL AUTO_INCREMENT,
   `name` varchar(250) NOT NULL,
   `hotelID` int(100) NOT NULL,
   `arrival` date NOT NULL,
-  `departure` date NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `userhotel`
---
-
-INSERT INTO `userhotel` (`ID`, `name`, `hotelID`, `arrival`, `departure`) VALUES
-(49, ' obada_almonajed@hotmail.com  ', 1, '2019-01-27', '2019-01-30'),
-(48, ' abud_almonajed@hotmail.com  ', 4, '2019-01-14', '2019-01-15');
+  `departure` date NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -760,270 +798,22 @@ INSERT INTO `userhotel` (`ID`, `name`, `hotelID`, `arrival`, `departure`) VALUES
 -- Table structure for table `usertour`
 --
 
-CREATE TABLE `usertour` (
-  `id` int(100) NOT NULL,
+DROP TABLE IF EXISTS `usertour`;
+CREATE TABLE IF NOT EXISTS `usertour` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `tourID` int(100) NOT NULL,
   `arrival` date NOT NULL,
-  `departure` date NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `departure` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=157 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `usertour`
 --
 
 INSERT INTO `usertour` (`id`, `name`, `tourID`, `arrival`, `departure`) VALUES
-(152, ' obada_almonajed@hotmail.com  ', 1, '2019-01-27', '2019-01-31'),
-(151, ' abud_almonajed@hotmail.com  ', 4, '2019-01-14', '2019-01-16');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `apartment`
---
-ALTER TABLE `apartment`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `apartmentfeedback`
---
-ALTER TABLE `apartmentfeedback`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `bestplaces`
---
-ALTER TABLE `bestplaces`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `carfeedback`
---
-ALTER TABLE `carfeedback`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `cars`
---
-ALTER TABLE `cars`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `confirmedoffers`
---
-ALTER TABLE `confirmedoffers`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `confirmeduseroffers`
---
-ALTER TABLE `confirmeduseroffers`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `confrimedtour`
---
-ALTER TABLE `confrimedtour`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `feedback`
---
-ALTER TABLE `feedback`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `hotel`
---
-ALTER TABLE `hotel`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `hotelfeedback`
---
-ALTER TABLE `hotelfeedback`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `login`
---
-ALTER TABLE `login`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `registacija`
---
-ALTER TABLE `registacija`
-  ADD PRIMARY KEY (`ID`),
-  ADD UNIQUE KEY `email` (`email`);
-
---
--- Indexes for table `tourfeedback`
---
-ALTER TABLE `tourfeedback`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `tourplan`
---
-ALTER TABLE `tourplan`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `tourrequest`
---
-ALTER TABLE `tourrequest`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `userapartment`
---
-ALTER TABLE `userapartment`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `usercar`
---
-ALTER TABLE `usercar`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `userhotel`
---
-ALTER TABLE `userhotel`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `usertour`
---
-ALTER TABLE `usertour`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `apartment`
---
-ALTER TABLE `apartment`
-  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `apartmentfeedback`
---
-ALTER TABLE `apartmentfeedback`
-  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `bestplaces`
---
-ALTER TABLE `bestplaces`
-  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT for table `carfeedback`
---
-ALTER TABLE `carfeedback`
-  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `cars`
---
-ALTER TABLE `cars`
-  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT for table `confirmedoffers`
---
-ALTER TABLE `confirmedoffers`
-  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
-
---
--- AUTO_INCREMENT for table `confirmeduseroffers`
---
-ALTER TABLE `confirmeduseroffers`
-  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `confrimedtour`
---
-ALTER TABLE `confrimedtour`
-  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `feedback`
---
-ALTER TABLE `feedback`
-  MODIFY `ID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
-
---
--- AUTO_INCREMENT for table `hotel`
---
-ALTER TABLE `hotel`
-  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
--- AUTO_INCREMENT for table `hotelfeedback`
---
-ALTER TABLE `hotelfeedback`
-  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `login`
---
-ALTER TABLE `login`
-  MODIFY `ID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=342;
-
---
--- AUTO_INCREMENT for table `registacija`
---
-ALTER TABLE `registacija`
-  MODIFY `ID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
-
---
--- AUTO_INCREMENT for table `tourfeedback`
---
-ALTER TABLE `tourfeedback`
-  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
-
---
--- AUTO_INCREMENT for table `tourplan`
---
-ALTER TABLE `tourplan`
-  MODIFY `ID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
-
---
--- AUTO_INCREMENT for table `tourrequest`
---
-ALTER TABLE `tourrequest`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
-
---
--- AUTO_INCREMENT for table `userapartment`
---
-ALTER TABLE `userapartment`
-  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
-
---
--- AUTO_INCREMENT for table `usercar`
---
-ALTER TABLE `usercar`
-  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
-
---
--- AUTO_INCREMENT for table `userhotel`
---
-ALTER TABLE `userhotel`
-  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
-
---
--- AUTO_INCREMENT for table `usertour`
---
-ALTER TABLE `usertour`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
+(156, ' abdulrahman.almonajed@gmail.com  ', 1, '2019-08-25', '2019-08-28');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
